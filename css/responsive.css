@@ -1,0 +1,683 @@
+/* Responsive CSS - Royal Wedding Website */
+
+/* Mobile First Approach - Base styles are for mobile */
+
+/* Extra Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    :root {
+        --container-padding: 1rem;
+        --spacing-xs: 0.25rem;
+        --spacing-sm: 0.5rem;
+        --spacing-md: 1rem;
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2rem;
+        --spacing-2xl: 2.5rem;
+    }
+
+    /* Navigation */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: rgba(77, 0, 19, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-xl);
+        transition: right 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+    }
+
+    .navbar.scrolled .hamburger span {
+        background: var(--primary);
+    }
+
+    /* Logo responsive adjustments */
+    .logo-image {
+        height: 32px;
+    }
+
+    .logo-text {
+        font-size: var(--text-lg);
+    }
+
+    /* Loader logo adjustments */
+    .loader-content .logo-image {
+        width: 150px;
+        max-width: 70vw;
+        max-height: 30vh;
+    }
+
+    /* Hero Section */
+    .hero {
+        background-attachment: scroll;
+        padding: 0 var(--spacing-sm);
+    }
+
+    .couple-names {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+        line-height: 1.2;
+    }
+
+    .wedding-date {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+        font-size: var(--text-base);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+        bottom: var(--spacing-sm);
+    }
+
+    .scroll-arrow {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Timeline */
+    .timeline {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .timeline::before {
+        left: var(--spacing-lg);
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: var(--spacing-xl);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .timeline-item::before {
+        left: var(--spacing-lg);
+        transform: translateY(-50%);
+        top: var(--spacing-lg);
+    }
+
+    .timeline-image {
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .timeline-image img {
+        height: 200px;
+    }
+
+    .timeline-content {
+        padding: 0;
+        width: 100%;
+    }
+
+    /* Details grid */
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .detail-card {
+        padding: var(--spacing-lg);
+    }
+
+    .card-icon {
+        font-size: 2rem;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+
+    .gallery-item {
+        aspect-ratio: 1;
+    }
+
+    /* Save the Date section */
+    .save-date-section {
+        height: 50vh;
+    }
+
+    .save-date-content h3 {
+        font-size: var(--text-xl);
+    }
+
+    .save-date-content p {
+        font-size: var(--text-base);
+    }
+
+    /* RSVP Form */
+    .rsvp-form {
+        padding: var(--spacing-lg);
+    }
+
+    .rsvp-btn {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: var(--text-base);
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--spacing-lg);
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    /* Lightbox */
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+    .lightbox-close {
+        top: -30px;
+        font-size: 1.5rem;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        padding: var(--spacing-xs);
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+    /* Touch targets */
+    .nav-link,
+    .btn,
+    .detail-btn,
+    .rsvp-btn,
+    .back-to-top,
+    .social-link {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Reduce animations for performance */
+    .parallax-element {
+        transform: none !important;
+    }
+
+    .ken-burns {
+        animation: none;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .nav-menu {
+        gap: var(--spacing-lg);
+    }
+
+    .timeline-item {
+        padding-left: var(--spacing-2xl);
+    }
+
+    .timeline::before {
+        left: var(--spacing-xl);
+    }
+
+    .timeline-item::before {
+        left: var(--spacing-xl);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-section {
+        height: 45vh;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    :root {
+        --container-padding: 1.5rem;
+    }
+
+    /* Navigation */
+    .hamburger {
+        display: none;
+    }
+
+    .nav-menu {
+        position: static;
+        width: auto;
+        height: auto;
+        background: transparent;
+        backdrop-filter: none;
+        flex-direction: row;
+        gap: var(--spacing-lg);
+    }
+
+    /* Timeline */
+    .timeline {
+        max-width: 900px;
+    }
+
+    .timeline::before {
+        left: 50%;
+    }
+
+    .timeline-item {
+        flex-direction: row;
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .timeline-item::before {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 50%;
+    }
+
+    .timeline-image {
+        width: auto;
+        flex: 1;
+    }
+
+    .timeline-image img {
+        height: 250px;
+    }
+
+    .timeline-content {
+        flex: 1;
+        padding: var(--spacing-lg);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Video section */
+    .video-section {
+        height: 50vh;
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    /* Timeline */
+    .timeline-image img {
+        height: 300px;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    :root {
+        --container-max-width: 1400px;
+        --container-padding: 2rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .timeline-image img {
+        height: 350px;
+    }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1600px) {
+    :root {
+        --container-max-width: 1600px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        height: 100vh;
+        min-height: 500px;
+    }
+
+    .couple-names {
+        font-size: clamp(2rem, 6vh, 4rem);
+    }
+
+    .wedding-date {
+        font-size: clamp(1rem, 3vh, 1.5rem);
+    }
+
+    .save-date-section {
+        height: 65vh;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Optimize images for retina displays */
+    .hero {
+        background-image: linear-gradient(rgba(77, 0, 19, 0.3), rgba(77, 0, 19, 0.6)), url('/assets/images/hero.jpg');
+    }
+}
+
+/* Print styles */
+@media print {
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    .navbar,
+    .hamburger,
+    .scroll-indicator,
+    .save-date-section,
+    .lightbox,
+    .back-to-top {
+        display: none !important;
+    }
+
+    .hero {
+        height: auto !important;
+        background: none !important;
+        color: black !important;
+        padding: 2rem 0;
+    }
+
+    .container {
+        max-width: none !important;
+        padding: 0 !important;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .timeline::before {
+        display: none;
+    }
+
+    .timeline-item::before {
+        display: none;
+    }
+
+    .timeline-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* Dark mode preference */
+@media (prefers-color-scheme: dark) {
+    /* Note: Wedding sites typically don't use dark mode, but included for accessibility */
+    body {
+        background: #1a1a1a;
+        color: #ffffff;
+    }
+
+    .navbar.scrolled {
+        background: rgba(26, 26, 26, 0.95);
+    }
+
+    .timeline-date {
+        background: var(--primary);
+    }
+
+    .detail-card {
+        background: #2a2a2a;
+        color: #ffffff;
+    }
+
+    .rsvp-form {
+        background: #2a2a2a;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        background: transparent;
+        color: #ffffff;
+        border-bottom-color: #555;
+    }
+
+    .form-group label {
+        color: #cccccc;
+    }
+}
+
+/* Hover support detection */
+@media (hover: hover) {
+    /* Enhanced hover effects for devices that support hover */
+    .detail-card:hover {
+        transform: translateY(-15px) scale(1.02);
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-10px) scale(1.02);
+    }
+
+    .nav-link:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* Motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .parallax-element {
+        transform: none !important;
+    }
+
+    .ken-burns {
+        animation: none !important;
+    }
+
+    .scroll-reveal,
+    .scroll-reveal-left,
+    .scroll-reveal-right,
+    .scroll-reveal-zoom {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Container queries (future-proofing) */
+@supports (container-type: inline-size) {
+    .timeline {
+        container-type: inline-size;
+    }
+
+    @container (max-width: 600px) {
+        .timeline-item {
+            flex-direction: column !important;
+        }
+
+        .timeline::before {
+            left: var(--spacing-lg) !important;
+        }
+
+        .timeline-item::before {
+            left: var(--spacing-lg) !important;
+            transform: translateY(-50%) !important;
+        }
+    }
+}
+
+/* Focus management for keyboard navigation */
+@media (any-hover: none) {
+    /* Touch devices - ensure focus states are visible */
+    button:focus,
+    input:focus,
+    select:focus,
+    textarea:focus,
+    a:focus {
+        outline: 3px solid var(--accent);
+        outline-offset: 2px;
+    }
+}
+
+/* Safe areas for devices with notches */
+@supports (padding: max(0px)) {
+    .navbar {
+        padding-left: max(var(--container-padding), env(safe-area-inset-left));
+        padding-right: max(var(--container-padding), env(safe-area-inset-right));
+        padding-top: max(var(--spacing-sm), env(safe-area-inset-top));
+    }
+
+    .container {
+        padding-left: max(var(--container-padding), env(safe-area-inset-left));
+        padding-right: max(var(--container-padding), env(safe-area-inset-right));
+    }
+
+    .footer {
+        padding-bottom: max(var(--spacing-lg), env(safe-area-inset-bottom));
+    }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 767.98px) {
+    /* Reduce background attachment for better performance */
+    .hero {
+        background-attachment: scroll;
+    }
+
+    /* Simplify complex animations */
+    .detail-card:hover {
+        transform: none;
+    }
+
+    .gallery-item:hover {
+        transform: none;
+    }
+
+    /* Reduce shadow complexity */
+    .detail-card,
+    .gallery-item,
+    .rsvp-form {
+        box-shadow: 0 5px 15px var(--shadow);
+    }
+}
+
+/* Specific breakpoint adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Tablet-specific adjustments */
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+
+    .rsvp-content {
+        max-width: 500px;
+    }
+}
+
+/* Touch-friendly adjustments */
+@media (pointer: coarse) {
+    /* Larger touch targets */
+    .nav-link {
+        padding: var(--spacing-sm) var(--spacing-xs);
+    }
+
+    .detail-btn,
+    .rsvp-btn {
+        padding: var(--spacing-md) var(--spacing-lg);
+        min-height: 48px;
+    }
+
+    .gallery-item {
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+/* Network-aware optimizations */
+@media (prefers-reduced-data: reduce) {
+    /* Reduce data usage for users on limited connections */
+    .hero {
+        background-image: none;
+        background-color: var(--primary);
+    }
+
+    .save-date-bg {
+        /* Optimize for reduced data usage */
+        object-fit: cover;
+    }
+
+    .timeline-image img,
+    .gallery-item img {
+        loading: lazy;
+    }
+}

@@ -1,0 +1,28 @@
+/* Custom Fonts - Royal Wedding Website */
+
+/* Bergstena Script Font */
+@font-face {
+    font-family: 'Bergstena Script';
+    src: url('../assets/fonts/BergstenaScript_PERSONAL_USE_ONLY.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Improves loading performance */
+}
+
+/* Bergstena Decorated variant */
+@font-face {
+    font-family: 'Bergstena Decorated';
+    src: url('../assets/fonts/BergstenaDecorated_PERSONAL_USE_ONLY.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bergstena Swashed variant */
+@font-face {
+    font-family: 'Bergstena Swashed';
+    src: url('../assets/fonts/BergstenaSwashed_PERSONAL_USE_ONLY.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
