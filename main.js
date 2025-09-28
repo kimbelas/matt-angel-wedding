@@ -1,9 +1,10 @@
 // Main JavaScript - Royal Wedding Website
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 // Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 // DOM Elements
 const loader = document.getElementById('loader');
@@ -82,54 +83,146 @@ function initializeNavigation() {
     // Navbar scroll effect
     window.addEventListener('scroll', throttle(handleNavbarScroll, 16));
 
-    // Mobile menu toggle
+    // Mobile menu toggle - using button element for better mobile support
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', toggleMobileMenu);
+        console.log('Hamburger button and navMenu found');
+
+        // Primary click event
+        hamburger.addEventListener('click', (e) => {
+            console.log('Hamburger clicked');
+            e.preventDefault();
+            toggleMobileMenu();
+        });
+
+        // Touch support for mobile
+        hamburger.addEventListener('touchstart', (e) => {
+            console.log('Hamburger touched');
+            e.preventDefault();
+            toggleMobileMenu();
+        });
+    } else {
+        console.log('Hamburger or navMenu not found');
     }
 
-    // Smooth scroll for navigation links
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', handleSmoothScroll);
+    // Instant navigation for navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    console.log('Found nav links:', navLinks.length);
+
+    navLinks.forEach((link, index) => {
+        console.log(`Link ${index}:`, link.getAttribute('href'));
+        link.addEventListener('click', handleInstantNavigation);
     });
 }
+
+// Global variable for scroll direction
+let lastScrollY = 0;
+let isScrollingDown = false;
 
 function handleNavbarScroll() {
     if (!navbar) return;
 
-    const scrolled = window.scrollY > 50;
+    const currentScrollY = window.scrollY;
+    const scrolled = currentScrollY > 50;
+
+    // Toggle scrolled state
     navbar.classList.toggle('scrolled', scrolled);
+
+    // Determine scroll direction
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past hero section
+        if (!isScrollingDown) {
+            isScrollingDown = true;
+            navbar.classList.add('navbar-hidden');
+            navbar.classList.remove('navbar-visible');
+        }
+    } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        if (isScrollingDown || currentScrollY <= 100) {
+            isScrollingDown = false;
+            navbar.classList.remove('navbar-hidden');
+            navbar.classList.add('navbar-visible');
+        }
+    }
+
+    // Always show navbar at the top
+    if (currentScrollY <= 100) {
+        navbar.classList.remove('navbar-hidden');
+        navbar.classList.add('navbar-visible');
+        isScrollingDown = false;
+    }
+
+    lastScrollY = currentScrollY;
 }
 
-function toggleMobileMenu() {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('open');
+function toggleMobileMenu(forceClose = false) {
+    const isOpen = navMenu.classList.contains('open');
 
-    // Prevent body scroll when menu is open
-    if (navMenu.classList.contains('open')) {
-        document.body.style.overflow = 'hidden';
-    } else {
+    if (forceClose || isOpen) {
+        // Close menu
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('open');
         document.body.style.overflow = 'auto';
+        document.body.classList.remove('menu-open');
+
+        // Remove event listeners
+        document.removeEventListener('click', handleOutsideClick);
+        document.removeEventListener('keydown', handleEscapeKey);
+    } else {
+        // Open menu
+        hamburger.classList.add('active');
+        navMenu.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        document.body.classList.add('menu-open');
+
+        // Add event listeners for closing menu
+        setTimeout(() => {
+            document.addEventListener('click', handleOutsideClick);
+            document.addEventListener('keydown', handleEscapeKey);
+        }, 100); // Small delay to prevent immediate closing
     }
 }
 
-function handleSmoothScroll(e) {
+// Close menu when clicking outside
+function handleOutsideClick(e) {
+    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        toggleMobileMenu(true);
+    }
+}
+
+// Close menu when pressing Escape key
+function handleEscapeKey(e) {
+    if (e.key === 'Escape') {
+        toggleMobileMenu(true);
+    }
+}
+
+function handleInstantNavigation(e) {
     e.preventDefault();
+
     const targetId = e.target.getAttribute('href');
     const targetElement = document.querySelector(targetId);
 
-    if (targetElement) {
-        const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
+    console.log('Instant navigation clicked:', targetId, targetElement);
 
-        gsap.to(window, {
-            duration: 1,
-            scrollTo: { y: offsetTop, autoKill: false },
-            ease: "power2.inOut"
+    if (targetElement && targetId) {
+        // Close mobile menu immediately for better UX
+        if (navMenu && navMenu.classList.contains('open')) {
+            toggleMobileMenu(true);
+        }
+
+        const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
+        console.log('Jumping to position:', offsetTop);
+
+        // Instant navigation - no animation
+        window.scrollTo({
+            top: offsetTop,
+            left: 0,
+            behavior: 'instant'
         });
 
-        // Close mobile menu if open
-        if (navMenu.classList.contains('open')) {
-            toggleMobileMenu();
-        }
+        console.log('Instant navigation executed');
+    } else {
+        console.error('Target element not found for:', targetId);
     }
 }
 
@@ -568,11 +661,12 @@ function showSuccessMessage() {
             ease: "back.out(1.7)"
         });
 
-        // Scroll to success message
-        gsap.to(window, {
-            duration: 1,
-            scrollTo: { y: successMessage, offsetY: 100 },
-            ease: "power2.inOut"
+        // Instant jump to success message
+        const successTop = successMessage.offsetTop - 100;
+        window.scrollTo({
+            top: successTop,
+            left: 0,
+            behavior: 'instant'
         });
     }
 }
@@ -682,12 +776,12 @@ function initializeScrollToTop() {
         }
     }, 100));
 
-    // Smooth scroll to top
+    // Instant scroll to top
     backToTop.addEventListener('click', () => {
-        gsap.to(window, {
-            duration: 1.5,
-            scrollTo: { y: 0 },
-            ease: "power2.inOut"
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'instant'
         });
     });
 }
@@ -715,13 +809,7 @@ function triggerInitialAnimations() {
                 opacity: 0,
                 duration: 0.8,
                 ease: "power2.out"
-            }, "-=0.5")
-            .from('.scroll-indicator', {
-                y: 20,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power2.out"
-            }, "-=0.3");
+            }, "-=0.5");
     }
 }
 
