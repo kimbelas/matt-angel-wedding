@@ -251,6 +251,9 @@ p {
     gap: var(--spacing-sm);
     text-decoration: none;
     transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .logo-image {
@@ -258,6 +261,9 @@ p {
     width: auto;
     filter: brightness(0) invert(1); /* Makes the logo white by default */
     transition: all 0.3s ease, filter 0.3s ease;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .logo-text {
@@ -300,12 +306,14 @@ p {
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: -2px;
+    left: 50%;
     width: 0;
     height: 2px;
-    background: var(--accent);
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(-50%);
+    border-radius: 1px;
 }
 
 .nav-link:hover::after {
@@ -314,6 +322,8 @@ p {
 
 .nav-link:hover {
     color: var(--accent);
+    transform: translateY(-1px);
+    text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
 }
 
 /* Remove focus outline and click effects */
