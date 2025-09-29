@@ -13,9 +13,20 @@ const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 const rsvpForm = document.getElementById('rsvp-form');
 const successMessage = document.getElementById('success-message');
+const threeColumnGallery = document.getElementById('three-column-gallery');
+const galleryOverlay = document.getElementById('gallery-overlay');
+const slideshowModal = document.getElementById('slideshow-modal');
+const modalCloseSlideshow = document.getElementById('modal-close-slideshow');
+const prevSlideBtn = document.getElementById('prev-slide-btn');
+const nextSlideBtn = document.getElementById('next-slide-btn');
+const currentSlideIndexSpan = document.getElementById('current-slide-index');
+const totalSlidesSpan = document.getElementById('total-slides');
 
 // Global variables
 let isLoading = true;
+let currentSlideIndex = 0;
+let slideshowInterval = null;
+let isModalOpen = false;
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,6 +46,7 @@ function initializeApp() {
         initializeAnimations();
         initializeParallax();
         initializeForm();
+        initializeSlideshow();
 
         // Mark loading as complete
         isLoading = false;
@@ -587,8 +599,269 @@ function createRipple(event) {
     });
 }
 
+// Three-Column Gallery functionality
+function initializeSlideshow() {
+    if (!threeColumnGallery) return;
+
+    const allColumnImages = document.querySelectorAll('.column-image');
+    const modalSlideImages = document.querySelectorAll('.modal-slide-image');
+
+    // Set total slides count (total images across all columns)
+    if (totalSlidesSpan) {
+        totalSlidesSpan.textContent = allColumnImages.length;
+    }
+
+    // Start automatic three-column slideshow
+    startThreeColumnSlideshow();
+
+    // Add click event to gallery overlay
+    if (galleryOverlay) {
+        galleryOverlay.addEventListener('click', openSlideshowModal);
+    }
+
+    // Modal close event
+    if (modalCloseSlideshow) {
+        modalCloseSlideshow.addEventListener('click', closeSlideshowModal);
+    }
+
+    // Navigation buttons
+    if (prevSlideBtn) {
+        prevSlideBtn.addEventListener('click', showPreviousSlide);
+    }
+
+    if (nextSlideBtn) {
+        nextSlideBtn.addEventListener('click', showNextSlide);
+    }
+
+    // Keyboard navigation for modal
+    document.addEventListener('keydown', handleSlideshowKeyboard);
+
+    // Click outside modal to close
+    if (slideshowModal) {
+        slideshowModal.addEventListener('click', (e) => {
+            if (e.target === slideshowModal || e.target.classList.contains('modal-backdrop')) {
+                closeSlideshowModal();
+            }
+        });
+    }
+}
+
+function startThreeColumnSlideshow() {
+    const columnContainers = document.querySelectorAll('.column-image-container');
+    if (columnContainers.length === 0 || isModalOpen) return;
+
+    // Get images per column (assume each column has same number of images)
+    const firstColumnImages = columnContainers[0].querySelectorAll('.column-image');
+    const imagesPerColumn = firstColumnImages.length;
+
+    slideshowInterval = setInterval(() => {
+        if (isModalOpen) return;
+
+        // Change images in all columns simultaneously
+        columnContainers.forEach(container => {
+            const images = container.querySelectorAll('.column-image');
+
+            // Remove active class from current image
+            images[currentSlideIndex].classList.remove('active');
+
+            // Add active class to next image
+            const nextIndex = (currentSlideIndex + 1) % imagesPerColumn;
+            images[nextIndex].classList.add('active');
+        });
+
+        // Update current slide index
+        currentSlideIndex = (currentSlideIndex + 1) % imagesPerColumn;
+    }, 3000); // 3 seconds for better viewing of multiple images
+}
+
+function stopThreeColumnSlideshow() {
+    if (slideshowInterval) {
+        clearInterval(slideshowInterval);
+        slideshowInterval = null;
+    }
+}
+
+function openSlideshowModal() {
+    if (!slideshowModal) return;
+
+    isModalOpen = true;
+    stopThreeColumnSlideshow();
+
+    // Set modal to first image
+    currentSlideIndex = 0;
+
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+
+    // Show modal
+    slideshowModal.classList.add('active');
+
+    // Initialize modal slideshow
+    initializeModalSlideshow();
+
+    // Focus management
+    if (modalCloseSlideshow) {
+        modalCloseSlideshow.focus();
+    }
+
+    // Animate modal opening
+    gsap.fromTo(slideshowModal, {
+        opacity: 0
+    }, {
+        opacity: 1,
+        duration: 0.4,
+        ease: "power2.out"
+    });
+
+    gsap.fromTo('.modal-content', {
+        scale: 0.8,
+        opacity: 0
+    }, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.6,
+        delay: 0.1,
+        ease: "back.out(1.7)"
+    });
+}
+
+function closeSlideshowModal() {
+    if (!slideshowModal) return;
+
+    // Animate modal closing
+    gsap.to(slideshowModal, {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.out",
+        onComplete: () => {
+            slideshowModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            isModalOpen = false;
+            // Restart three-column slideshow
+            startThreeColumnSlideshow();
+        }
+    });
+
+    gsap.to('.modal-content', {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.out"
+    });
+}
+
+function showPreviousSlide() {
+    const modalSlideImages = document.querySelectorAll('.modal-slide-image');
+    modalSlideImages[currentSlideIndex].classList.remove('active');
+    currentSlideIndex = (currentSlideIndex - 1 + modalSlideImages.length) % modalSlideImages.length;
+    updateModalSlideshow();
+    animateSlideChange();
+}
+
+function showNextSlide() {
+    const modalSlideImages = document.querySelectorAll('.modal-slide-image');
+    modalSlideImages[currentSlideIndex].classList.remove('active');
+    currentSlideIndex = (currentSlideIndex + 1) % modalSlideImages.length;
+    updateModalSlideshow();
+    animateSlideChange();
+}
+
+function initializeModalSlideshow() {
+    const modalSlideImages = document.querySelectorAll('.modal-slide-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+
+    // Set total slides count
+    if (totalSlidesSpan) {
+        totalSlidesSpan.textContent = modalSlideImages.length;
+    }
+
+    // Initialize first image and thumbnail as active
+    updateModalSlideshow();
+
+    // Add click event listeners to thumbnails
+    thumbnails.forEach((thumbnail, index) => {
+        thumbnail.addEventListener('click', () => {
+            goToSlide(index);
+        });
+    });
+}
+
+function updateModalSlideshow() {
+    const modalSlideImages = document.querySelectorAll('.modal-slide-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+
+    // Remove active class from all modal images and thumbnails
+    modalSlideImages.forEach(img => img.classList.remove('active'));
+    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+
+    // Add active class to current image and thumbnail
+    if (modalSlideImages[currentSlideIndex]) {
+        modalSlideImages[currentSlideIndex].classList.add('active');
+    }
+
+    if (thumbnails[currentSlideIndex]) {
+        thumbnails[currentSlideIndex].classList.add('active');
+        // Scroll thumbnail into view
+        thumbnails[currentSlideIndex].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+        });
+    }
+
+    // Update counter
+    if (currentSlideIndexSpan) {
+        currentSlideIndexSpan.textContent = currentSlideIndex + 1;
+    }
+}
+
+function goToSlide(slideIndex) {
+    const modalSlideImages = document.querySelectorAll('.modal-slide-image');
+    if (slideIndex >= 0 && slideIndex < modalSlideImages.length) {
+        currentSlideIndex = slideIndex;
+        updateModalSlideshow();
+        animateSlideChange();
+    }
+}
+
+function animateSlideChange() {
+    const activeImage = document.querySelector('.modal-slide-image.active');
+    if (!activeImage) return;
+
+    // Smooth transition animation
+    gsap.fromTo(activeImage, {
+        opacity: 0.7,
+        scale: 0.95
+    }, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.4,
+        ease: "power2.out"
+    });
+}
+
+function handleSlideshowKeyboard(e) {
+    if (!slideshowModal?.classList.contains('active')) return;
+
+    switch (e.key) {
+        case 'Escape':
+            closeSlideshowModal();
+            break;
+        case 'ArrowLeft':
+            e.preventDefault();
+            showPreviousSlide();
+            break;
+        case 'ArrowRight':
+            e.preventDefault();
+            showNextSlide();
+            break;
+    }
+}
+
 // Export functions for global access
 window.weddingApp = {
     showSuccessMessage,
-    validateField
+    validateField,
+    openSlideshowModal,
+    closeSlideshowModal
 };
