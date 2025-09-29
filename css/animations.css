@@ -605,6 +605,124 @@
     }
 }
 
+/* Elegant Loader Animations */
+@keyframes elegantFloat {
+    0%, 100% {
+        transform: translateY(0px);
+        filter: drop-shadow(0 8px 32px rgba(77, 0, 19, 0.15));
+    }
+    50% {
+        transform: translateY(-8px);
+        filter: drop-shadow(0 12px 40px rgba(77, 0, 19, 0.25));
+    }
+}
+
+@keyframes gentlePulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes subtlePattern {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(200px);
+    }
+}
+
+@keyframes gentleRotate {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+/* Royal RSVP Animations */
+@keyframes royalFloat {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(-20px, -10px) rotate(1deg);
+    }
+    66% {
+        transform: translate(10px, -5px) rotate(-1deg);
+    }
+}
+
+@keyframes royalShimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes royalPulse {
+    0%, 100% {
+        box-shadow:
+            0 15px 35px rgba(77, 0, 19, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow:
+            0 20px 45px rgba(77, 0, 19, 0.5),
+            0 0 0 5px rgba(212, 175, 55, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes royalReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes crownBounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translate3d(0,0,0) rotate(0deg);
+    }
+    40%, 43% {
+        transform: translate3d(0, -15px, 0) rotate(-5deg);
+    }
+    70% {
+        transform: translate3d(0, -8px, 0) rotate(3deg);
+    }
+    90% {
+        transform: translate3d(0, -3px, 0) rotate(-1deg);
+    }
+}
+
 /* Animation delays for staggered effects */
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
