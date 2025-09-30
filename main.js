@@ -364,7 +364,10 @@ function initializeForm() {
     // Real-time validation
     const inputs = rsvpForm.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
-        input.addEventListener('blur', () => validateField(input));
+        input.addEventListener('blur', () => {
+            input.classList.add('touched');
+            validateField(input);
+        });
         input.addEventListener('input', () => clearFieldError(input));
     });
 }
@@ -403,7 +406,6 @@ function showFieldError(field, message) {
     errorElement.style.marginTop = '5px';
 
     field.parentNode.appendChild(errorElement);
-    field.style.borderBottomColor = '#e74c3c';
 
     // Animate error appearance
     gsap.from(errorElement, {
@@ -419,7 +421,9 @@ function clearFieldError(field) {
     if (errorElement) {
         errorElement.remove();
     }
-    field.style.borderBottomColor = 'rgba(77, 0, 19, 0.2)';
+    // Remove any inline border styles to let CSS handle it
+    field.style.borderBottomColor = '';
+    field.style.borderColor = '';
 }
 
 function getErrorMessage(field) {
