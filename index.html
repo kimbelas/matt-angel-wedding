@@ -1,271 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join us for our royal wedding celebration - a day of love, elegance, and unforgettable memories">
-    <meta property="og:title" content="Royal Wedding - Matthew & Angel">
-    <meta property="og:description" content="Join us for our royal wedding celebration">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="/assets/images/hero.jpg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Join us for our royal wedding celebration - a day of love, elegance, and unforgettable memories"
+    />
+    <meta property="og:title" content="Royal Wedding - Matthew & Angel" />
+    <meta
+      property="og:description"
+      content="Join us for our royal wedding celebration"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/images/hero.jpg" />
 
     <title>Royal Wedding - Matthew & Angel</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo-red.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo-red.png">
-    <link rel="apple-touch-icon" href="/assets/images/logo-red.png">
-    <link rel="shortcut icon" href="/assets/images/logo-red.png">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/logo-red.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/logo-red.png"
+    />
+    <link rel="apple-touch-icon" href="/assets/images/logo-red.png" />
+    <link rel="shortcut icon" href="/assets/images/logo-red.png" />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Allura&family=Alex+Brush&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Allura&family=Alex+Brush&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Critical CSS - Inlined for performance -->
     <style>
-        :root {
-            --primary: #4d0013;
-            --accent: #D4AF37;
-            --white: #FFFFFF;
-        }
+      :root {
+        --primary: #4d0013;
+        --accent: #d4af37;
+        --white: #ffffff;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            line-height: 1.6;
-            color: var(--primary);
-            overflow-x: hidden;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-        }
+      body {
+        font-family: "Cormorant Garamond", serif;
+        line-height: 1.6;
+        color: var(--primary);
+        overflow-x: hidden;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+      }
 
-        .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(rgba(77, 0, 19, 0.3), rgba(77, 0, 19, 0.6)), url('/assets/images/hero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+      .hero {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(rgba(77, 0, 19, 0.3), rgba(77, 0, 19, 0.6)),
+          url("/assets/images/hero.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
 
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
 
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
 
-        .logo {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2rem;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
+      .logo {
+        font-family: "Great Vibes", cursive;
+        font-size: 2rem;
+        color: var(--white);
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
 
-        .nav-link {
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
+      .nav-link {
+        color: var(--white);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
 
-        .nav-link:hover {
-            color: var(--accent);
-        }
+      .nav-link:hover {
+        color: var(--accent);
+      }
 
-        .hero-content {
-            text-align: center;
-            color: var(--white);
-            z-index: 2;
-        }
+      .hero-content {
+        text-align: center;
+        color: var(--white);
+        z-index: 2;
+      }
 
-        .couple-names {
-            font-family: 'Bergstena Script', 'Allura', 'Great Vibes', cursive;
-            font-size: clamp(3.5rem, 10vw, 8rem);
-            font-weight: 300;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
+      .couple-names {
+        font-family: "Bergstena Script", "Allura", "Great Vibes", cursive;
+        font-size: clamp(3.5rem, 10vw, 8rem);
+        font-weight: 300;
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
+      }
 
-        .wedding-date {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
+      .wedding-date {
+        font-family: "Cinzel", serif;
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
     </style>
 
-    <link rel="stylesheet" href="/css/fonts.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/animations.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+  </head>
+  <body>
     <!-- Loading Screen -->
     <div class="loader" id="loader">
-        <div class="loader-content">
-            <img src="/assets/images/logo-with-text.png" alt="Matthew & Angel" class="logo-image">
-        </div>
+      <div class="loader-content">
+        <img
+          src="/assets/images/logo-with-text.png"
+          alt="Matthew & Angel"
+          class="logo-image"
+        />
+      </div>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="nav-content">
-            <a href="#home" class="logo">
-                <img src="/assets/images/logo-red.png" alt="Matthew & Angel" class="logo-image">
-            </a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                <li><a href="#rsvp" class="nav-link">RSVP</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger" style="position: relative; z-index: 10001; background: transparent; border: none; cursor: pointer; padding: 12px; min-width: 44px; min-height: 44px; display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;">
-                <span style="width: 24px; height: 2px; background: var(--white); transition: all 0.3s ease; display: block; transform-origin: center;"></span>
-                <span style="width: 24px; height: 2px; background: var(--white); transition: all 0.3s ease; display: block; transform-origin: center;"></span>
-                <span style="width: 24px; height: 2px; background: var(--white); transition: all 0.3s ease; display: block; transform-origin: center;"></span>
-            </button>
-        </div>
+      <div class="nav-content">
+        <a href="#home" class="logo">
+          <img
+            src="/assets/images/logo-red.png"
+            alt="Matthew & Angel"
+            class="logo-image"
+          />
+        </a>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#rsvp" class="nav-link">RSVP</a></li>
+        </ul>
+        <button
+          class="hamburger"
+          id="hamburger"
+          style="
+            position: relative;
+            z-index: 10001;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            min-width: 44px;
+            min-height: 44px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+          "
+        >
+          <span
+            style="
+              width: 24px;
+              height: 2px;
+              background: var(--white);
+              transition: all 0.3s ease;
+              display: block;
+              transform-origin: center;
+            "
+          ></span>
+          <span
+            style="
+              width: 24px;
+              height: 2px;
+              background: var(--white);
+              transition: all 0.3s ease;
+              display: block;
+              transform-origin: center;
+            "
+          ></span>
+          <span
+            style="
+              width: 24px;
+              height: 2px;
+              background: var(--white);
+              transition: all 0.3s ease;
+              display: block;
+              transform-origin: center;
+            "
+          ></span>
+        </button>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero" data-scroll-section>
-        <div class="hero-content">
-            <h1 class="couple-names" data-aos="fade-up" data-aos-delay="500">Matthew & Angel</h1>
-            <p class="wedding-date" data-aos="fade-up" data-aos-delay="800">December 05, 2025</p>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="1100">Together Forever</p>
-        </div>
+      <div class="hero-content">
+        <h1 class="couple-names" data-aos="fade-up" data-aos-delay="500">
+          Matthew & Angel
+        </h1>
+        <p class="wedding-date" data-aos="fade-up" data-aos-delay="800">
+          December 05, 2025
+        </p>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="1100">
+          Together Forever
+        </p>
+      </div>
     </section>
 
     <!-- Photo Gallery Section -->
     <section id="gallery" class="gallery-section" data-scroll-section>
-        <div class="container">
-            <div class="section-header">
-                <div class="section-logo">
-                    <img src="/assets/images/logo-gold.png" alt="Matthew & Angel" class="section-logo-image">
-                </div>
-            </div>
-
-            <div class="gallery-blocks">
-                <div class="gallery-block gallery-block-proposal" data-aos="fade-up" data-aos-delay="400">
-                    <div class="gallery-content-proposal">
-                        <div class="proposal-header">
-                            <h3 class="gallery-title">The Proposal Moment</h3>
-                            <p class="gallery-description">
-                                Watch the magical moment when our forever began. A surprise proposal that was filled with
-                                love, tears of joy, and the promise of a lifetime together.
-                            </p>
-                        </div>
-                        <div class="proposal-video-section">
-                            <div class="video-container-large">
-                                <iframe
-                                    src="https://www.youtube.com/embed/GOHkaMV770g"
-                                    title="Our Proposal Video"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-logo">
+            <img
+              src="/assets/images/logo-gold.png"
+              alt="Matthew & Angel"
+              class="section-logo-image"
+            />
+          </div>
         </div>
+
+        <div class="gallery-blocks">
+          <div
+            class="gallery-block gallery-block-proposal"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="gallery-content-proposal">
+              <div class="proposal-header">
+                <h3 class="gallery-title">The Proposal Moment</h3>
+                <p class="gallery-description">
+                  Watch the magical moment when our forever began. A surprise
+                  proposal that was filled with love, tears of joy, and the
+                  promise of a lifetime together.
+                </p>
+              </div>
+              <div class="proposal-video-section">
+                <div class="video-container-large">
+                  <iframe
+                    src="https://www.youtube.com/embed/GOHkaMV770g"
+                    title="Our Proposal Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  >
+                  </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="gallery-block gallery-block-memories"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="gallery-content-memories">
+              <div class="memories-header">
+                <h3 class="gallery-title">Pre-Wedding Memories</h3>
+                <p class="gallery-description">
+                  A collection of precious moments leading up to our special
+                  day. Each photo captures the love, laughter, and joy we've
+                  shared on this beautiful journey together.
+                </p>
+              </div>
+              <div class="memories-preview-section">
+                <div class="memories-preview-grid">
+                  <div class="preview-item">
+                    <img
+                      src="/assets/images/group-a-2.jpg"
+                      alt="Pre-wedding memory"
+                      loading="lazy"
+                      class="preview-image"
+                    />
+                  </div>
+                  <div class="preview-item">
+                    <img
+                      src="/assets/images/group-b-1.jpg"
+                      alt="Pre-wedding memory"
+                      loading="lazy"
+                      class="preview-image"
+                    />
+                  </div>
+                  <div class="preview-item preview-item-overlay">
+                    <img
+                      src="/assets/images/group-c-1.jpg"
+                      alt="Pre-wedding memory"
+                      loading="lazy"
+                      class="preview-image"
+                    />
+                    <a href="/gallery.html" class="view-all-overlay">
+                      <div class="overlay-content">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="overlay-icon"
+                        >
+                          <rect x="3" y="3" width="7" height="7"></rect>
+                          <rect x="14" y="3" width="7" height="7"></rect>
+                          <rect x="14" y="14" width="7" height="7"></rect>
+                          <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        <span class="overlay-text">View All Photos</span>
+                        <span class="overlay-count">18 Photos</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <a href="/gallery.html" class="view-gallery-btn">
+                  <span class="btn-text">Explore Full Gallery</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="btn-icon"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- RSVP Section -->
     <section id="rsvp" class="rsvp-section" data-scroll-section>
-        <div class="container">
-            <div class="rsvp-header">
-                <div class="section-logo">
-                    <img src="/assets/images/logo-gold.png" alt="Matthew & Angel" class="section-logo-image">
-                </div>
-                <h2 class="section-title">RSVP</h2>
-                <p class="rsvp-subtitle">Please confirm your attendance by November 15, 2025</p>
-            </div>
-
-            <div class="rsvp-content">
-                <form class="rsvp-form" id="rsvp-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" required>
-                            <label for="name">Full Name</label>
-                            <span class="form-bar"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" pattern="[0-9\s\-\+\(\)]{10,}" required>
-                            <label for="phone">Phone Number</label>
-                            <span class="form-bar"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <select id="attendance" name="attendance" required>
-                                <option value="">Please select</option>
-                                <option value="yes">Joyfully Accept</option>
-                                <option value="no">Regretfully Decline</option>
-                            </select>
-                            <label for="attendance">Will you attend?</label>
-                            <span class="form-bar"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="number" id="guests" name="guests" min="1" max="4" required>
-                            <label for="guests">Number of Guests</label>
-                            <span class="form-bar"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <textarea id="message" name="message" rows="4" placeholder="Share your wishes, dietary restrictions, or any special notes..."></textarea>
-                        <label for="message">Special Message (Optional)</label>
-                        <span class="form-bar"></span>
-                    </div>
-
-                    <button type="submit" class="rsvp-btn">
-                        <span class="btn-text">Send RSVP</span>
-                        <div class="btn-ripple"></div>
-                    </button>
-                </form>
-
-                <div class="success-message" id="success-message">
-                    <div class="success-icon">✓</div>
-                    <h3>Thank You!</h3>
-                    <p>Your RSVP has been received. We can't wait to celebrate with you!</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="rsvp-header">
+          <div class="section-logo">
+            <img
+              src="/assets/images/logo-gold.png"
+              alt="Matthew & Angel"
+              class="section-logo-image"
+            />
+          </div>
+          <h2 class="section-title">RSVP</h2>
+          <p class="rsvp-subtitle">
+            Please confirm your attendance by November 15, 2025
+          </p>
         </div>
+
+        <div class="rsvp-content">
+          <form class="rsvp-form" id="rsvp-form">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="name" name="name" required />
+                <label for="name">Full Name</label>
+                <span class="form-bar"></span>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9\s\-\+\(\)]{10,}"
+                  required
+                />
+                <label for="phone">Phone Number</label>
+                <span class="form-bar"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <select id="attendance" name="attendance" required>
+                  <option value="">Please select</option>
+                  <option value="yes">Joyfully Accept</option>
+                  <option value="no">Regretfully Decline</option>
+                </select>
+                <label for="attendance">Will you attend?</label>
+                <span class="form-bar"></span>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="guests"
+                  name="guests"
+                  min="1"
+                  max="4"
+                  required
+                />
+                <label for="guests">Number of Guests</label>
+                <span class="form-bar"></span>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Share your wishes, dietary restrictions, or any special notes..."
+              ></textarea>
+              <label for="message">Special Message (Optional)</label>
+              <span class="form-bar"></span>
+            </div>
+
+            <button type="submit" class="rsvp-btn">
+              <span class="btn-text">Send RSVP</span>
+              <div class="btn-ripple"></div>
+            </button>
+          </form>
+
+          <div class="success-message" id="success-message">
+            <div class="success-icon">✓</div>
+            <h3>Thank You!</h3>
+            <p>
+              Your RSVP has been received. We can't wait to celebrate with you!
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
     <script type="module" src="/main.js"></script>
-</body>
+  </body>
 </html>

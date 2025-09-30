@@ -1,10 +1,4 @@
-// Main JavaScript - Royal Wedding Website
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+// Main JavaScript - Royal Wedding Website - Optimized
 
 // DOM Elements
 const loader = document.getElementById('loader');
@@ -21,6 +15,7 @@ const prevSlideBtn = document.getElementById('prev-slide-btn');
 const nextSlideBtn = document.getElementById('next-slide-btn');
 const currentSlideIndexSpan = document.getElementById('current-slide-index');
 const totalSlidesSpan = document.getElementById('total-slides');
+
 
 // Global variables
 let isLoading = true;
@@ -66,15 +61,12 @@ function showLoader() {
 
 function hideLoader() {
     if (loader) {
-        gsap.to(loader, {
-            opacity: 0,
-            duration: 0.5,
-            ease: "power2.out",
-            onComplete: () => {
-                loader.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }
-        });
+        loader.style.transition = 'opacity 0.5s ease';
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }, 500);
     }
 }
 
@@ -226,45 +218,19 @@ function handleInstantNavigation(e) {
     }
 }
 
-// Scroll effects and animations
+// Scroll effects - Simplified
 function initializeScrollEffects() {
-    // Parallax backgrounds
-    gsap.utils.toArray('.hero').forEach(section => {
-        gsap.to(section, {
-            backgroundPosition: '50% 100%',
-            ease: "none",
-            scrollTrigger: {
-                trigger: section,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true
-            }
-        });
-    });
-
+    // Removed heavy parallax effects for performance
 }
 
-// Initialize GSAP animations
+// Simplified animations
 function initializeAnimations() {
-    // Add any remaining animations for hero section here if needed
+    // Removed GSAP for better performance
 }
 
-// Parallax effects
+// Parallax effects - Removed for performance
 function initializeParallax() {
-    gsap.utils.toArray('[data-parallax]').forEach(element => {
-        const speed = element.getAttribute('data-parallax') || 0.5;
-
-        gsap.to(element, {
-            yPercent: -50 * speed,
-            ease: "none",
-            scrollTrigger: {
-                trigger: element,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true
-            }
-        });
-    });
+    // Removed heavy parallax effects
 }
 
 
@@ -272,31 +238,11 @@ function initializeParallax() {
 
 
 
-// Trigger initial animations after page load
+// Simplified animations - CSS only
 function triggerInitialAnimations() {
-    // Hero content animation
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-        gsap.timeline()
-            .from('.couple-names', {
-                y: 100,
-                opacity: 0,
-                duration: 1.5,
-                ease: "power2.out"
-            })
-            .from('.wedding-date', {
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: "power2.out"
-            }, "-=0.8")
-            .from('.hero-subtitle', {
-                y: 30,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power2.out"
-            }, "-=0.5");
-    }
+    // Using CSS animations instead of GSAP for better performance
+    const elements = document.querySelectorAll('.hero-content > *, .section-logo, .gallery-title, .gallery-description, .video-container-large, .view-gallery-btn, .rsvp-header *, .rsvp-form *, .rsvp-btn');
+    elements.forEach(el => el.classList.add('animate-in'));
 }
 
 // Utility functions
@@ -373,13 +319,9 @@ function initializeForm() {
 }
 
 function animateLabel(label, isFocused) {
-    gsap.to(label, {
-        y: isFocused ? -25 : 0,
-        scale: isFocused ? 0.85 : 1,
-        color: isFocused ? '#D4AF37' : 'rgba(77, 0, 19, 0.7)',
-        duration: 0.3,
-        ease: "power2.out"
-    });
+    // Using CSS transitions instead of GSAP
+    label.style.transform = isFocused ? 'translateY(-25px) scale(0.85)' : 'translateY(0) scale(1)';
+    label.style.color = isFocused ? '#D4AF37' : 'rgba(77, 0, 19, 0.7)';
 }
 
 function validateField(field) {
@@ -404,16 +346,17 @@ function showFieldError(field, message) {
     errorElement.style.color = '#e74c3c';
     errorElement.style.fontSize = '0.85rem';
     errorElement.style.marginTop = '5px';
+    errorElement.style.opacity = '0';
+    errorElement.style.transform = 'translateY(-10px)';
+    errorElement.style.transition = 'all 0.3s ease';
 
     field.parentNode.appendChild(errorElement);
 
-    // Animate error appearance
-    gsap.from(errorElement, {
-        opacity: 0,
-        y: -10,
-        duration: 0.3,
-        ease: "power2.out"
-    });
+    // Trigger animation
+    setTimeout(() => {
+        errorElement.style.opacity = '1';
+        errorElement.style.transform = 'translateY(0)';
+    }, 10);
 }
 
 function clearFieldError(field) {
@@ -461,11 +404,8 @@ async function handleFormSubmission(e) {
 
     if (!isFormValid) {
         // Shake form to indicate errors
-        gsap.to(rsvpForm, {
-            x: [-10, 10, -10, 10, 0],
-            duration: 0.5,
-            ease: "power2.out"
-        });
+        rsvpForm.style.animation = 'shake 0.5s ease';
+        setTimeout(() => rsvpForm.style.animation = '', 500);
         return;
     }
 
@@ -486,13 +426,8 @@ async function handleFormSubmission(e) {
         // Reset all labels
         const labels = rsvpForm.querySelectorAll('label');
         labels.forEach(label => {
-            gsap.to(label, {
-                y: 0,
-                scale: 1,
-                color: 'rgba(77, 0, 19, 0.7)',
-                duration: 0.3,
-                ease: "power2.out"
-            });
+            label.style.transform = 'translateY(0) scale(1)';
+            label.style.color = 'rgba(77, 0, 19, 0.7)';
         });
 
     } catch (error) {
@@ -507,15 +442,15 @@ async function handleFormSubmission(e) {
 
 function showSuccessMessage() {
     if (successMessage) {
+        successMessage.style.opacity = '0';
+        successMessage.style.transform = 'translateY(50px)';
+        successMessage.style.transition = 'all 0.6s ease';
         successMessage.classList.add('show');
 
-        // Animate success message
-        gsap.from(successMessage, {
-            y: 50,
-            opacity: 0,
-            duration: 0.6,
-            ease: "back.out(1.7)"
-        });
+        setTimeout(() => {
+            successMessage.style.opacity = '1';
+            successMessage.style.transform = 'translateY(0)';
+        }, 10);
 
         // Scroll to success message
         const successTop = successMessage.offsetTop - 100;
@@ -542,24 +477,21 @@ function showErrorMessage(message) {
         box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
     `;
 
+    errorDiv.style.opacity = '0';
+    errorDiv.style.transform = 'translateY(-20px)';
+    errorDiv.style.transition = 'all 0.3s ease';
+
     rsvpForm.appendChild(errorDiv);
 
-    // Animate and auto-remove
-    gsap.from(errorDiv, {
-        opacity: 0,
-        y: -20,
-        duration: 0.3,
-        ease: "power2.out"
-    });
+    setTimeout(() => {
+        errorDiv.style.opacity = '1';
+        errorDiv.style.transform = 'translateY(0)';
+    }, 10);
 
     setTimeout(() => {
-        gsap.to(errorDiv, {
-            opacity: 0,
-            y: -20,
-            duration: 0.3,
-            ease: "power2.out",
-            onComplete: () => errorDiv.remove()
-        });
+        errorDiv.style.opacity = '0';
+        errorDiv.style.transform = 'translateY(-20px)';
+        setTimeout(() => errorDiv.remove(), 300);
     }, 5000);
 }
 
@@ -590,17 +522,17 @@ function createRipple(event) {
         width: ${size}px;
         height: ${size}px;
         pointer-events: none;
+        transition: all 0.6s ease;
+        opacity: 1;
     `;
 
     button.appendChild(ripple);
 
-    gsap.to(ripple, {
-        scale: 2,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.out",
-        onComplete: () => ripple.remove()
-    });
+    setTimeout(() => {
+        ripple.style.transform = 'scale(2)';
+        ripple.style.opacity = '0';
+        setTimeout(() => ripple.remove(), 600);
+    }, 10);
 }
 
 // Three-Column Gallery functionality
