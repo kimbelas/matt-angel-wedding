@@ -359,6 +359,15 @@ p {
     transition: none !important;
 }
 
+.hamburger span {
+    background: var(--white);
+    transition: background 0.3s ease;
+}
+
+.navbar.scrolled .hamburger span {
+    background: var(--primary);
+}
+
 .hamburger:hover {
     background: transparent !important;
     transform: none !important;
@@ -1960,4 +1969,473 @@ a:focus {
 
 .skip-link:focus {
     top: 6px;
+}
+
+/* Details Section */
+.details-section {
+    padding: 40px 0 0 0;
+    background: linear-gradient(135deg, #ffffff 0%, #fefefe 50%, #f8f9fa 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.details-section .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+    padding: 0 var(--container-padding);
+}
+
+.details-section .section-subtitle {
+    margin-bottom: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+/* Venue Showcase Sections - Clean Split Screen */
+.venue-showcase {
+    position: relative;
+    margin-bottom: 0;
+    background: #ffffff;
+}
+
+/* Split Screen Layout */
+.venue-hero-image {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    min-height: 550px;
+    overflow: hidden;
+}
+
+.venue-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.8s ease;
+}
+
+.venue-showcase:hover .venue-hero-img {
+    transform: scale(1.03);
+}
+
+.venue-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent);
+    pointer-events: none;
+}
+
+/* Content Grid - Simple & Clean */
+.venue-content-wrap {
+    padding: 80px 0;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+}
+
+/* Venue Info - Minimal */
+.venue-info {
+    position: relative;
+}
+
+.venue-badge {
+    width: 1px;
+    height: 60px;
+    background: var(--accent);
+    margin-bottom: 30px;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.venue-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -4px;
+    width: 9px;
+    height: 9px;
+    background: var(--accent);
+    border-radius: 50%;
+}
+
+.venue-info:hover .venue-badge {
+    height: 80px;
+    background: var(--primary);
+}
+
+.venue-info:hover .venue-badge::after {
+    background: var(--primary);
+}
+
+.venue-badge svg {
+    display: none;
+}
+
+.venue-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.venue-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: var(--primary);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 50px;
+    font-style: italic;
+}
+
+/* Meta Items - Simple List */
+.venue-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    padding-left: 40px;
+}
+
+.meta-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.meta-item:hover::before {
+    width: 32px;
+}
+
+.meta-item svg {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.meta-item:hover svg {
+    opacity: 1;
+}
+
+.meta-item:hover::before {
+    opacity: 0;
+}
+
+.meta-item span {
+    font-size: 1.1rem;
+    color: rgba(77, 0, 19, 0.85);
+    line-height: 1.8;
+    font-family: 'Lora', serif;
+    font-weight: 400;
+}
+
+/* Map Wrapper - Elegant Minimalism */
+.venue-map-wrapper {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(77, 0, 19, 0.1);
+    transition: all 0.5s ease;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.venue-map-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.venue-map-wrapper:hover {
+    box-shadow: 0 30px 80px rgba(77, 0, 19, 0.15);
+    border-color: transparent;
+}
+
+.venue-map-wrapper:hover::before {
+    opacity: 1;
+}
+
+.venue-map-wrapper iframe {
+    display: block;
+    width: 100%;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 80px;
+    padding-bottom: 80px;
+}
+
+.detail-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 35px;
+    box-shadow: 0 10px 40px rgba(77, 0, 19, 0.08);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.detail-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.detail-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(77, 0, 19, 0.15);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.detail-card:hover::before {
+    opacity: 1;
+}
+
+.detail-card-featured {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+.detail-card-featured::before {
+    opacity: 0.5;
+}
+
+.detail-card-featured:hover::before {
+    opacity: 1;
+}
+
+.detail-card-accent {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(212, 175, 55, 0.03) 100%);
+}
+
+.detail-card-gift {
+    background: linear-gradient(135deg, rgba(77, 0, 19, 0.02) 0%, #ffffff 100%);
+}
+
+.detail-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+    border-radius: 50%;
+    color: var(--accent);
+    transition: all 0.4s ease;
+}
+
+.detail-card:hover .detail-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+}
+
+.detail-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.detail-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.detail-content {
+    text-align: center;
+}
+
+.detail-venue {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.detail-address {
+    font-size: 1.05rem;
+    color: rgba(77, 0, 19, 0.75);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.detail-time {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin-top: 15px;
+}
+
+.detail-dresscode {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.detail-description {
+    font-size: 1.05rem;
+    color: rgba(77, 0, 19, 0.75);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.color-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-swatch {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid rgba(77, 0, 19, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.detail-card:hover .color-swatch {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.color-item span {
+    font-size: 0.95rem;
+    color: var(--primary);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.entourage-note {
+    margin-top: 20px;
+    padding: 18px;
+    background: rgba(212, 175, 55, 0.08);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+}
+
+.entourage-note p {
+    font-size: 1rem;
+    color: var(--primary);
+    font-style: italic;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.detail-deadline {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin: 15px 0;
+    letter-spacing: 0.5px;
+}
+
+.detail-note {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin: 15px 0;
+}
+
+.detail-cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 35px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(77, 0, 19, 0.2);
+}
+
+.detail-cta:hover {
+    background: #6b0018;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(77, 0, 19, 0.35);
+}
+
+.gift-note {
+    margin-top: 25px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(77, 0, 19, 0.03));
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.gift-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--primary);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.gift-info {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin: 0;
 }

@@ -1,0 +1,590 @@
+/* Details Section - Simple, Fast, Mobile-First */
+
+/* Mobile First - Base Styles (320px and up) */
+.details-section {
+    padding: 60px 0 40px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.details-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.details-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.details-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Simple Timeline - Mobile First */
+.timeline-simple {
+    position: relative;
+    max-width: 100%;
+    margin: 0 20px 50px;
+    padding: 20px 0;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.3;
+}
+
+.timeline-events {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.timeline-event {
+    flex: 1;
+    min-width: 70px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.timeline-event .time {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    display: block;
+}
+
+.timeline-event .event {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--primary);
+}
+
+/* Venue Sections - Mobile First */
+.venue-section {
+    margin-bottom: 0;
+}
+
+.venue-image-full {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.venue-image-full img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    will-change: transform;
+}
+
+/* Gradient Overlay for Better Text Readability */
+.venue-overlay-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.2) 30%,
+        rgba(0, 0, 0, 0.6) 70%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    pointer-events: none;
+}
+
+/* Better UI/UX for Overlay Content */
+.venue-overlay-content {
+    position: absolute;
+    bottom: 40px;
+    left: 30px;
+    right: 30px;
+    color: white;
+    z-index: 2;
+}
+
+.venue-label {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.venue-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.venue-time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: inline-flex;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.venue-time svg {
+    flex-shrink: 0;
+    opacity: 0.9;
+}
+
+/* Royal Divider */
+.royal-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    position: relative;
+    background: white;
+    overflow: hidden;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent) 10%,
+        var(--accent) 90%,
+        transparent
+    );
+    max-width: 100px;
+    opacity: 0.4;
+}
+
+.divider-ornament {
+    width: 180px;
+    height: 40px;
+    color: var(--accent);
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: gentleFloat 6s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.divider-ornament svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 4px rgba(77, 0, 19, 0.1));
+}
+
+/* Add decorative dots around divider */
+.royal-divider::before,
+.royal-divider::after {
+    content: '•••';
+    position: absolute;
+    font-size: 0.8rem;
+    color: var(--accent);
+    opacity: 0.2;
+    letter-spacing: 5px;
+}
+
+.royal-divider::before {
+    left: 10%;
+}
+
+.royal-divider::after {
+    right: 10%;
+}
+
+.venue-info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background: #fafafa;
+}
+
+.venue-details-box {
+    flex: 1;
+}
+
+.venue-details-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.venue-details-box p {
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.venue-meta-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.venue-meta-simple span {
+    font-size: 0.95rem;
+    color: var(--primary);
+    opacity: 0.8;
+}
+
+.venue-map-box {
+    flex: 1;
+    min-height: 300px;
+}
+
+/* Simple Info Cards - Mobile First */
+.info-grid-simple {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-card-simple {
+    background: white;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.info-card-simple:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(77, 0, 19, 0.1);
+}
+
+.card-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.info-card-simple h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.info-card-simple p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.info-card-simple small {
+    color: #999;
+    font-style: italic;
+}
+
+.color-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.color-dots span {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.simple-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 25px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.simple-btn:hover {
+    background: var(--accent);
+}
+
+/* Tablet Styles (768px and up) */
+@media (min-width: 768px) {
+    .details-header {
+        margin-bottom: 60px;
+    }
+
+    .details-title {
+        font-size: 3.5rem;
+    }
+
+    .details-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .timeline-simple {
+        max-width: 800px;
+        margin: 0 auto 70px;
+    }
+
+    .timeline-events {
+        flex-wrap: nowrap;
+    }
+
+    .timeline-event .time {
+        font-size: 0.9rem;
+    }
+
+    .timeline-event .event {
+        font-size: 1rem;
+    }
+
+    .venue-image-full {
+        height: 70vh;
+        min-height: 500px;
+    }
+
+    .venue-overlay-content {
+        bottom: 60px;
+        left: 60px;
+        right: auto;
+        max-width: 600px;
+    }
+
+    .venue-label {
+        font-size: 0.85rem;
+        padding: 8px 20px;
+    }
+
+    .venue-title {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    .venue-time {
+        font-size: 1.2rem;
+        padding: 12px 25px;
+    }
+
+    .royal-divider {
+        padding: 70px 20px;
+    }
+
+    .divider-line {
+        max-width: 150px;
+    }
+
+    .divider-ornament {
+        width: 220px;
+        height: 45px;
+        margin: 0 25px;
+    }
+
+    .royal-divider::before,
+    .royal-divider::after {
+        font-size: 1rem;
+        letter-spacing: 8px;
+    }
+
+    .royal-divider::before {
+        left: 15%;
+    }
+
+    .royal-divider::after {
+        right: 15%;
+    }
+
+    .venue-info-row {
+        flex-direction: row;
+        padding: 40px;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .venue-meta-simple {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .info-grid-simple {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 0 40px;
+    }
+}
+
+/* Desktop Styles (1024px and up) */
+@media (min-width: 1024px) {
+    .details-section {
+        padding: 80px 0 60px;
+    }
+
+    .details-title {
+        font-size: 4rem;
+    }
+
+    .timeline-simple {
+        max-width: 1000px;
+    }
+
+    .timeline-event .time {
+        font-size: 1rem;
+    }
+
+    .timeline-event .event {
+        font-size: 1.1rem;
+    }
+
+    .venue-image-full {
+        height: 80vh;
+        max-height: 700px;
+    }
+
+    .venue-overlay-content {
+        bottom: 80px;
+        left: 80px;
+        max-width: 700px;
+    }
+
+    .venue-label {
+        font-size: 0.9rem;
+        letter-spacing: 4px;
+    }
+
+    .venue-title {
+        font-size: 3.5rem;
+    }
+
+    .venue-time {
+        font-size: 1.3rem;
+        padding: 14px 30px;
+    }
+
+    .royal-divider {
+        padding: 90px 20px;
+    }
+
+    .divider-line {
+        max-width: 200px;
+    }
+
+    .divider-ornament {
+        width: 260px;
+        height: 50px;
+    }
+
+    .royal-divider::before,
+    .royal-divider::after {
+        font-size: 1.2rem;
+        letter-spacing: 10px;
+    }
+
+    .venue-info-row {
+        padding: 60px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .venue-details-box h3 {
+        font-size: 2rem;
+    }
+
+    .info-grid-simple {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0 60px;
+    }
+}
+
+/* GSAP Animation Classes - Lightweight */
+.gsap-fade {
+    opacity: 0;
+}
+
+.gsap-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.gsap-slide-left {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.gsap-slide-right {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.gsap-scale {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.gsap-timeline {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .gsap-fade,
+    .gsap-fade-up,
+    .gsap-slide-left,
+    .gsap-slide-right,
+    .gsap-scale,
+    .gsap-timeline {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

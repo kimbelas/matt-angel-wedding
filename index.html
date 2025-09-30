@@ -147,6 +147,7 @@
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/details-simple.css" />
     <link rel="stylesheet" href="/css/responsive.css" />
   </head>
   <body>
@@ -173,6 +174,7 @@
         </a>
         <ul class="nav-menu" id="nav-menu">
           <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#details" class="nav-link">Details</a></li>
           <li><a href="#gallery" class="nav-link">Gallery</a></li>
           <li><a href="#rsvp" class="nav-link">RSVP</a></li>
         </ul>
@@ -199,7 +201,6 @@
             style="
               width: 24px;
               height: 2px;
-              background: var(--white);
               transition: all 0.3s ease;
               display: block;
               transform-origin: center;
@@ -209,7 +210,6 @@
             style="
               width: 24px;
               height: 2px;
-              background: var(--white);
               transition: all 0.3s ease;
               display: block;
               transform-origin: center;
@@ -219,7 +219,6 @@
             style="
               width: 24px;
               height: 2px;
-              background: var(--white);
               transition: all 0.3s ease;
               display: block;
               transform-origin: center;
@@ -241,6 +240,224 @@
         <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="1100">
           Together Forever
         </p>
+      </div>
+    </section>
+
+    <!-- Details Section - Simplified & Fast -->
+    <section id="details" class="details-section" data-scroll-section>
+      <div class="details-header">
+        <h2 class="details-title gsap-fade">The Details</h2>
+        <p class="details-subtitle gsap-fade">Everything you need to know about our special day</p>
+      </div>
+
+      <!-- Timeline - Simple & Clean -->
+      <div class="timeline-simple">
+        <div class="timeline-line"></div>
+        <div class="timeline-events">
+          <div class="timeline-event gsap-timeline">
+            <span class="time">1:30 PM</span>
+            <span class="event">Ceremony</span>
+          </div>
+          <div class="timeline-event gsap-timeline">
+            <span class="time">2:30 PM</span>
+            <span class="event">Photos</span>
+          </div>
+          <div class="timeline-event gsap-timeline">
+            <span class="time">5:30 PM</span>
+            <span class="event">Cocktails</span>
+          </div>
+          <div class="timeline-event gsap-timeline">
+            <span class="time">6:30 PM</span>
+            <span class="event">Reception</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ceremony Section - Full Width -->
+      <div class="venue-section ceremony-section">
+        <div class="venue-image-full gsap-parallax">
+          <img
+            src="/assets/images/hrpc-watercolor.png"
+            alt="Holy Rosary Parish Church"
+            loading="lazy"
+          />
+          <div class="venue-overlay-gradient"></div>
+          <div class="venue-overlay-content">
+            <span class="venue-label">CEREMONY</span>
+            <h3 class="venue-title gsap-fade-up">Holy Rosary Parish Church</h3>
+            <div class="venue-time gsap-fade-up">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>1:30 in the afternoon</span>
+            </div>
+          </div>
+        </div>
+        <div class="venue-info-row">
+          <div class="venue-details-box gsap-slide-left">
+            <h3>Holy Rosary Parish Church</h3>
+            <p>Santo Rosario St, Angeles, 2009 Pampanga</p>
+            <div class="venue-meta-simple">
+              <span>📍 Ceremony at 1:30 PM</span>
+              <span>⛪ Traditional Catholic Mass</span>
+            </div>
+          </div>
+          <div class="venue-map-box gsap-slide-right">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.4361475829337!2d120.5853369852806!3d15.134373626202432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f24f232c8c0d%3A0x9806ef08494e895c!2sHoly%20Rosary%20Parish%20Church%20(Pisamban%20Maragul)!5e0!3m2!1sen!2sph!4v1759246702702!5m2!1sen!2sph"
+              width="100%"
+              height="300"
+              style="border: 0; border-radius: 10px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Holy Rosary Parish Location"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Royal Divider -->
+      <div class="royal-divider">
+        <div class="divider-line"></div>
+        <div class="divider-ornament">
+          <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <!-- Left decorative swirls -->
+            <g transform="translate(20, 20)">
+              <circle cx="0" cy="0" r="2" fill="currentColor"/>
+              <path d="M5,0 Q15,-5 20,-5 T30,0 Q25,0 20,3 T10,3 Q5,3 5,0" fill="currentColor" opacity="0.8"/>
+              <circle cx="10" cy="0" r="1.5" fill="currentColor"/>
+              <circle cx="20" cy="0" r="1" fill="currentColor"/>
+            </g>
+
+            <!-- Left flourish -->
+            <g transform="translate(50, 20)">
+              <path d="M0,0 Q10,-8 20,-8 Q25,-8 25,-4 Q25,0 20,0 Q15,0 15,-4 Q15,-6 18,-6"
+                    stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/>
+              <circle cx="20" cy="-8" r="2" fill="currentColor"/>
+              <circle cx="25" cy="-4" r="1.5" fill="currentColor"/>
+            </g>
+
+            <!-- Center ornament -->
+            <g transform="translate(100, 20)">
+              <!-- Main flower -->
+              <circle cx="0" cy="0" r="4" fill="currentColor"/>
+              <circle cx="0" cy="0" r="2.5" fill="white"/>
+              <circle cx="0" cy="0" r="1.5" fill="currentColor"/>
+
+              <!-- Petals -->
+              <ellipse cx="-8" cy="0" rx="4" ry="2" fill="currentColor" opacity="0.7"/>
+              <ellipse cx="8" cy="0" rx="4" ry="2" fill="currentColor" opacity="0.7"/>
+              <ellipse cx="0" cy="-8" rx="2" ry="4" fill="currentColor" opacity="0.7"/>
+              <ellipse cx="0" cy="8" rx="2" ry="4" fill="currentColor" opacity="0.7"/>
+
+              <!-- Diagonal petals -->
+              <ellipse cx="-5" cy="-5" rx="3" ry="1.5" fill="currentColor" opacity="0.6" transform="rotate(-45 -5 -5)"/>
+              <ellipse cx="5" cy="-5" rx="3" ry="1.5" fill="currentColor" opacity="0.6" transform="rotate(45 5 -5)"/>
+              <ellipse cx="-5" cy="5" rx="3" ry="1.5" fill="currentColor" opacity="0.6" transform="rotate(45 -5 5)"/>
+              <ellipse cx="5" cy="5" rx="3" ry="1.5" fill="currentColor" opacity="0.6" transform="rotate(-45 5 5)"/>
+            </g>
+
+            <!-- Right flourish -->
+            <g transform="translate(150, 20)">
+              <path d="M0,0 Q-10,-8 -20,-8 Q-25,-8 -25,-4 Q-25,0 -20,0 Q-15,0 -15,-4 Q-15,-6 -18,-6"
+                    stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/>
+              <circle cx="-20" cy="-8" r="2" fill="currentColor"/>
+              <circle cx="-25" cy="-4" r="1.5" fill="currentColor"/>
+            </g>
+
+            <!-- Right decorative swirls -->
+            <g transform="translate(180, 20)">
+              <circle cx="0" cy="0" r="2" fill="currentColor"/>
+              <path d="M-5,0 Q-15,-5 -20,-5 T-30,0 Q-25,0 -20,3 T-10,3 Q-5,3 -5,0" fill="currentColor" opacity="0.8"/>
+              <circle cx="-10" cy="0" r="1.5" fill="currentColor"/>
+              <circle cx="-20" cy="0" r="1" fill="currentColor"/>
+            </g>
+          </svg>
+        </div>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Reception Section - Full Width -->
+      <div class="venue-section reception-section">
+        <div class="venue-image-full gsap-parallax">
+          <img
+            src="/assets/images/gpr-watercolor.png"
+            alt="Grand Palazzo Royale"
+            loading="lazy"
+          />
+          <div class="venue-overlay-gradient"></div>
+          <div class="venue-overlay-content">
+            <span class="venue-label">RECEPTION</span>
+            <h3 class="venue-title gsap-fade-up">Grand Palazzo Royale</h3>
+            <div class="venue-time gsap-fade-up">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Cocktails at 5:30 PM</span>
+            </div>
+          </div>
+        </div>
+        <div class="venue-info-row">
+          <div class="venue-details-box gsap-slide-left">
+            <h3>Grand Palazzo Royale</h3>
+            <p>Royal Garden Estate, Fil-Am Friendship Hwy, Angeles</p>
+            <div class="venue-meta-simple">
+              <span>🥂 Cocktails at 5:30 PM</span>
+              <span>🍽️ Dinner & Dancing to follow</span>
+            </div>
+          </div>
+          <div class="venue-map-box gsap-slide-right">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.3491789084183!2d120.55764587588055!3d15.139156463662987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f2e569b811a3%3A0x5a2e860eb6dba41c!2sGrand%20Palazzo%20Royale!5e0!3m2!1sen!2sph!4v1759246735094!5m2!1sen!2sph"
+              width="100%"
+              height="300"
+              style="border: 0; border-radius: 10px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Grand Palazzo Royale Location"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Info Grid - Simple Cards -->
+      <div class="info-grid-simple">
+        <div class="info-card-simple gsap-scale">
+          <div class="card-emoji">👗</div>
+          <h4>Dress Code</h4>
+          <p>Formal / Semi-Formal</p>
+          <div class="color-dots">
+            <span style="background: #4d0013"></span>
+            <span style="background: #800020"></span>
+            <span style="background: #a94064"></span>
+            <span style="background: #d4af37"></span>
+          </div>
+        </div>
+
+        <div class="info-card-simple gsap-scale">
+          <div class="card-emoji">📅</div>
+          <h4>RSVP By</h4>
+          <p>November 15, 2025</p>
+          <a href="#rsvp" class="simple-btn">Confirm Attendance</a>
+        </div>
+
+        <div class="info-card-simple gsap-scale">
+          <div class="card-emoji">🎁</div>
+          <h4>Gift Guide</h4>
+          <p>Your presence is our present</p>
+          <small>Monetary gifts are welcome</small>
+        </div>
+
+        <div class="info-card-simple gsap-scale">
+          <div class="card-emoji">👥</div>
+          <h4>Guest Info</h4>
+          <p>Reserved seating available</p>
+          <small>Please coordinate with us</small>
+        </div>
       </div>
     </section>
 
@@ -464,5 +681,6 @@
       </div>
     </section>
     <script type="module" src="/main.js"></script>
+    <script src="/js/gsap-lightweight.js" defer></script>
   </body>
 </html>
