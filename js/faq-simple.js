@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
   faqItems.forEach(item => {
     const question = item.querySelector('.faq-question');
     const answer = item.querySelector('.faq-answer');
-    const icon = item.querySelector('.faq-icon');
 
     if (question && answer) {
-      question.addEventListener('click', function() {
-        // Toggle current item
+      question.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Check if current item is open
         const isOpen = item.classList.contains('active');
 
         // Close all other items
@@ -20,10 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (otherAnswer) {
               otherAnswer.style.maxHeight = '0';
             }
-            const otherIcon = otherItem.querySelector('.faq-icon');
-            if (otherIcon) {
-              otherIcon.style.transform = 'rotate(0)';
-            }
           }
         });
 
@@ -31,11 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isOpen) {
           item.classList.remove('active');
           answer.style.maxHeight = '0';
-          if (icon) icon.style.transform = 'rotate(0)';
         } else {
           item.classList.add('active');
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-          if (icon) icon.style.transform = 'rotate(45deg)';
+          // Use scrollHeight + extra padding to prevent cutoff
+          answer.style.maxHeight = (answer.scrollHeight + 50) + 'px';
         }
       });
     }

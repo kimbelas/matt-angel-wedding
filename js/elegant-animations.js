@@ -376,13 +376,6 @@ class ElegantAnimations {
             duration: 0.4,
             ease: 'power2.inOut'
           });
-
-          // Rotate icon
-          gsap.to(icon, {
-            rotation: 45,
-            duration: 0.3,
-            ease: 'power2.inOut'
-          });
         } else {
           gsap.to(answer, {
             maxHeight: 0,

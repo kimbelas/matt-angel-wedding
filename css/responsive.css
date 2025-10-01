@@ -209,7 +209,7 @@ section, .section {
 
     /* RSVP Royal Mobile */
     .rsvp-section {
-        padding: 60px 0;
+        padding: 0 0 60px 0;
         min-height: auto;
     }
 
@@ -305,7 +305,7 @@ section, .section {
 
     /* Gallery Mobile Styles */
     .gallery-section {
-        padding: 60px 0;
+        padding: 0 0 60px 0;
     }
 
     .section-title::after{

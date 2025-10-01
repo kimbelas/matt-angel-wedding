@@ -1,0 +1,170 @@
+/* ================================================
+   LUXE DETAILS SECTION - Minimalist & Sophisticated
+   ================================================ */
+
+.venue-luxe-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 0 50px 0;
+}
+
+/* Luxe Header with Elegant Dividers */
+.luxe-header {
+  text-align: center;
+  padding: 0 0 50px 0;
+  position: relative;
+}
+
+.luxe-divider-top {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  margin: 0 auto 30px;
+  position: relative;
+}
+
+.luxe-divider-top::before {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--accent);
+  font-size: 8px;
+  background: white;
+  padding: 0 8px;
+}
+
+.luxe-venue-name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+.luxe-address {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: #888;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin: 0 0 30px 0;
+}
+
+.luxe-divider-bottom {
+  width: 60px;
+  height: 1px;
+  background: var(--accent);
+  margin: 0 auto;
+  opacity: 0.4;
+}
+
+/* Luxe Details Grid - Clean & Spacious */
+.luxe-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.luxe-detail-item {
+  padding: 30px 40px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.luxe-detail-item:first-child {
+  border-right: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.luxe-detail-item:hover {
+  background: rgba(212, 175, 55, 0.03);
+}
+
+.luxe-detail-label {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.luxe-detail-value {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--primary);
+  line-height: 1.4;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .venue-luxe-container {
+    padding: 0 0 50px 0;
+  }
+
+  .luxe-venue-name {
+    font-size: 2.5rem;
+  }
+
+  .luxe-address {
+    font-size: 1rem;
+  }
+
+  .luxe-details-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .luxe-detail-item {
+    padding: 25px 20px;
+    border-right: none !important;
+  }
+
+  .luxe-detail-item:first-child {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  }
+
+  .luxe-detail-value {
+    font-size: 1.3rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .luxe-venue-name {
+    font-size: 2.4rem;
+  }
+
+  .luxe-detail-item {
+    padding: 28px 30px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .venue-luxe-container {
+    max-width: 900px;
+    padding: 90px 50px;
+  }
+
+  .luxe-venue-name {
+    font-size: 3.2rem;
+  }
+
+  .luxe-detail-item {
+    padding: 35px 50px;
+  }
+
+  .luxe-detail-value {
+    font-size: 1.6rem;
+  }
+}

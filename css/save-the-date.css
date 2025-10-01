@@ -1,0 +1,377 @@
+/* ================================================
+   SAVE THE DATE CALENDAR - Elegant Wedding Calendar
+   ================================================ */
+
+.save-the-date-calendar {
+  width: 100%;
+  max-width: 100%;
+  margin: 60px 0 0 40px;
+  padding: 0;
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  background-image: url('/assets/images/group-c-6.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+    rgba(77, 0, 19, 0.75) 0%,
+    rgba(45, 0, 10, 0.70) 50%,
+    rgba(77, 0, 19, 0.75) 100%
+  );
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.calendar-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px 40px;
+  width: 100%;
+}
+
+.calendar-month {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 6px;
+  color: white;
+  text-align: center;
+  margin-bottom: 35px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.calendar-week {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.calendar-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 85px;
+  padding: 18px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s ease;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.calendar-day:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.calendar-day.featured {
+  background: linear-gradient(135deg,
+    rgba(212, 175, 55, 0.35),
+    rgba(212, 175, 55, 0.25)
+  );
+  border: 2px solid var(--accent);
+  transform: scale(1.12);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5),
+              0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.calendar-day.featured:hover {
+  transform: scale(1.12) translateY(-5px);
+  box-shadow: 0 16px 50px rgba(212, 175, 55, 0.6),
+              0 0 40px rgba(212, 175, 55, 0.4);
+}
+
+.day-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: capitalize;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.calendar-day.featured .day-name {
+  color: var(--accent);
+  font-weight: 600;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.day-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.calendar-day.featured .day-number {
+  color: var(--accent);
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6),
+               0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.day-highlight {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 40px;
+  background: linear-gradient(to bottom,
+    var(--accent),
+    rgba(212, 175, 55, 0.5),
+    transparent
+  );
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+.day-highlight::after {
+  content: '♥';
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.8),
+               0 0 10px rgba(212, 175, 55, 0.6);
+  animation: heart-pulse 2s ease-in-out infinite;
+}
+
+@keyframes heart-pulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.15);
+  }
+}
+
+.save-date-text {
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 10px;
+  color: white;
+  text-align: center;
+  margin-top: 45px;
+  padding-top: 30px;
+  border-top: 2px solid rgba(212, 175, 55, 0.4);
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .save-the-date-calendar {
+    min-height: 350px;
+    margin: 40px auto 30px;
+    margin-bottom: 0 !important;
+  }
+
+  .calendar-content {
+    padding: 40px 20px;
+  }
+
+  .calendar-month {
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+  }
+
+  .calendar-week {
+    gap: 4px;
+    margin-bottom: 25px;
+  }
+
+  .calendar-day {
+    min-width: 48px;
+    padding: 12px 6px;
+  }
+
+  .calendar-day.featured {
+    transform: scale(1.08);
+  }
+
+  .day-name {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+
+  .day-number {
+    font-size: 1.5rem;
+  }
+
+  .calendar-day.featured .day-number {
+    font-size: 1.8rem;
+  }
+
+  .day-highlight {
+    height: 25px;
+    bottom: -15px;
+    width: 2px;
+  }
+
+  .save-date-text {
+    font-size: 1.6rem;
+    letter-spacing: 5px;
+    margin-top: 45px;
+    padding-top: 20px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .save-the-date-calendar {
+    min-height: 320px;
+    margin: 30px auto 20px;
+    margin-bottom: 0 !important;
+  }
+
+  .calendar-content {
+    padding: 30px 15px;
+  }
+
+  .calendar-month {
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+
+  .calendar-week {
+    gap: 2px;
+  }
+
+  .calendar-day {
+    min-width: 40px;
+    padding: 10px 4px;
+  }
+
+  .day-name {
+    font-size: 0.5rem;
+    margin-bottom: 4px;
+  }
+
+  .day-number {
+    font-size: 1.3rem;
+  }
+
+  .calendar-day.featured .day-number {
+    font-size: 1.6rem;
+  }
+
+  .day-highlight {
+    height: 20px;
+    bottom: -12px;
+  }
+
+  .save-date-text {
+    font-size: 1.3rem;
+    letter-spacing: 4px;
+    margin-top: 45px;
+    padding-top: 15px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .calendar-week {
+    gap: 6px;
+  }
+
+  .calendar-day {
+    min-width: 60px;
+    padding: 11px 7px;
+  }
+
+  .day-number {
+    font-size: 1.6rem;
+  }
+
+  .save-date-text {
+    font-size: 2rem;
+    letter-spacing: 5px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .save-the-date-calendar {
+    max-width: 750px;
+    padding: 50px 40px;
+  }
+
+  .calendar-month {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+  }
+
+  .calendar-week {
+    gap: 10px;
+  }
+
+  .calendar-day {
+    min-width: 80px;
+    padding: 15px 10px;
+  }
+
+  .day-name {
+    font-size: 0.75rem;
+  }
+
+  .day-number {
+    font-size: 2rem;
+  }
+
+  .calendar-day.featured .day-number {
+    font-size: 2.3rem;
+  }
+
+  .save-date-text {
+    font-size: 2.5rem;
+    letter-spacing: 8px;
+    margin-top: 40px;
+  }
+}
+
+/* Animation for featured day */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5),
+                0 0 30px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 16px 50px rgba(212, 175, 55, 0.7),
+                0 0 45px rgba(212, 175, 55, 0.5);
+  }
+}
+
+.calendar-day.featured {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+

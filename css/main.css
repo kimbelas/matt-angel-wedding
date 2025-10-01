@@ -529,7 +529,7 @@ p {
 
 /* RSVP Section */
 .rsvp-section {
-    padding: 120px 0;
+    padding: 0 0 120px 0;
     background: linear-gradient(135deg, #fefefe 0%, #f8f9fa 50%, #f5f6f8 100%);
     position: relative;
     min-height: 100vh;

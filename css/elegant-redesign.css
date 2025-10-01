@@ -681,13 +681,68 @@
   font-size: 1.1rem;
   color: var(--text-medium);
   line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* QR Codes Container */
+.qr-codes-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.qr-code-item {
+  text-align: center;
+  flex: 0 1 auto;
+}
+
+.qr-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.qr-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 3px solid var(--accent);
+  background: white;
+  padding: 8px;
+}
+
+.qr-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+@media (max-width: 768px) {
+  .qr-codes-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .qr-image {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 /* ==========================================
    FAQ SECTION
    ========================================== */
 .faq-section {
-  padding: 0 20px 80px 20px;
+  padding: 0 20px 40px 20px;
   background: var(--bg-white);
 }
 
@@ -738,10 +793,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
   color: var(--primary);
   transition: all var(--transition-base);
+}
+
+.faq-question span {
+  flex: 1;
+  padding-right: 15px;
 }
 
 .faq-question:hover {
@@ -752,17 +813,18 @@
   width: 24px;
   height: 24px;
   position: relative;
-  transition: transform var(--transition-base);
+  flex-shrink: 0;
+  transition: all 0.4s ease;
 }
 
-.faq-icon::before,
-.faq-icon::after {
+.faq-icon::before {
   content: '';
   position: absolute;
   background: var(--accent);
-  transition: all var(--transition-base);
+  transition: all 0.4s ease;
 }
 
+/* Plus sign when closed */
 .faq-icon::before {
   top: 50%;
   left: 0;
@@ -771,17 +833,7 @@
   transform: translateY(-50%);
 }
 
-.faq-icon::after {
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  transform: translateX(-50%);
-}
-
-.faq-item.active .faq-icon {
-  transform: rotate(45deg);
-}
+/* No icon animation - keep plus sign static */
 
 .faq-answer {
   max-height: 0;

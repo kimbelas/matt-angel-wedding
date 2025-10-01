@@ -6,7 +6,9 @@
 .dress-code-elegant,
 .love-story,
 .gift-registry,
-.faq-section {
+.faq-section,
+.venue-section,
+.venue-image-full {
   opacity: 1 !important;
   visibility: visible !important;
   display: block !important;
@@ -19,9 +21,18 @@
 .dress-code-elegant *:not([class*="gsap"]),
 .love-story *:not([class*="gsap"]):not(.timeline-event-card):not(.timeline-dot):not(.timeline-date):not(.timeline-event-title):not(.timeline-event-description),
 .gift-registry *:not([class*="gsap"]),
-.faq-section *:not([class*="gsap"]) {
+.faq-section *:not([class*="gsap"]),
+.venue-section *:not([class*="gsap"]),
+.venue-image-full *:not([class*="gsap"]) {
   opacity: 1 !important;
   visibility: visible !important;
+}
+
+/* Venue images should be immediately visible */
+.venue-image-full img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
 }
 
 /* Ensure cards and containers are visible - but allow GSAP to control timeline cards */

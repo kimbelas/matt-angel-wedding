@@ -261,11 +261,15 @@ section {
 /* Gift Registry spacing */
 .gift-registry {
   padding: 0 20px 40px 20px !important;
+  overflow-y: visible !important;
+  overflow: visible !important;
 }
 
 .gift-options {
-  gap: 40px !important;
+  gap: 0 !important;
   padding: 20px !important;
+  overflow-y: visible !important;
+  overflow: visible !important;
 }
 
 /* ================================================
@@ -279,6 +283,48 @@ section {
 .faq-question {
   padding: 25px 30px !important;
   font-size: 1.1rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+
+.faq-question span {
+  flex: 1 !important;
+  padding-right: 15px !important;
+}
+
+/* FAQ Icon - Simple Plus sign (no animation) */
+.faq-icon {
+  width: 24px !important;
+  height: 24px !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '' !important;
+  position: absolute !important;
+  background: var(--accent) !important;
+}
+
+/* Horizontal bar of plus */
+.faq-icon::before {
+  top: 50% !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  transform: translateY(-50%) !important;
+}
+
+/* Vertical bar of plus */
+.faq-icon::after {
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  width: 2px !important;
+  transform: translateX(-50%) !important;
 }
 
 .faq-answer-content {
@@ -413,6 +459,19 @@ section {
   .footer-nav {
     gap: 40px;
   }
+}
+
+/* Dress code image below color palette */
+.dress-code-image {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.dress-code-image img {
+  max-width: 100%;
+  width: auto;
+  height: 160px;
+  border-radius: 12px;
 }
 
 @media (min-width: 1024px) {
