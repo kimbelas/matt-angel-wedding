@@ -221,7 +221,6 @@ section, .section {
         padding: 30px 20px;
         margin: 0 var(--spacing-sm);
         border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(77, 0, 19, 0.06);
     }
 
     .rsvp-form::after {
@@ -940,7 +939,6 @@ section, .section {
         padding: 30px 20px;
         margin: 0 var(--spacing-sm);
         border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(77, 0, 19, 0.06);
     }
 
     .rsvp-form::after {
@@ -1805,8 +1803,7 @@ section, .section {
 
     /* Reduce shadow complexity */
     .detail-card,
-    .gallery-item,
-    .rsvp-form {
+    .gallery-item {
         box-shadow: 0 5px 15px var(--shadow);
     }
 }

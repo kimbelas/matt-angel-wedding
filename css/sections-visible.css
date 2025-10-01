@@ -8,7 +8,8 @@
 .gift-registry,
 .faq-section,
 .venue-section,
-.venue-image-full {
+.venue-image-full,
+.reminders-section {
   opacity: 1 !important;
   visibility: visible !important;
   display: block !important;
@@ -23,7 +24,8 @@
 .gift-registry *:not([class*="gsap"]),
 .faq-section *:not([class*="gsap"]),
 .venue-section *:not([class*="gsap"]),
-.venue-image-full *:not([class*="gsap"]) {
+.venue-image-full *:not([class*="gsap"]),
+.reminders-section * {
   opacity: 1 !important;
   visibility: visible !important;
 }
@@ -68,7 +70,14 @@
 .dress-code-message,
 .story-subtitle,
 .registry-message,
-.faq-subtitle {
+.faq-subtitle,
+.reminders-title,
+.reminders-subtitle,
+.reminder-card,
+.reminder-icon,
+.reminder-title,
+.reminder-text,
+.hashtag-display {
   opacity: 1 !important;
   visibility: visible !important;
 }
