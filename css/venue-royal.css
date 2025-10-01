@@ -25,12 +25,12 @@
     width: 50px;
     flex-shrink: 0;
     position: relative;
-    padding: 20px 0;
+    padding: 0 0 20px 0;
 }
 
 .vertical-letter {
     font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
+    font-size: 3rem;
     font-weight: 700;
     color: var(--primary);
     opacity: 0.08;
@@ -177,13 +177,6 @@
     line-height: 1.2;
 }
 
-.royal-divider-small {
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    margin: 0 auto;
-}
-
 /* Royal Details List */
 .royal-details-list {
     margin-bottom: 40px;
@@ -261,10 +254,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 14px 30px;
+    gap: 6px;
+    padding: 10px 18px;
     font-family: 'Playfair Display', serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-decoration: none;
     text-align: center;
@@ -301,8 +294,8 @@
 }
 
 .royal-btn svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
 }
 
 /* Royal Map Section */
@@ -388,10 +381,6 @@
 
     .royal-label::after {
         width: 40px;
-    }
-
-    .royal-divider-small {
-        margin: 0;
     }
 
     .royal-title {

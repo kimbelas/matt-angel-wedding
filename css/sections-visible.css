@@ -1,0 +1,87 @@
+/* ================================================
+   MAKE NEW SECTIONS VISIBLE - Simple fix
+   ================================================ */
+
+/* Ensure the new sections are visible */
+.dress-code-elegant,
+.love-story,
+.gift-registry,
+.faq-section {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 1 !important;
+  min-height: 100px !important;
+}
+
+/* Make all elements inside these sections visible - except those with GSAP animations */
+.dress-code-elegant *:not([class*="gsap"]),
+.love-story *:not([class*="gsap"]):not(.timeline-event-card):not(.timeline-dot):not(.timeline-date):not(.timeline-event-title):not(.timeline-event-description),
+.gift-registry *:not([class*="gsap"]),
+.faq-section *:not([class*="gsap"]) {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure cards and containers are visible - but allow GSAP to control timeline cards */
+.dress-card,
+.gift-card,
+.faq-item,
+.dress-code-grid,
+.timeline-container,
+.gift-options,
+.faq-container {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Timeline cards should not have forced opacity - GSAP will control them */
+.timeline-event-card {
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Grid layouts need display grid */
+.dress-code-grid,
+.gift-options {
+  display: grid !important;
+}
+
+/* Ensure text is visible */
+.dress-code-title,
+.story-title,
+.registry-title,
+.faq-title,
+.dress-code-message,
+.story-subtitle,
+.registry-message,
+.faq-subtitle {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* FAQ specific - keep answers hidden until clicked */
+.faq-answer {
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+/* Loader will be controlled by JavaScript */
+
+/* Ensure sections aren't covered by overlays */
+.elegant-details::before,
+.love-story::before,
+.gift-registry::before,
+.faq-section::before {
+  z-index: -1 !important;
+  pointer-events: none !important;
+}

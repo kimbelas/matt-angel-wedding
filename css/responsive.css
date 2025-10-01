@@ -928,7 +928,7 @@ section, .section {
 
     /* RSVP Royal Mobile */
     .rsvp-section {
-        padding: 60px 0;
+        padding: 20px 0;
         min-height: auto;
     }
 
@@ -1588,7 +1588,7 @@ section, .section {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     /* Optimize images for retina displays */
     .hero {
-        background-image: linear-gradient(rgba(77, 0, 19, 0.3), rgba(77, 0, 19, 0.6)), url('/assets/images/hero.jpg');
+        background-image: url('/assets/images/hero.jpg');
     }
 }
 

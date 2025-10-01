@@ -149,6 +149,13 @@
     <link rel="stylesheet" href="/css/animations.css" />
     <link rel="stylesheet" href="/css/details-simple.css" />
     <link rel="stylesheet" href="/css/venue-royal.css" />
+    <link rel="stylesheet" href="/css/elegant-redesign.css" />
+    <link rel="stylesheet" href="/css/sections-visible.css" />
+    <link rel="stylesheet" href="/css/layout-fixes.css" />
+    <link rel="stylesheet" href="/css/timeline-enhanced.css" />
+    <link rel="stylesheet" href="/css/countdown.css" />
+    <link rel="stylesheet" href="/css/section-titles.css" />
+    <link rel="stylesheet" href="/css/white-backgrounds.css" />
     <link rel="stylesheet" href="/css/responsive.css" />
   </head>
   <body>
@@ -241,6 +248,29 @@
         <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="1100">
           Together Forever
         </p>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-container" data-aos="fade-up" data-aos-delay="1400">
+          <div class="countdown-box">
+            <div class="countdown-value" id="days">0</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="hours">0</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="minutes">0</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="seconds">0</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -275,16 +305,8 @@
             loading="lazy"
           />
           <div class="venue-overlay-gradient"></div>
-          <div class="venue-overlay-content">
-            <span class="venue-label">CEREMONY</span>
-            <h3 class="venue-title gsap-fade-up">Holy Rosary Parish Church</h3>
-            <div class="venue-time gsap-fade-up">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-              <span>1:30 in the afternoon</span>
-            </div>
+          <div class="venue-label-overlay">
+            <span class="venue-label-text">CEREMONY</span>
           </div>
         </div>
         <div class="venue-info-royal">
@@ -307,7 +329,6 @@
                 <div class="royal-header">
                   <span class="royal-label">— CEREMONY —</span>
                   <h3 class="royal-title">Holy Rosary Parish Church</h3>
-                  <div class="royal-divider-small"></div>
                 </div>
 
                 <div class="royal-details-list">
@@ -376,9 +397,12 @@
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </a>
-              <button class="royal-btn secondary" onclick="alert('Parking available at church grounds')">
+              <a href="#faq-parking" class="royal-btn secondary">
                 <span>Parking Info</span>
-              </button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -454,16 +478,8 @@
             loading="lazy"
           />
           <div class="venue-overlay-gradient"></div>
-          <div class="venue-overlay-content">
-            <span class="venue-label">RECEPTION</span>
-            <h3 class="venue-title gsap-fade-up">Grand Palazzo Royale</h3>
-            <div class="venue-time gsap-fade-up">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-              <span>Cocktails at 3:30 PM</span>
-            </div>
+          <div class="venue-label-overlay">
+            <span class="venue-label-text">RECEPTION</span>
           </div>
         </div>
         <div class="venue-info-royal">
@@ -486,7 +502,6 @@
                 <div class="royal-header">
                   <span class="royal-label">— RECEPTION —</span>
                   <h3 class="royal-title">Grand Palazzo Royale</h3>
-                  <div class="royal-divider-small"></div>
                 </div>
 
                 <div class="royal-details-list">
@@ -578,47 +593,137 @@
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </a>
-              <button class="royal-btn secondary" onclick="alert('Complimentary valet parking available')">
+              <a href="#faq-parking" class="royal-btn secondary">
                 <span>Parking Info</span>
-              </button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Quick Info Grid - Simple Cards -->
-      <div class="info-grid-simple">
-        <div class="info-card-simple gsap-scale">
-          <div class="card-emoji">👗</div>
-          <h4>Dress Code</h4>
-          <p>Formal / Semi-Formal</p>
-          <div class="color-dots">
-            <span style="background: #4d0013"></span>
-            <span style="background: #800020"></span>
-            <span style="background: #a94064"></span>
-            <span style="background: #d4af37"></span>
+      <!-- Elegant Redesigned Sections -->
+
+      <!-- Dress Code Section - Unified Design -->
+      <div class="dress-code-elegant">
+        <div class="dress-code-header">
+          <h3 class="dress-code-title">Dress Code</h3>
+          <p class="dress-code-message">
+            Join us in celebrating love with elegance and style
+          </p>
+        </div>
+
+        <div class="dress-code-unified">
+          <h4>Formal / Semi-Formal Attire</h4>
+          <p>
+            Ladies: Floor-length or cocktail dresses<br/>
+            Gentlemen: Formal suits<br/>
+            <small style="font-style: italic; opacity: 0.8;">Please consider our wedding colors below</small>
+          </p>
+
+          <div class="color-palette-unified">
+            <div class="color-swatch-large color-dark-burgundy">
+              <span class="color-label">Deep</span>
+            </div>
+            <div class="color-swatch-large color-burgundy">
+              <span class="color-label">Classic</span>
+            </div>
+            <div class="color-swatch-large color-light-burgundy">
+              <span class="color-label">Light</span>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="info-card-simple gsap-scale">
-          <div class="card-emoji">📅</div>
-          <h4>RSVP By</h4>
-          <p>November 15, 2025</p>
-          <a href="#rsvp" class="simple-btn">Confirm Attendance</a>
+
+    <!-- Love Story Timeline - NEW -->
+    <section class="love-story" data-scroll-section>
+      <div class="story-header">
+        <h2 class="story-title gsap-elegant-fade">Our Love Story</h2>
+        <p class="story-subtitle gsap-elegant-fade-up">
+          From the first hello to forever
+        </p>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-line-vertical"></div>
+
+        <div class="timeline-event-card">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">August 2018</div>
+          <h3 class="timeline-event-title">First Meeting</h3>
+          <p class="timeline-event-description">
+           Na inlove sya agad saken
+          </p>
         </div>
 
-        <div class="info-card-simple gsap-scale">
-          <div class="card-emoji">🎁</div>
-          <h4>Gift Guide</h4>
-          <p>Your presence is our present</p>
-          <small>Monetary gifts are welcome</small>
+        <div class="timeline-event-card">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">December 2018</div>
+          <h3 class="timeline-event-title">First Date</h3>
+          <p class="timeline-event-description">
+            Nagpasundo sa SM kase na stranded
+          </p>
         </div>
 
-        <div class="info-card-simple gsap-scale">
-          <div class="card-emoji">👥</div>
-          <h4>Guest Info</h4>
-          <p>Reserved seating available</p>
-          <small>Please coordinate with us</small>
+        <div class="timeline-event-card">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">April 2023</div>
+          <h3 class="timeline-event-title">Moving In Together</h3>
+          <p class="timeline-event-description">
+            Niyaya ako sa bahay
+          </p>
+        </div>
+
+        <div class="timeline-event-card">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">October 2024</div>
+          <h3 class="timeline-event-title">The Proposal</h3>
+          <p class="timeline-event-description">
+            Na surprise sya day
+          </p>
+        </div>
+
+        <div class="timeline-event-card">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">December 2025</div>
+          <h3 class="timeline-event-title">Our Wedding Day</h3>
+          <p class="timeline-event-description">
+            The day we've been dreaming of - surrounded by our loved ones, we'll say "I do" and begin our forever.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Gift Registry - NEW -->
+    <section class="gift-registry" data-scroll-section>
+      <div class="registry-header">
+        <h2 class="registry-title gsap-elegant-fade">Gift Registry</h2>
+        <p class="registry-message gsap-elegant-fade-up">
+          Your presence at our wedding is the greatest gift of all.<br/>
+          However, if you wish to honor us with a gift, we've created some options below.
+        </p>
+      </div>
+
+      <div class="gift-options">
+        <div class="gift-card gsap-elegant-stagger">
+          <div class="gift-icon"></div>
+          <h3 class="gift-title">Monetary Gifts</h3>
+          <p class="gift-description">
+            As we begin our new life together, monetary gifts would be greatly appreciated to help us build our future home.
+          </p>
+        </div>
+
+        <div class="gift-card gsap-elegant-stagger">
+          <div class="gift-icon"></div>
+          <h3 class="gift-title">Honeymoon Fund</h3>
+          <p class="gift-description">
+            Help us create unforgettable memories on our dream honeymoon to South Korea.
+          </p>
         </div>
       </div>
     </section>
@@ -755,15 +860,8 @@
     <section id="rsvp" class="rsvp-section" data-scroll-section>
       <div class="container">
         <div class="rsvp-header">
-          <div class="section-logo">
-            <img
-              src="/assets/images/logo-gold.png"
-              alt="Matthew & Angel"
-              class="section-logo-image"
-            />
-          </div>
-          <h2 class="section-title">RSVP</h2>
-          <p class="rsvp-subtitle">
+          <h2 class="rsvp-title gsap-elegant-fade">RSVP</h2>
+          <p class="rsvp-subtitle gsap-elegant-fade-up">
             Please confirm your attendance by November 15, 2025
           </p>
         </div>
@@ -842,7 +940,146 @@
         </div>
       </div>
     </section>
+
+    <!-- FAQ Section - Moved to Bottom -->
+    <section class="faq-section" data-scroll-section>
+      <div class="faq-header">
+        <h2 class="faq-title gsap-elegant-fade">Frequently Asked Questions</h2>
+        <p class="faq-subtitle gsap-elegant-fade-up">
+          Everything you need to know about our special day
+        </p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item gsap-elegant-stagger">
+          <button class="faq-question">
+            <span>What time should I arrive?</span>
+            <div class="faq-icon"></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              We recommend arriving at least 15-30 minutes before the ceremony starts at 1:30 PM. This will give you time to find your seat and settle in before the processional begins.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item gsap-elegant-stagger" id="faq-parking">
+          <button class="faq-question">
+            <span>Is there parking available?</span>
+            <div class="faq-icon"></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Yes! Both venues offer ample parking facilities for all our guests.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item gsap-elegant-stagger">
+          <button class="faq-question">
+            <span>What are the parking options at Holy Rosary Parish Church?</span>
+            <div class="faq-icon"></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Holy Rosary Parish Church has a dedicated parking area located beside the church grounds. There is free parking available for all wedding guests. We recommend arriving 15-30 minutes early to secure a convenient spot.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item gsap-elegant-stagger">
+          <button class="faq-question">
+            <span>What parking is available at Grand Palazzo Royale?</span>
+            <div class="faq-icon"></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Grand Palazzo Royale offers complimentary valet parking service for all wedding guests. Simply pull up to the main entrance, and our professional valet staff will take care of your vehicle. Your car will be safely parked and ready for you when the celebration ends.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item gsap-elegant-stagger">
+          <button class="faq-question">
+            <span>Is the valet parking service free?</span>
+            <div class="faq-icon"></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Yes! The valet parking service at Grand Palazzo Royale is completely complimentary for all our wedding guests. No tipping required - just enjoy the convenience and celebrate with us!
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item gsap-elegant-stagger">
+          <button class="faq-question">
+            <span>Can I bring my children?</span>
+            <div class="faq-icon"></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              While we love your little ones, we've decided to keep our wedding an adults-only celebration. We hope this gives you the opportunity to relax and enjoy the evening!
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item gsap-elegant-stagger">
+          <button class="faq-question">
+            <span>Will there be vegetarian/vegan options?</span>
+            <div class="faq-icon"></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Absolutely! We'll have vegetarian and vegan options available. Please let us know about any dietary restrictions when you RSVP so we can accommodate your needs.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item gsap-elegant-stagger">
+          <button class="faq-question">
+            <span>What if I can't make it?</span>
+            <div class="faq-icon"></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              We understand that not everyone will be able to celebrate with us. Please let us know as soon as possible through our RSVP form so we can adjust our arrangements accordingly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/assets/images/logo-gold.png" alt="Matthew & Angel" class="footer-logo-img">
+        </div>
+        <p class="footer-text">
+          December 5, 2025 • Angeles City, Pampanga
+        </p>
+
+        <nav class="footer-nav">
+          <a href="#home" class="footer-link">Home</a>
+          <a href="#details" class="footer-link">Details</a>
+          <a href="#gallery" class="footer-link">Gallery</a>
+          <a href="#rsvp" class="footer-link">RSVP</a>
+        </nav>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-copyright">
+          © 2025 Matthew & Angel. Created with love.
+        </p>
+      </div>
+    </footer>
+
     <script type="module" src="/main.js"></script>
+    <script src="/js/countdown.js"></script>
+    <script src="/js/faq-simple.js"></script>
+    <script src="/js/parking-scroll.js"></script>
     <script src="/js/gsap-lightweight.js" defer></script>
+    <script src="/js/timeline-animations.js" defer></script>
+    <script src="/js/elegant-animations.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,69 @@
+/* ================================================
+   WHITE BACKGROUNDS - Remove all gradients
+   ================================================ */
+
+/* Override all section backgrounds to white EXCEPT hero */
+section:not(.hero),
+.section:not(.hero),
+.venue-info-royal,
+.love-story,
+.gift-registry,
+.dress-code-elegant,
+.faq-section,
+.gallery-section,
+.details-section {
+  background: white !important;
+  background-color: white !important;
+  background-image: none !important;
+}
+
+/* Keep hero section background image - restore it */
+.hero {
+  background: url('/assets/images/hero.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+}
+
+/* Specific overrides for sections with gradients */
+.venue-info-royal {
+  background: white !important;
+}
+
+.gift-registry {
+  background: white !important;
+}
+
+.love-story {
+  background: white !important;
+}
+
+.faq-section {
+  background: white !important;
+}
+
+/* Body background - keep white but allow background images */
+body {
+  background-color: white !important;
+}
+
+/* Main container backgrounds */
+.container,
+.royal-container,
+.timeline-container {
+  background: transparent !important;
+}
+
+/* Card backgrounds should stay white */
+.dress-code-unified,
+.timeline-event-card,
+.gift-card,
+.faq-item {
+  background: white !important;
+}
+
+/* Remove any overlay gradients */
+.section-overlay,
+.gradient-overlay {
+  display: none !important;
+}

@@ -1,0 +1,432 @@
+/* ================================================
+   LAYOUT FIXES - Alignment and Spacing Improvements
+   ================================================ */
+
+/* Venue Label Overlays - Modern Corner Design */
+.venue-image-full {
+  position: relative !important;
+}
+
+.venue-label-overlay {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  background: transparent !important;
+  padding: 18px 40px 18px 30px !important;
+  border-radius: 0 !important;
+  z-index: 100 !important;
+  transition: all 0.3s ease !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%) !important;
+  box-shadow: 2px -2px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.venue-label-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.8;
+}
+
+.venue-label-text {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 2px !important;
+  color: white !important;
+  text-transform: capitalize !important;
+  display: inline-block !important;
+  position: relative !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.venue-label-overlay:hover {
+  padding-right: 50px;
+  background: #800020 !important;
+}
+
+@media (min-width: 768px) {
+  .venue-label-overlay {
+    padding: 20px 50px 20px 35px !important;
+  }
+
+  .venue-label-text {
+    font-size: 1rem !important;
+    letter-spacing: 3px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .venue-label-overlay {
+    padding: 22px 60px 22px 40px !important;
+  }
+
+  .venue-label-text {
+    font-size: 1.1rem !important;
+    letter-spacing: 3px !important;
+  }
+}
+
+/* Hide default scrollbar */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+body {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fix vertical DETAILS text alignment */
+.vertical-letters-column {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  min-height: 300px !important;
+}
+
+.vertical-letter {
+  font-family: 'Cinzel', serif !important;
+  font-size: 3rem !important;
+  font-weight: 600 !important;
+  color: var(--primary) !important;
+  opacity: 0.15 !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  padding: 6px 0 !important;
+  letter-spacing: 2px !important;
+}
+
+.venue-info-royal {
+  padding: 40px 20px !important;
+}
+
+.royal-container {
+  align-items: center !important;
+}
+
+/* ================================================
+   DRESS CODE REDESIGN - Single Card with 3 Colors
+   ================================================ */
+
+.dress-code-elegant {
+  padding: 60px 20px 0 20px !important;
+  background: var(--bg-cream);
+  position: relative;
+}
+
+.dress-code-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.dress-code-title {
+  font-size: 2.5rem !important;
+  color: var(--primary) !important;
+  margin-bottom: 15px !important;
+  font-weight: 700 !important;
+}
+
+.dress-code-message {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.3rem !important;
+  color: #666 !important;
+  line-height: 1.6 !important;
+  max-width: 600px !important;
+  margin: 0 auto 40px !important;
+}
+
+/* Single unified dress code card */
+.dress-code-unified {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 50px 40px;
+  box-shadow: 0 10px 40px rgba(77, 0, 19, 0.08);
+  text-align: center;
+}
+
+.dress-code-unified h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.dress-code-unified p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
+
+/* Color palette - only 3 burgundy shades */
+.color-palette-unified {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.color-swatch-large {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.color-swatch-large:hover {
+  transform: scale(1.15) translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Three burgundy colors */
+.color-dark-burgundy {
+  background: #2d000a;
+}
+
+.color-burgundy {
+  background: #4d0013;
+}
+
+.color-light-burgundy {
+  background: #800020;
+}
+
+.color-label {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: #999;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.color-swatch-large:hover .color-label {
+  opacity: 1;
+}
+
+/* ================================================
+   SECTION SPACING IMPROVEMENTS
+   ================================================ */
+
+/* Add proper spacing between all sections */
+section {
+  padding: 80px 0;
+}
+
+/* Love Story section spacing */
+.love-story {
+  margin-top: 0 !important;
+}
+
+.timeline-container {
+  padding: 40px 20px 20px !important;
+  position: relative;
+}
+
+/* Fix timeline line height */
+.timeline-line-vertical {
+  bottom: 20px !important;
+  height: calc(100% - 40px) !important;
+}
+
+/* Gift Registry spacing */
+.gift-registry {
+  padding: 0 20px 40px 20px !important;
+}
+
+.gift-options {
+  gap: 40px !important;
+  padding: 20px !important;
+}
+
+/* ================================================
+   FAQ IMPROVEMENTS - Add Padding to Accordion
+   ================================================ */
+
+.faq-section {
+  background: #f9f9f9;
+}
+
+.faq-question {
+  padding: 25px 30px !important;
+  font-size: 1.1rem !important;
+}
+
+.faq-answer-content {
+  padding: 20px 30px 30px !important;
+  font-size: 1.05rem !important;
+  line-height: 1.8 !important;
+  color: #666 !important;
+}
+
+.faq-item {
+  margin-bottom: 15px !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* ================================================
+   FOOTER - Matching Navbar Style
+   ================================================ */
+
+.footer {
+  background: var(--primary);
+  color: white;
+  padding: 60px 20px 40px;
+  text-align: center;
+  position: relative;
+  margin-top: 80px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo-img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(1.2);
+  transition: all 0.3s ease;
+}
+
+.footer-logo-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.4);
+}
+
+.footer-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.footer-divider {
+  width: 80px;
+  height: 1px;
+  background: var(--accent);
+  margin: 30px auto;
+  opacity: 0.5;
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 20px;
+}
+
+/* ================================================
+   RESPONSIVE ADJUSTMENTS
+   ================================================ */
+
+@media (min-width: 768px) {
+  .dress-code-unified {
+    padding: 60px 50px;
+  }
+
+  .color-swatch-large {
+    width: 70px;
+    height: 70px;
+  }
+
+  .faq-question {
+    padding: 30px 40px !important;
+  }
+
+  .faq-answer-content {
+    padding: 25px 40px 35px !important;
+  }
+
+  section {
+    padding: 100px 40px !important;
+  }
+
+  .footer {
+    padding: 80px 40px 50px;
+  }
+
+  .footer-nav {
+    gap: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dress-code-unified {
+    max-width: 700px;
+    padding: 70px 60px;
+  }
+
+  .color-palette-unified {
+    gap: 35px;
+  }
+
+  .color-swatch-large {
+    width: 80px;
+    height: 80px;
+  }
+}

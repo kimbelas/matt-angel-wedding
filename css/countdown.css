@@ -1,0 +1,195 @@
+/* ================================================
+   COUNTDOWN TIMER - Elegant Wedding Countdown
+   ================================================ */
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  padding: 15px 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.countdown-box:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+}
+
+.countdown-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 5px;
+}
+
+.countdown-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.countdown-separator {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: white;
+  opacity: 0.6;
+  margin: 0 5px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .countdown-container {
+    gap: 8px;
+    padding: 20px 15px;
+    max-width: 90%;
+  }
+
+  .countdown-box {
+    min-width: 55px;
+    padding: 12px 8px;
+  }
+
+  .countdown-value {
+    font-size: 1.8rem;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+  }
+
+  .countdown-separator {
+    font-size: 1.5rem;
+    margin: 0 2px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .countdown-container {
+    gap: 5px;
+    padding: 15px 10px;
+  }
+
+  .countdown-box {
+    min-width: 45px;
+    padding: 10px 5px;
+  }
+
+  .countdown-value {
+    font-size: 1.5rem;
+  }
+
+  .countdown-label {
+    font-size: 0.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .countdown-separator {
+    font-size: 1.2rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .countdown-container {
+    gap: 12px;
+    padding: 25px 18px;
+  }
+
+  .countdown-box {
+    min-width: 65px;
+    padding: 14px 9px;
+  }
+
+  .countdown-value {
+    font-size: 2.2rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .countdown-container {
+    gap: 20px;
+    padding: 35px 25px;
+    max-width: 700px;
+  }
+
+  .countdown-box {
+    min-width: 80px;
+    padding: 20px 12px;
+  }
+
+  .countdown-value {
+    font-size: 3rem;
+  }
+
+  .countdown-label {
+    font-size: 0.8rem;
+  }
+
+  .countdown-separator {
+    font-size: 2.5rem;
+    margin: 0 8px;
+  }
+}
+
+/* Animation for value changes */
+@keyframes countUpdate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    color: var(--accent);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.countdown-value.updating {
+  animation: countUpdate 0.3s ease;
+}

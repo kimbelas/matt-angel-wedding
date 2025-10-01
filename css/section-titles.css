@@ -1,0 +1,95 @@
+/* ================================================
+   SECTION TITLES - Single Source of Truth
+   Using gallery-title design for ALL section titles
+   ================================================ */
+
+/* Apply gallery-title styling to all section titles */
+.details-title,
+.story-title,
+.dress-code-title,
+.registry-title,
+.faq-title,
+.rsvp-title,
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-top: 60px;
+}
+
+/* Logo icon above each title */
+.details-title::before,
+.story-title::before,
+.dress-code-title::before,
+.registry-title::before,
+.faq-title::before,
+.rsvp-title::before,
+.section-title::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background-image: url('/assets/images/logo-gold.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+}
+
+/* Underline decoration - centered gradient style from proposal-header */
+.details-title::after,
+.story-title::after,
+.registry-title::after,
+.faq-title::after,
+.rsvp-title::after,
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  border-radius: 2px;
+}
+
+/* Smaller underline for h3 dress-code-title */
+.dress-code-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  border-radius: 2px;
+}
+
+/* Center align titles when in centered headers */
+.details-header,
+.story-header,
+.dress-code-header,
+.registry-header,
+.faq-header,
+.rsvp-header {
+  text-align: center;
+}
+
+/* Center the logo icon for centered titles */
+.details-header .details-title::before,
+.story-header .story-title::before,
+.dress-code-header .dress-code-title::before,
+.registry-header .registry-title::before,
+.faq-header .faq-title::before,
+.rsvp-header .rsvp-title::before,
+.rsvp-header .section-title::before {
+  left: 50%;
+  transform: translateX(-50%);
+}
