@@ -1,0 +1,459 @@
+/* Enhanced Venue Info Sections - Mobile First */
+
+/* Venue Info Section Container */
+.venue-info-section {
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8f7f5 100%);
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.venue-info-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+    animation: rotateGradient 20s linear infinite;
+}
+
+@keyframes rotateGradient {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.venue-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced Details Card */
+.venue-details-enhanced {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-shadow: 0 10px 40px rgba(77, 0, 19, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.venue-details-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent));
+    background-size: 200% 100%;
+    animation: shimmerBar 3s ease infinite;
+}
+
+@keyframes shimmerBar {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Card Header */
+.detail-card-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary), #800020);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 5px 20px rgba(77, 0, 19, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.icon-circle.reception {
+    background: linear-gradient(135deg, var(--accent), #b8941f);
+}
+
+.icon-circle::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shine 3s ease infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%); }
+    100% { transform: translateX(100%) translateY(100%); }
+}
+
+.detail-heading {
+    flex: 1;
+}
+
+.detail-label {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.detail-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Info Grid */
+.detail-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(250, 250, 250, 0.5);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.info-item:hover {
+    background: white;
+    border-color: rgba(212, 175, 55, 0.2);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(77, 0, 19, 0.05);
+}
+
+.info-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.info-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.info-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    font-weight: 600;
+}
+
+.info-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-elegant,
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-elegant {
+    background: linear-gradient(135deg, var(--primary), #800020);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(77, 0, 19, 0.2);
+}
+
+.btn-elegant:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(77, 0, 19, 0.3);
+}
+
+.btn-elegant::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-elegant:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--accent);
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Enhanced Map Section */
+.venue-map-enhanced {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(77, 0, 19, 0.1);
+    min-height: 350px;
+}
+
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.map-overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 70%, rgba(0,0,0,0.1) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.map-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.map-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 12px;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    z-index: 2;
+}
+
+.map-caption span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--primary);
+    opacity: 0.8;
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+    .venue-info-section {
+        padding: 60px 40px;
+    }
+
+    .venue-content-wrapper {
+        flex-direction: row;
+        gap: 40px;
+        align-items: stretch;
+    }
+
+    .venue-details-enhanced {
+        flex: 1.2;
+        padding: 40px 35px;
+    }
+
+    .detail-card-header {
+        gap: 25px;
+    }
+
+    .icon-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .detail-label {
+        font-size: 0.8rem;
+    }
+
+    .detail-title {
+        font-size: 2rem;
+    }
+
+    .detail-info-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .venue-map-enhanced {
+        flex: 1;
+        min-height: 450px;
+    }
+
+    .map-wrapper {
+        height: 100%;
+        min-height: 450px;
+    }
+
+    .action-buttons {
+        gap: 20px;
+    }
+
+    .btn-elegant,
+    .btn-outline {
+        padding: 14px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .venue-info-section {
+        padding: 80px 60px;
+    }
+
+    .venue-content-wrapper {
+        gap: 60px;
+    }
+
+    .venue-details-enhanced {
+        padding: 50px 45px;
+    }
+
+    .icon-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .detail-label {
+        font-size: 0.85rem;
+        letter-spacing: 3px;
+    }
+
+    .detail-title {
+        font-size: 2.3rem;
+    }
+
+    .info-item {
+        padding: 20px;
+    }
+
+    .info-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .info-label {
+        font-size: 0.8rem;
+    }
+
+    .info-value {
+        font-size: 1.1rem;
+    }
+
+    .venue-map-enhanced {
+        min-height: 500px;
+    }
+
+    .map-wrapper {
+        min-height: 500px;
+    }
+
+    .map-caption {
+        padding: 15px;
+    }
+
+    .map-caption span {
+        font-size: 1rem;
+    }
+}
+
+/* Animation Classes for GSAP */
+.venue-details-enhanced,
+.venue-map-enhanced {
+    opacity: 0;
+}
+
+/* Hover Effects */
+@media (hover: hover) {
+    .venue-details-enhanced:hover {
+        box-shadow: 0 15px 50px rgba(77, 0, 19, 0.12);
+    }
+
+    .venue-map-enhanced:hover {
+        box-shadow: 0 15px 50px rgba(77, 0, 19, 0.15);
+    }
+
+    .map-wrapper:hover .map-overlay-gradient {
+        opacity: 0;
+    }
+}

@@ -75,7 +75,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Bergstana Script', 'Allura', 'Great Vibes', cursive;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: var(--spacing-sm);
@@ -808,7 +808,6 @@ p {
 }
 
 .success-message h3 {
-    font-family: 'Cinzel', serif;
     margin-bottom: var(--spacing-sm);
     font-size: 2rem;
     letter-spacing: 1px;

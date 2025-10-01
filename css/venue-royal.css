@@ -1,0 +1,538 @@
+/* Royal Venue Info Section - Mobile First */
+
+.venue-info-royal {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #faf9f7 50%, #f5f3f0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Royal Container */
+.royal-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    position: relative;
+}
+
+/* Vertical Letters Column - Mobile First */
+.vertical-letters-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    flex-shrink: 0;
+    position: relative;
+    padding: 20px 0;
+}
+
+.vertical-letter {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    opacity: 0.08;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 8px 0;
+    user-select: none;
+    position: relative;
+}
+
+/* Add decorative line between letters */
+.vertical-letter:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 16px;
+    background: var(--accent);
+    opacity: 0.2;
+}
+
+/* Content Grid - Old Layout */
+.royal-content-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+/* Content Area for Details */
+.royal-content-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.royal-content-area .venue-royal-info {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Map Container - Second Row */
+.royal-map-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.royal-map-container .venue-royal-map {
+    width: 100%;
+}
+
+/* Map with Actions Layout */
+.map-with-actions {
+    display: flex;
+    gap: 30px;
+    align-items: stretch;
+}
+
+.map-with-actions .venue-royal-map {
+    flex: 1;
+}
+
+/* Actions on the Side */
+.royal-actions-side {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    min-width: 200px;
+}
+
+/* Mobile: Stack map and actions */
+@media (max-width: 767px) {
+    .map-with-actions {
+        flex-direction: column;
+    }
+
+    .royal-actions-side {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        min-width: auto;
+    }
+
+    .royal-actions-side .royal-btn {
+        flex: 1;
+    }
+}
+
+/* Royal Info Section */
+.venue-royal-info {
+    position: relative;
+}
+
+.royal-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.royal-label {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-weight: 600;
+    position: relative;
+}
+
+.royal-label::before,
+.royal-label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.5;
+}
+
+.royal-label::before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.royal-label::after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+.royal-title {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.royal-divider-small {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 0 auto;
+}
+
+/* Royal Details List */
+.royal-details-list {
+    margin-bottom: 40px;
+}
+
+.royal-detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    transition: all 0.3s ease;
+}
+
+.royal-detail-row:first-child {
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.royal-detail-row:hover {
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+    padding-left: 10px;
+}
+
+.detail-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.detail-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--accent);
+}
+
+.detail-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detail-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.detail-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--primary);
+    line-height: 1.4;
+}
+
+/* Royal Action Buttons */
+.royal-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.royal-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.royal-btn.primary {
+    background: linear-gradient(135deg, var(--primary), #800020);
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(77, 0, 19, 0.2);
+}
+
+.royal-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(77, 0, 19, 0.3);
+}
+
+.royal-btn.secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--accent);
+    border-radius: 30px;
+}
+
+.royal-btn.secondary:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.royal-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Royal Map Section */
+.venue-royal-map {
+    position: relative;
+}
+
+
+.map-frame {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(77, 0, 19, 0.1);
+}
+
+.map-border-top,
+.map-border-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent));
+    background-size: 200% 100%;
+    animation: shimmerBorder 3s linear infinite;
+    z-index: 2;
+}
+
+.map-border-top {
+    top: 0;
+}
+
+.map-border-bottom {
+    bottom: 0;
+}
+
+@keyframes shimmerBorder {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Tablet Styles (768px and up) */
+@media (min-width: 768px) {
+    .venue-info-royal {
+        padding: 80px 40px;
+    }
+
+    .vertical-letters-column {
+        width: 80px;
+        padding: 30px 0;
+    }
+
+    .vertical-letter {
+        font-size: 2.5rem;
+        padding: 12px 0;
+        opacity: 0.06;
+    }
+
+    .vertical-letter:not(:last-child)::after {
+        height: 24px;
+    }
+
+    .royal-content-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: stretch;
+    }
+
+    .royal-header {
+        text-align: left;
+    }
+
+    .royal-label::before {
+        display: none;
+    }
+
+    .royal-label::after {
+        width: 40px;
+    }
+
+    .royal-divider-small {
+        margin: 0;
+    }
+
+    .royal-title {
+        font-size: 2.5rem;
+    }
+
+    .royal-detail-row {
+        padding: 25px 0;
+    }
+
+    .detail-value {
+        font-size: 1.2rem;
+    }
+
+    .royal-actions {
+        justify-content: flex-start;
+    }
+
+    .royal-btn {
+        padding: 16px 35px;
+        font-size: 1rem;
+    }
+
+    .map-frame {
+        height: 450px;
+    }
+}
+
+/* Desktop Styles (1024px and up) */
+@media (min-width: 1024px) {
+    .venue-info-royal {
+        padding: 100px 60px;
+    }
+
+    .royal-container {
+        gap: 60px;
+    }
+
+    .vertical-letters-column {
+        width: 100px;
+    }
+
+    .vertical-letter {
+        font-size: 3rem;
+        padding: 15px 0;
+        opacity: 0.05;
+    }
+
+    .vertical-letter:not(:last-child)::after {
+        height: 30px;
+        width: 2px;
+    }
+
+    .royal-content-grid {
+        gap: 60px;
+    }
+
+    .royal-label {
+        font-size: 0.85rem;
+        letter-spacing: 5px;
+    }
+
+    .royal-title {
+        font-size: 3rem;
+        margin-bottom: 25px;
+    }
+
+    .royal-detail-row {
+        padding: 30px 0;
+    }
+
+    .royal-detail-row:hover {
+        padding-left: 20px;
+    }
+
+    .detail-icon {
+        width: 45px;
+        height: 45px;
+        padding: 10px;
+    }
+
+    .detail-name {
+        font-size: 0.8rem;
+    }
+
+    .detail-value {
+        font-size: 1.3rem;
+    }
+
+    .map-frame {
+        height: 500px;
+        border-radius: 20px;
+    }
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+    .vertical-text-wrapper {
+        width: 150px;
+    }
+
+    .vertical-text {
+        font-size: 8rem;
+        letter-spacing: 60px;
+    }
+
+    .royal-flourish {
+        width: 40px;
+        height: 250px;
+    }
+}
+
+/* Animation classes */
+.gsap-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Hover effects */
+@media (hover: hover) {
+    .map-frame:hover {
+        box-shadow: 0 15px 50px rgba(77, 0, 19, 0.15);
+        transform: translateY(-2px);
+        transition: all 0.3s ease;
+    }
+
+    .royal-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .royal-btn:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+}
