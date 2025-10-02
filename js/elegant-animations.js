@@ -73,6 +73,7 @@ class ElegantAnimations {
     });
 
     // Initialize all animations
+    this.setupGlobalFadeAnimations();
     this.setupHeaderAnimations();
     this.setupDressCodeAnimations();
     this.setupWeddingPartyAnimations();
@@ -87,6 +88,107 @@ class ElegantAnimations {
     // Clean up on page unload
     window.addEventListener('beforeunload', () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    });
+  }
+
+  // Global Fade Animations for all text elements
+  setupGlobalFadeAnimations() {
+    // Fade in animation for gsap-elegant-fade class
+    const fadeElements = gsap.utils.toArray('.gsap-elegant-fade');
+    fadeElements.forEach(element => {
+      gsap.from(element, {
+        opacity: 0,
+        y: 30,
+        duration: this.animationSettings.duration,
+        ease: this.animationSettings.ease,
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    });
+
+    // Fade up animation for gsap-elegant-fade-up class
+    const fadeUpElements = gsap.utils.toArray('.gsap-elegant-fade-up');
+    fadeUpElements.forEach(element => {
+      gsap.from(element, {
+        opacity: 0,
+        y: 40,
+        duration: this.animationSettings.duration,
+        delay: 0.2,
+        ease: this.animationSettings.ease,
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    });
+
+    // Stagger animation for gsap-elegant-stagger class
+    const staggerElements = gsap.utils.toArray('.gsap-elegant-stagger');
+    if (staggerElements.length > 0) {
+      gsap.from(staggerElements, {
+        opacity: 0,
+        y: 40,
+        duration: this.animationSettings.duration,
+        stagger: this.animationSettings.stagger,
+        ease: this.animationSettings.ease,
+        scrollTrigger: {
+          trigger: staggerElements[0].parentElement,
+          start: 'top 80%',
+          once: true
+        }
+      });
+    }
+
+    // Fade left animation
+    const fadeLeftElements = gsap.utils.toArray('.gsap-elegant-fade-left');
+    fadeLeftElements.forEach(element => {
+      gsap.from(element, {
+        opacity: 0,
+        x: -50,
+        duration: this.animationSettings.duration,
+        ease: this.animationSettings.ease,
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    });
+
+    // Fade right animation
+    const fadeRightElements = gsap.utils.toArray('.gsap-elegant-fade-right');
+    fadeRightElements.forEach(element => {
+      gsap.from(element, {
+        opacity: 0,
+        x: 50,
+        duration: this.animationSettings.duration,
+        ease: this.animationSettings.ease,
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    });
+
+    // Scale animation
+    const scaleElements = gsap.utils.toArray('.gsap-elegant-scale');
+    scaleElements.forEach(element => {
+      gsap.from(element, {
+        opacity: 0,
+        scale: 0.8,
+        duration: this.animationSettings.duration,
+        ease: 'back.out(1.7)',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 85%',
+          once: true
+        }
+      });
     });
   }
 

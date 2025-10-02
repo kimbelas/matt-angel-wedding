@@ -258,15 +258,31 @@ section {
   height: calc(68%) !important;
 
   @media (max-width: 1020px) {
-    height: calc(66%) !important;
+    height: calc(69%) !important;
   }
 
   @media (max-width: 620px) {
-    height: calc(68%) !important;
+    height: calc(72%) !important;
+  }
+
+  @media (max-width: 482px) {
+    height: calc(72%) !important;
   }
 
   @media (max-width: 458px) {
-    height: calc(70%) !important;
+    height: calc(74%) !important;
+  }
+
+  @media (max-width: 420px) {
+    height: calc(77%) !important;
+  }
+
+  @media (max-width: 368px) {
+    height: calc(76%) !important;
+  }
+
+  @media (max-width: 360px) {
+    height: calc(78%) !important;
   }
 }
 
