@@ -5,10 +5,10 @@
 
 .love-story {
   position: relative;
-  padding: 200px 20px 120px;
+  padding: 100px 20px 120px;
   overflow: visible;
-  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
-  margin-top: 150px;
+  background: transparent;
+  margin-top: 0;
 }
 
 /* Blurred Background Layer - Real Image Blur */
@@ -27,7 +27,7 @@
   transform: scale(1.1);
 }
 
-/* Dark overlay for dramatic contrast */
+/* Dark overlay for dramatic contrast with smooth gradient */
 .love-story-background::after {
   content: '';
   position: absolute;
@@ -37,9 +37,9 @@
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.8) 0%,
     rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.6) 100%
+    rgba(0, 0, 0, 0.7) 100%
   );
   z-index: 2;
 }
@@ -52,12 +52,12 @@
   margin: 0 auto;
 }
 
-/* Square Couple Image - Positioned ABOVE section, overlapping */
+/* Square Couple Image - Clean spacing, no overlap */
 .love-story-image-container {
   width: 100%;
   max-width: 450px;
   position: relative;
-  margin: -150px auto 60px;
+  margin: 0 auto 60px;
   z-index: 3;
 }
 
@@ -85,36 +85,7 @@
     0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Decorative Frame */
-.love-story-image-container::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
-  border: 3px solid var(--accent);
-  border-radius: 30px;
-  opacity: 0.4;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Decorative Corner Accents */
-.love-story-image-container::after {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: -30px;
-  width: 80px;
-  height: 80px;
-  border-top: 4px solid var(--accent);
-  border-left: 4px solid var(--accent);
-  border-radius: 30px 0 0 0;
-  opacity: 0.6;
-  pointer-events: none;
-  z-index: 1;
-}
+/* Remove decorative frames for cleaner UI */
 
 /* Story Header */
 .story-header {
@@ -256,11 +227,10 @@
 
 /* Timeline Event Title - Large White Text */
 .timeline-event-title {
-  font-family: 'Playfair Display', serif;
   font-size: 3.2rem;
   font-weight: 700;
   color: white;
-  margin-bottom: 18px;
+  margin-bottom: 5px;
   line-height: 1.2;
   letter-spacing: -1px;
   text-shadow:
@@ -283,13 +253,13 @@
 /* Mobile Responsive - Enhanced Side-by-Side */
 @media (max-width: 768px) {
   .love-story {
-    padding: 180px 15px 80px;
-    margin-top: 100px;
+    padding: 80px 15px 80px;
+    margin-top: 0;
   }
 
   .love-story-image-container {
     max-width: 260px;
-    margin: -110px auto 60px;
+    margin: 0 auto 50px;
   }
 
   .love-story-square-image {
@@ -367,7 +337,7 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .love-story-image-container {
     max-width: 350px;
-    margin: -130px auto 70px;
+    margin: 0 auto 70px;
   }
 
   .story-title {
@@ -403,8 +373,8 @@
 /* Large Desktop */
 @media (min-width: 1200px) {
   .love-story {
-    padding: 220px 40px 150px;
-    margin-top: 180px;
+    padding: 100px 40px 150px;
+    margin-top: 0;
   }
 
   .love-story-image-container {
