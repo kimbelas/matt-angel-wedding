@@ -91,7 +91,6 @@
   font-weight: 600;
   letter-spacing: 3px;
   color: var(--accent);
-  text-transform: uppercase;
   margin-bottom: 12px;
   opacity: 0.8;
 }
