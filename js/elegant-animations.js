@@ -195,131 +195,106 @@ class ElegantAnimations {
   // Header and Title Animations
   setupHeaderAnimations() {
     // Elegant fade in for main titles
-    gsap.from('.elegant-title', {
-      opacity: 0,
-      y: 30,
-      duration: this.animationSettings.duration,
-      stagger: 0.2,
-      ease: this.animationSettings.ease
-    });
+    const elegantTitles = document.querySelectorAll('.elegant-title');
+    if (elegantTitles.length > 0) {
+      gsap.from(elegantTitles, {
+        opacity: 0,
+        y: 30,
+        duration: this.animationSettings.duration,
+        stagger: 0.2,
+        ease: this.animationSettings.ease
+      });
+    }
 
     // Subtitle animations
-    gsap.from('.elegant-subtitle', {
-      opacity: 0,
-      y: 20,
-      duration: this.animationSettings.duration,
-      delay: 0.3,
-      ease: this.animationSettings.ease
-    });
+    const elegantSubtitles = document.querySelectorAll('.elegant-subtitle');
+    if (elegantSubtitles.length > 0) {
+      gsap.from(elegantSubtitles, {
+        opacity: 0,
+        y: 20,
+        duration: this.animationSettings.duration,
+        delay: 0.3,
+        ease: this.animationSettings.ease
+      });
+    }
 
     // Hand-drawn underline effect
-    gsap.from('.hand-drawn-underline', {
-      backgroundSize: '0px 10px',
-      duration: 1,
-      delay: 0.5,
-      ease: 'power3.out'
-    });
+    const underlines = document.querySelectorAll('.hand-drawn-underline');
+    if (underlines.length > 0) {
+      gsap.from(underlines, {
+        backgroundSize: '0px 10px',
+        duration: 1,
+        delay: 0.5,
+        ease: 'power3.out'
+      });
+    }
   }
 
   // Dress Code Section Animations
   setupDressCodeAnimations() {
-    // Dress code title with circle decoration
-    const dressTitle = document.querySelector('.dress-code-title');
-    if (dressTitle) {
-      gsap.from(dressTitle, {
+    // Only animate if dress code elements exist
+    const dressCards = document.querySelectorAll('.dress-card');
+    if (dressCards.length > 0) {
+      gsap.from(dressCards, {
         opacity: 0,
-        scale: 0.9,
+        y: 40,
         duration: this.animationSettings.duration,
+        stagger: this.animationSettings.stagger,
         scrollTrigger: {
-          trigger: dressTitle,
+          trigger: '.dress-code-grid',
+          start: 'top 80%',
+          once: true
+        }
+      });
+    }
+
+    // Color swatches animation
+    const colorSwatches = document.querySelectorAll('.color-swatch');
+    const colorPalette = document.querySelector('.color-palette');
+    if (colorSwatches.length > 0 && colorPalette) {
+      gsap.from(colorSwatches, {
+        opacity: 0,
+        scale: 0,
+        duration: 0.4,
+        stagger: 0.05,
+        ease: 'back.out(1.7)',
+        scrollTrigger: {
+          trigger: colorPalette,
           start: 'top 85%',
           once: true
         }
       });
-
-      // Animate the circle decoration
-      gsap.from('.dress-code-title::after', {
-        opacity: 0,
-        scale: 0,
-        duration: 0.8,
-        delay: 0.2,
-        ease: 'back.out(1.7)'
-      });
     }
 
-    // Dress cards stagger animation
-    gsap.from('.dress-card', {
-      opacity: 0,
-      y: 40,
-      duration: this.animationSettings.duration,
-      stagger: this.animationSettings.stagger,
-      scrollTrigger: {
-        trigger: '.dress-code-grid',
-        start: 'top 80%',
-        once: true
-      }
-    });
-
-    // Color swatches animation
-    gsap.from('.color-swatch', {
-      opacity: 0,
-      scale: 0,
-      duration: 0.4,
-      stagger: 0.05,
-      ease: 'back.out(1.7)',
-      scrollTrigger: {
-        trigger: '.color-palette',
-        start: 'top 85%',
-        once: true
-      }
-    });
-
     // Dress icons drawing effect
-    this.animateSVGIcons('.dress-icon-ladies, .dress-icon-gentlemen');
+    const dressIcons = document.querySelectorAll('.dress-icon-ladies, .dress-icon-gentlemen');
+    if (dressIcons.length > 0) {
+      this.animateSVGIcons('.dress-icon-ladies, .dress-icon-gentlemen');
+    }
   }
 
   // Wedding Party Section Animations
   setupWeddingPartyAnimations() {
-    // Party title with decorative flourishes
-    const partyTitle = document.querySelector('.party-title');
-    if (partyTitle) {
-      gsap.from(partyTitle, {
+    // Party cards with elegant reveal
+    const partyCards = document.querySelectorAll('.party-card');
+    const partyGrid = document.querySelector('.party-grid');
+    if (partyCards.length > 0 && partyGrid) {
+      gsap.from(partyCards, {
         opacity: 0,
-        y: 30,
+        y: 50,
+        rotateY: this.isMobile ? 0 : 10,
         duration: this.animationSettings.duration,
+        stagger: {
+          amount: 0.6,
+          from: 'start'
+        },
         scrollTrigger: {
-          trigger: partyTitle,
-          start: 'top 85%',
+          trigger: partyGrid,
+          start: 'top 80%',
           once: true
         }
       });
-
-      // Animate flourishes
-      gsap.from('.party-title::before, .party-title::after', {
-        opacity: 0,
-        scale: 0,
-        duration: 0.6,
-        delay: 0.3,
-        ease: 'back.out(1.7)'
-      });
     }
-
-    // Party cards with elegant reveal
-    gsap.from('.party-card', {
-      opacity: 0,
-      y: 50,
-      rotateY: this.isMobile ? 0 : 10,
-      duration: this.animationSettings.duration,
-      stagger: {
-        amount: 0.6,
-        from: 'start'
-      },
-      scrollTrigger: {
-        trigger: '.party-grid',
-        start: 'top 80%',
-        once: true
-      }
-    });
   }
 
   // Love Story Timeline Animations
@@ -380,82 +355,98 @@ class ElegantAnimations {
   // Accommodations Section Animations
   setupAccommodationsAnimations() {
     // Hotel cards with elegant reveal
-    gsap.from('.hotel-card', {
-      opacity: 0,
-      y: 40,
-      duration: this.animationSettings.duration,
-      stagger: this.animationSettings.stagger,
-      scrollTrigger: {
-        trigger: '.hotel-grid',
-        start: 'top 80%',
-        once: true
-      }
-    });
+    const hotelCards = document.querySelectorAll('.hotel-card');
+    const hotelGrid = document.querySelector('.hotel-grid');
+    if (hotelCards.length > 0 && hotelGrid) {
+      gsap.from(hotelCards, {
+        opacity: 0,
+        y: 40,
+        duration: this.animationSettings.duration,
+        stagger: this.animationSettings.stagger,
+        scrollTrigger: {
+          trigger: hotelGrid,
+          start: 'top 80%',
+          once: true
+        }
+      });
+    }
 
     // Amenity tags animation
-    gsap.from('.amenity-tag', {
-      opacity: 0,
-      scale: 0.8,
-      duration: 0.3,
-      stagger: 0.03,
-      scrollTrigger: {
-        trigger: '.hotel-amenities',
-        start: 'top 85%',
-        once: true
-      }
-    });
+    const amenityTags = document.querySelectorAll('.amenity-tag');
+    const hotelAmenities = document.querySelector('.hotel-amenities');
+    if (amenityTags.length > 0 && hotelAmenities) {
+      gsap.from(amenityTags, {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.3,
+        stagger: 0.03,
+        scrollTrigger: {
+          trigger: hotelAmenities,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    }
   }
 
   // Gift Registry Animations
   setupGiftRegistryAnimations() {
     // Gift cards with floating effect
     const giftCards = gsap.utils.toArray('.gift-card');
-    giftCards.forEach((card, index) => {
-      gsap.from(card, {
-        opacity: 0,
-        y: 60,
-        rotation: index % 2 === 0 ? -3 : 3,
-        duration: this.animationSettings.duration,
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          once: true
+    if (giftCards.length > 0) {
+      giftCards.forEach((card, index) => {
+        gsap.from(card, {
+          opacity: 0,
+          y: 60,
+          rotation: index % 2 === 0 ? -3 : 3,
+          duration: this.animationSettings.duration,
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            once: true
+          }
+        });
+
+        // Floating animation on idle
+        if (!this.isMobile) {
+          gsap.to(card, {
+            y: -10,
+            duration: 2 + (index * 0.2),
+            repeat: -1,
+            yoyo: true,
+            ease: 'power1.inOut',
+            delay: index * 0.1
+          });
         }
       });
-
-      // Floating animation on idle
-      if (!this.isMobile) {
-        gsap.to(card, {
-          y: -10,
-          duration: 2 + (index * 0.2),
-          repeat: -1,
-          yoyo: true,
-          ease: 'power1.inOut',
-          delay: index * 0.1
-        });
-      }
-    });
+    }
 
     // Gift icon drawing effect
-    this.animateSVGIcons('.gift-icon');
+    const giftIcons = document.querySelectorAll('.gift-icon');
+    if (giftIcons.length > 0) {
+      this.animateSVGIcons('.gift-icon');
+    }
   }
 
   // FAQ Section Animations
   setupFAQAnimations() {
     const faqItems = document.querySelectorAll('.faq-item');
+    const faqContainer = document.querySelector('.faq-container');
 
     // Initial reveal animation
-    gsap.from(faqItems, {
-      opacity: 0,
-      y: 30,
-      duration: this.animationSettings.duration,
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '.faq-container',
-        start: 'top 80%',
-        once: true
-      }
-    });
+    if (faqItems.length > 0 && faqContainer) {
+      gsap.from(faqItems, {
+        opacity: 0,
+        y: 30,
+        duration: this.animationSettings.duration,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: faqContainer,
+          start: 'top 80%',
+          once: true
+        }
+      });
+    }
 
     // Accordion functionality with GSAP
     faqItems.forEach(item => {
