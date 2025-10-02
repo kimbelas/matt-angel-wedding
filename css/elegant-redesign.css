@@ -363,9 +363,9 @@
 }
 
 /* ==========================================
-   LOVE STORY TIMELINE
+   LOVE STORY TIMELINE - DISABLED (using love-story-redesign.css instead)
    ========================================== */
-.love-story {
+/* .love-story {
   background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-white) 100%);
   position: relative;
   overflow: hidden;
@@ -392,14 +392,12 @@
   font-style: italic;
 }
 
-/* Timeline Container */
 .timeline-container {
   max-width: 900px;
   margin: 0 auto;
   position: relative;
 }
 
-/* Vertical timeline line */
 .timeline-line-vertical {
   position: absolute;
   left: 20px;
@@ -410,7 +408,6 @@
   background-repeat: repeat-y;
 }
 
-/* Timeline Events */
 .timeline-event-card {
   position: relative;
   padding-left: 60px;
@@ -430,7 +427,6 @@
   }
 }
 
-/* Timeline dot */
 .timeline-dot {
   position: absolute;
   left: 12px;
@@ -462,7 +458,7 @@
   font-size: 1.1rem;
   color: var(--text-medium);
   line-height: 1.6;
-}
+} */
 
 /* ==========================================
    GUEST ACCOMMODATIONS
@@ -595,7 +591,7 @@
 
 .registry-header {
   margin-bottom: 50px;
-  padding-top: 10px;
+  padding-top: 50px;
 }
 
 .registry-title {

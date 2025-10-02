@@ -132,6 +132,33 @@ document.addEventListener('DOMContentLoaded', function() {
   // Special animation for the last card (wedding day)
   const lastCard = timelineCards[timelineCards.length - 1];
   if (lastCard) {
+    // Calculate where to stop the timeline line
+    function clipTimelineLine() {
+      const timelineLine = document.querySelector('.timeline-line-vertical');
+      const timelineContainer = document.querySelector('.timeline-container');
+
+      if (timelineLine && timelineContainer && lastCard) {
+        // Get the position of the card relative to the container
+        const containerTop = timelineContainer.offsetTop;
+        const cardTop = lastCard.offsetTop;
+        const cardHeight = lastCard.offsetHeight;
+        const containerHeight = timelineContainer.offsetHeight;
+
+        // Calculate where the card top border is
+        const stopPoint = cardTop - containerTop - 80; // Subtract padding/margin to stop at top border
+        const stopPixels = Math.max(0, stopPoint);
+
+        // Apply height directly to stop the line
+        timelineLine.style.height = `${stopPixels}px`;
+        timelineLine.style.bottom = 'auto';
+      }
+    }
+
+    // Apply on load and resize with delay to ensure layout is ready
+    setTimeout(clipTimelineLine, 100);
+    window.addEventListener('resize', clipTimelineLine);
+    window.addEventListener('load', clipTimelineLine);
+
     // Add a pulsing glow effect to the wedding day card
     gsap.to(lastCard, {
       boxShadow: '0 5px 30px rgba(212, 175, 55, 0.3)',

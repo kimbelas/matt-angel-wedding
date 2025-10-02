@@ -255,7 +255,19 @@ section {
 /* Fix timeline line height */
 .timeline-line-vertical {
   bottom: 20px !important;
-  height: calc(100% - 40px) !important;
+  height: calc(68%) !important;
+
+  @media (max-width: 1020px) {
+    height: calc(66%) !important;
+  }
+
+  @media (max-width: 620px) {
+    height: calc(68%) !important;
+  }
+
+  @media (max-width: 458px) {
+    height: calc(70%) !important;
+  }
 }
 
 /* Gift Registry spacing */

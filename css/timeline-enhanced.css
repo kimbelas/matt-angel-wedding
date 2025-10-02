@@ -56,7 +56,7 @@
   bottom: 0;
   width: 2px;
   background: linear-gradient(
-    to bottom,
+    to top,
     transparent 0%,
     var(--accent) 10%,
     var(--accent) 90%,

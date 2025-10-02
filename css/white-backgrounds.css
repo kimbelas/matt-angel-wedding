@@ -2,11 +2,10 @@
    WHITE BACKGROUNDS - Remove all gradients
    ================================================ */
 
-/* Override all section backgrounds to white EXCEPT hero */
-section:not(.hero),
-.section:not(.hero),
+/* Override all section backgrounds to white EXCEPT hero and love-story */
+section:not(.hero):not(.love-story),
+.section:not(.hero):not(.love-story),
 .venue-info-royal,
-.love-story,
 .gift-registry,
 .dress-code-elegant,
 .faq-section,
@@ -34,9 +33,9 @@ section:not(.hero),
   background: white !important;
 }
 
-.love-story {
+/* .love-story {
   background: white !important;
-}
+} */
 
 .faq-section {
   background: white !important;
@@ -54,9 +53,8 @@ body {
   background: transparent !important;
 }
 
-/* Card backgrounds should stay white */
+/* Card backgrounds should stay white (except love story timeline) */
 .dress-code-unified,
-.timeline-event-card,
 .gift-card,
 .faq-item {
   background: white !important;
