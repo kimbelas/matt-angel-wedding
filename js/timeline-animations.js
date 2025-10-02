@@ -1,10 +1,7 @@
 // Timeline GSAP Animations
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('Initializing Timeline Animations...');
-
   // Check if GSAP is available
   if (typeof gsap === 'undefined') {
-    console.error('GSAP not loaded. Timeline animations disabled.');
     // Fallback - just show all cards
     document.querySelectorAll('.timeline-event-card').forEach(card => {
       card.classList.add('timeline-visible');
@@ -185,6 +182,4 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
-
-  console.log('Timeline animations initialized successfully');
 });

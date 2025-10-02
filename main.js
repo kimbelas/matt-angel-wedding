@@ -66,17 +66,13 @@ function hideLoader() {
         setTimeout(() => {
             loader.classList.add('hidden');
             document.body.style.overflow = 'auto';
-
-            // Hero animations are now handled by hero-gsap.js
-            console.log('Loader hidden, hero-gsap.js will handle animations');
         }, 500);
     }
 }
 
 // DEPRECATED: Hero animations now handled by hero-gsap.js
-// Keeping this function for backwards compatibility but it does nothing
 function triggerHeroAnimations() {
-    console.log('triggerHeroAnimations() called but deprecated - using hero-gsap.js instead');
+    // No-op for backwards compatibility
 }
 
 // Navigation functionality
@@ -86,31 +82,22 @@ function initializeNavigation() {
 
     // Mobile menu toggle - using button element for better mobile support
     if (hamburger && navMenu) {
-        console.log('Hamburger button and navMenu found');
-
         // Primary click event
         hamburger.addEventListener('click', (e) => {
-            console.log('Hamburger clicked');
             e.preventDefault();
             toggleMobileMenu();
         });
 
         // Touch support for mobile
         hamburger.addEventListener('touchstart', (e) => {
-            console.log('Hamburger touched');
             e.preventDefault();
             toggleMobileMenu();
         });
-    } else {
-        console.log('Hamburger or navMenu not found');
     }
 
     // Instant navigation for navigation links
     const navLinks = document.querySelectorAll('.nav-link');
-    console.log('Found nav links:', navLinks.length);
-
-    navLinks.forEach((link, index) => {
-        console.log(`Link ${index}:`, link.getAttribute('href'));
+    navLinks.forEach((link) => {
         link.addEventListener('click', handleInstantNavigation);
     });
 }
@@ -203,8 +190,6 @@ function handleInstantNavigation(e) {
     const targetId = e.target.getAttribute('href');
     const targetElement = document.querySelector(targetId);
 
-    console.log('Instant navigation clicked:', targetId, targetElement);
-
     if (targetElement && targetId) {
         // Close mobile menu immediately for better UX
         if (navMenu && navMenu.classList.contains('open')) {
@@ -212,7 +197,6 @@ function handleInstantNavigation(e) {
         }
 
         const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
-        console.log('Jumping to position:', offsetTop);
 
         // Instant navigation - no animation
         window.scrollTo({
@@ -220,10 +204,6 @@ function handleInstantNavigation(e) {
             left: 0,
             behavior: 'instant'
         });
-
-        console.log('Instant navigation executed');
-    } else {
-        console.error('Target element not found for:', targetId);
     }
 }
 
@@ -440,7 +420,6 @@ async function handleFormSubmission(e) {
         });
 
     } catch (error) {
-        console.error('Form submission error:', error);
         showErrorMessage('Something went wrong. Please try again.');
     } finally {
         // Reset button
