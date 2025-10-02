@@ -1,0 +1,24 @@
+/* ================================================
+   HERO SECTION ANIMATIONS - GSAP CONTROLLED
+   ================================================ */
+
+/* Initial state - hidden until GSAP animates */
+.couple-names,
+.wedding-date,
+.hero-subtitle {
+  opacity: 0;
+  transform: translateY(150px) scale(0.85);
+  will-change: transform, opacity;
+}
+
+/* Ensure smooth hardware-accelerated animations */
+.hero-content {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.hero-content > * {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

@@ -66,8 +66,17 @@ function hideLoader() {
         setTimeout(() => {
             loader.classList.add('hidden');
             document.body.style.overflow = 'auto';
+
+            // Hero animations are now handled by hero-gsap.js
+            console.log('Loader hidden, hero-gsap.js will handle animations');
         }, 500);
     }
+}
+
+// DEPRECATED: Hero animations now handled by hero-gsap.js
+// Keeping this function for backwards compatibility but it does nothing
+function triggerHeroAnimations() {
+    console.log('triggerHeroAnimations() called but deprecated - using hero-gsap.js instead');
 }
 
 // Navigation functionality
