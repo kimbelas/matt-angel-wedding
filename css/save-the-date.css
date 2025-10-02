@@ -150,15 +150,18 @@
 }
 
 .day-highlight::after {
-  content: '♥';
+  content: '';
   position: absolute;
   bottom: -18px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 20px;
-  color: var(--accent);
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.8),
-               0 0 10px rgba(212, 175, 55, 0.6);
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
   animation: heart-pulse 2s ease-in-out infinite;
 }
 
@@ -190,6 +193,9 @@
     min-height: 350px;
     margin: 40px auto 30px;
     margin-bottom: 0 !important;
+    background-image: url('/assets/images/group-c-6.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
   }
 
   .calendar-content {
@@ -250,6 +256,9 @@
     min-height: 320px;
     margin: 30px auto 20px;
     margin-bottom: 0 !important;
+    background-image: url('/assets/images/group-c-6.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
   }
 
   .calendar-content {

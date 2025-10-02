@@ -50,7 +50,7 @@ section, .section {
         height: 100vh;
         background: linear-gradient(135deg, rgba(77, 0, 19, 0.95), rgba(77, 0, 19, 0.98));
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         gap: var(--spacing-2xl);
         transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 0.4s;
@@ -189,8 +189,11 @@ section, .section {
 
     /* Hero Section */
     .hero {
-        background-attachment: scroll;
+        background-attachment: scroll !important;
         padding: 0 var(--spacing-sm);
+        background-image: linear-gradient(rgba(77, 0, 19, 0.3), rgba(77, 0, 19, 0.6)), url("/assets/images/hero.jpg") !important;
+        background-size: cover !important;
+        background-position: center !important;
     }
 
     .couple-names {
@@ -243,30 +246,40 @@ section, .section {
     .form-group input,
     .form-group select,
     .form-group textarea {
-        padding: 16px 18px;
-        font-size: 1rem;
-        border-radius: 10px;
-        border: 2px solid #e5e5e5;
-        background: #ffffff;
+        padding: 16px 18px !important;
+        font-size: 1rem !important;
+        border-radius: 10px !important;
+        border: 2px solid #e5e5e5 !important;
+        background: #ffffff !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .form-group label {
-        top: 18px;
-        left: 18px;
-        font-size: 1rem;
-        color: #666;
-        background: #ffffff;
+        top: 18px !important;
+        left: 18px !important;
+        font-size: 1rem !important;
+        color: #666 !important;
+        background: #ffffff !important;
+        padding: 0 6px !important;
     }
 
     .form-group input:focus + label,
-    .form-group input:valid + label,
+    .form-group input:not(:placeholder-shown) + label,
     .form-group select:focus + label,
-    .form-group select:valid + label,
+    .form-group select:not([value=""]) + label,
     .form-group textarea:focus + label,
-    .form-group textarea:valid + label {
-        top: -8px;
-        left: 14px;
-        font-size: 0.85rem;
+    .form-group textarea:not(:placeholder-shown) + label {
+        top: -8px !important;
+        left: 14px !important;
+        font-size: 0.85rem !important;
+        color: var(--accent) !important;
+        font-weight: 600 !important;
+    }
+
+    .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
     }
 
     .rsvp-btn {
@@ -907,8 +920,11 @@ section, .section {
 
     /* Hero Section - same as mobile */
     .hero {
-        background-attachment: scroll;
+        background-attachment: scroll !important;
         padding: 0 var(--spacing-sm);
+        background-image: linear-gradient(rgba(77, 0, 19, 0.3), rgba(77, 0, 19, 0.6)), url("/assets/images/hero.jpg") !important;
+        background-size: cover !important;
+        background-position: center !important;
     }
 
     .couple-names {
@@ -961,30 +977,40 @@ section, .section {
     .form-group input,
     .form-group select,
     .form-group textarea {
-        padding: 16px 18px;
-        font-size: 1rem;
-        border-radius: 10px;
-        border: 2px solid #e5e5e5;
-        background: #ffffff;
+        padding: 16px 18px !important;
+        font-size: 1rem !important;
+        border-radius: 10px !important;
+        border: 2px solid #e5e5e5 !important;
+        background: #ffffff !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .form-group label {
-        top: 18px;
-        left: 18px;
-        font-size: 1rem;
-        color: #666;
-        background: #ffffff;
+        top: 18px !important;
+        left: 18px !important;
+        font-size: 1rem !important;
+        color: #666 !important;
+        background: #ffffff !important;
+        padding: 0 6px !important;
     }
 
     .form-group input:focus + label,
-    .form-group input:valid + label,
+    .form-group input:not(:placeholder-shown) + label,
     .form-group select:focus + label,
-    .form-group select:valid + label,
+    .form-group select:not([value=""]) + label,
     .form-group textarea:focus + label,
-    .form-group textarea:valid + label {
-        top: -8px;
-        left: 14px;
-        font-size: 0.85rem;
+    .form-group textarea:not(:placeholder-shown) + label {
+        top: -8px !important;
+        left: 14px !important;
+        font-size: 0.85rem !important;
+        color: var(--accent) !important;
+        font-weight: 600 !important;
+    }
+
+    .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
     }
 
     .rsvp-btn {
