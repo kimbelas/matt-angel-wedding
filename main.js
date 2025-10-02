@@ -405,8 +405,33 @@ async function handleFormSubmission(e) {
     submitBtn.disabled = true;
 
     try {
-        // Simulate form submission (replace with actual submission logic)
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Get form data
+        const formData = {
+            name: rsvpForm.querySelector('#name').value,
+            phone: rsvpForm.querySelector('#phone').value,
+            attendance: rsvpForm.querySelector('#attendance').value,
+            guests: rsvpForm.querySelector('#guests').value,
+            message: rsvpForm.querySelector('#message').value || '',
+            timestamp: new Date().toISOString()
+        };
+
+        // TODO: Replace with your actual Google Apps Script URL after deployment
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwL7lqBussIR33kNRZMx5vPIJTGJ-DLP5e-Vjt58LAGOrudTElrU9pdyYA2dRQLMoM/exec';
+
+        // Use FormData for Google Apps Script compatibility
+        const formDataToSend = new FormData();
+        formDataToSend.append('name', formData.name);
+        formDataToSend.append('phone', formData.phone);
+        formDataToSend.append('attendance', formData.attendance);
+        formDataToSend.append('guests', formData.guests);
+        formDataToSend.append('message', formData.message);
+        formDataToSend.append('timestamp', formData.timestamp);
+
+        await fetch(scriptURL, {
+            method: 'POST',
+            body: formDataToSend,
+            mode: 'no-cors'
+        });
 
         // Show success message
         showSuccessMessage();
