@@ -1,10 +1,15 @@
 import { defineConfig } from 'vite';
 import { imagetools } from 'vite-imagetools';
+import { resolve } from 'path';
 
 export default defineConfig({
   // Build optimization
   build: {
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        gallery: resolve(__dirname, 'gallery.html')
+      },
       output: {
         // Manual chunk splitting for better caching
         manualChunks: {
