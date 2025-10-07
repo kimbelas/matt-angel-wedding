@@ -5,9 +5,9 @@
 
 .entourage-section {
   position: relative;
-  padding: 120px 20px;
+  padding: 60px 20px;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: auto;
 }
 
 /* Dramatic Blurred Background */
@@ -37,7 +37,7 @@
 /* Header Section */
 .entourage-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 30px;
   opacity: 1;
 }
 
@@ -67,7 +67,7 @@
 .entourage-grid {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 20px;
 }
 
 /* Category Container with Glass Effect */
@@ -75,8 +75,8 @@
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 50px 40px;
+  border-radius: 16px;
+  padding: 30px 25px;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
@@ -113,8 +113,8 @@
 .category-divider {
   text-align: center;
   position: relative;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
 }
 
 .category-divider::after {
@@ -135,10 +135,10 @@
 
 .category-title {
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   color: var(--accent);
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   text-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
   opacity: 1;
@@ -148,8 +148,8 @@
 .best-man-honor-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-top: 30px;
+  gap: 25px;
+  margin-top: 15px;
 }
 
 .honor-person {
@@ -157,28 +157,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 8px;
 }
 
 /* Parents Grid - Special Layout */
 .parents-grid {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 30px;
+  gap: 12px;
+  margin-top: 15px;
 }
 
 .parents-labels {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 20px;
   text-align: center;
 }
 
 .parents-names-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 20px;
   text-align: center;
   justify-items: center;
 }
@@ -199,12 +199,12 @@
 
 .group-label {
   font-family: 'Cinzel', serif;
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-size: clamp(0.75rem, 1.3vw, 0.95rem);
   color: rgba(212, 175, 55, 0.9);
   font-weight: 500;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   position: relative;
   display: inline-block;
   opacity: 1;
@@ -224,9 +224,9 @@
 /* Name Styling */
 .entourage-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   color: white;
-  line-height: 1.6;
+  line-height: 1.4;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
@@ -258,7 +258,7 @@
 
 /* Highlight for Best Man & Maid of Honor */
 .entourage-name.highlight {
-  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
   font-weight: 600;
   color: var(--accent);
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
@@ -333,51 +333,64 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .entourage-section {
-    padding: 80px 15px;
+    padding: 50px 15px;
   }
 
   .entourage-header {
-    margin-bottom: 50px;
+    margin-bottom: 25px;
   }
 
   .entourage-category {
-    padding: 35px 20px;
+    padding: 20px 15px;
   }
 
-  .best-man-honor-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .best-man-honor-row {
+    gap: 20px;
+  }
+
+  .honor-person {
+    gap: 6px;
   }
 
   .parents-labels {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 12px;
   }
 
   /* Keep 2 columns for principal sponsors on mobile */
   .parents-names-row {
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    font-size: 0.9rem;
+    gap: 8px;
   }
 
   /* Adjust name font size for mobile */
   .parents-names-row .entourage-name {
-    font-size: clamp(1rem, 1.2vw, 1rem);
+    font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+    line-height: 1.3;
   }
 
   .entourage-row {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
   }
 
   .secondary-sponsors-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
   }
 
   .entourage-grid {
-    gap: 40px;
+    gap: 18px;
+  }
+
+  .category-divider {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+
+  .group-label {
+    margin-bottom: 8px;
+    font-size: clamp(0.7rem, 3vw, 0.85rem);
   }
 
   .entourage-background {

@@ -615,7 +615,7 @@ section, .section {
 
     /* Details Section Mobile */
     .details-section {
-        padding: 20px 0 0 0;
+        padding: 0;
     }
 
     .details-section .section-header {
