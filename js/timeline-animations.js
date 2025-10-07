@@ -1,18 +1,29 @@
 // Timeline GSAP Animations
 document.addEventListener('DOMContentLoaded', function() {
-  // Check if GSAP is available
-  if (typeof gsap === 'undefined') {
-    // Fallback - just show all cards
-    document.querySelectorAll('.timeline-event-card').forEach(card => {
-      card.classList.add('timeline-visible');
-    });
-    return;
+  // Wait for GSAP and ScrollTrigger to be available
+  function initTimelineAnimations() {
+    // Check if GSAP is available
+    if (typeof gsap === 'undefined') {
+      // Fallback - just show all cards
+      document.querySelectorAll('.timeline-event-card').forEach(card => {
+        card.classList.add('timeline-visible');
+      });
+      return;
+    }
+
+    // Wait for ScrollTrigger to be available
+    if (typeof ScrollTrigger === 'undefined') {
+      setTimeout(initTimelineAnimations, 50);
+      return;
+    }
+
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    runTimelineAnimations();
   }
 
-  // Register ScrollTrigger plugin if available
-  if (typeof ScrollTrigger !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-  }
+  function runTimelineAnimations() {
 
   // Timeline entrance animation
   gsap.from('.story-title', {
@@ -209,4 +220,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+  }
+
+  // Start initialization
+  initTimelineAnimations();
 });

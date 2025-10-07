@@ -407,12 +407,17 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/assets/images/hero.jpg');
+    background: url('/assets/images/hero.jpg') no-repeat center center;
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     overflow: hidden;
     z-index: 2;
+}
+
+/* Desktop only - parallax effect */
+@media (min-width: 1024px) {
+    .hero {
+        background-attachment: fixed;
+    }
 }
 
 .hero::before {

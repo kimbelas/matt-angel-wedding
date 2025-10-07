@@ -77,8 +77,8 @@ function triggerHeroAnimations() {
 
 // Navigation functionality
 function initializeNavigation() {
-    // Navbar scroll effect
-    window.addEventListener('scroll', throttle(handleNavbarScroll, 16));
+    // Navbar scroll effect with passive listener for better performance
+    window.addEventListener('scroll', throttle(handleNavbarScroll, 16), { passive: true });
 
     // Mobile menu toggle - using button element for better mobile support
     if (hamburger && navMenu) {
@@ -88,11 +88,11 @@ function initializeNavigation() {
             toggleMobileMenu();
         });
 
-        // Touch support for mobile
+        // Touch support for mobile with passive listener
         hamburger.addEventListener('touchstart', (e) => {
-            e.preventDefault();
+            // Don't prevent default for passive listener
             toggleMobileMenu();
-        });
+        }, { passive: true });
     }
 
     // Instant navigation for navigation links

@@ -109,8 +109,8 @@ function hideLoader() {
 
 // Navigation functionality
 function initializeNavigation() {
-    // Navbar scroll effect
-    window.addEventListener('scroll', throttle(handleNavbarScroll, 16));
+    // Navbar scroll effect with passive listener for better performance
+    window.addEventListener('scroll', throttle(handleNavbarScroll, 16), { passive: true });
 
     // Mobile menu toggle
     if (hamburger && navMenu) {
@@ -119,10 +119,11 @@ function initializeNavigation() {
             toggleMobileMenu();
         });
 
+        // Touch support with passive listener
         hamburger.addEventListener('touchstart', (e) => {
-            e.preventDefault();
+            // Don't prevent default for passive listener
             toggleMobileMenu();
-        });
+        }, { passive: true });
     }
 }
 

@@ -199,13 +199,13 @@ section, .section {
         max-height: 30vh;
     }
 
-    /* Hero Section */
+    /* Hero Section - Optimized for mobile */
     .hero {
-        background-attachment: fixed !important;
+        background-attachment: scroll;
         padding: 0 var(--spacing-sm);
-        background-image: url("/assets/images/hero.jpg") !important;
-        background-size: cover !important;
-        background-position: center !important;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     .couple-names {
@@ -930,13 +930,13 @@ section, .section {
         max-height: 30vh;
     }
 
-    /* Hero Section - same as mobile */
+    /* Hero Section - Optimized for mobile landscape */
     .hero {
-        background-attachment: fixed !important;
+        background-attachment: scroll;
         padding: 0 var(--spacing-sm);
-        background-image: url("/assets/images/hero.jpg") !important;
-        background-size: cover !important;
-        background-position: center !important;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     .couple-names {
