@@ -10,6 +10,13 @@
   align-items: center;
   justify-content: center;
   transition: all 0.4s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.music-player.ready {
+  opacity: 1;
+  visibility: visible;
 }
 
 .music-player.playing {
@@ -46,6 +53,7 @@
   pointer-events: none;
   opacity: 1;
   transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
 .music-player.playing .music-label {
@@ -55,14 +63,15 @@
 .music-label span {
   position: absolute;
   left: 50%;
+  top: 0;
   font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: 600;
+  letter-spacing: 2px;
+  font-weight: 700;
   transform-origin: 0 60px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes rotate {
@@ -138,8 +147,9 @@
   }
 
   .music-label span {
-    font-size: 0.55rem;
-    letter-spacing: 2px;
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
     transform-origin: 0 50px;
+    font-weight: 700;
   }
 }
