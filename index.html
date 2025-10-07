@@ -1137,7 +1137,7 @@
           <form class="rsvp-form" id="rsvp-form">
             <div class="form-row">
               <div class="form-group">
-                <input type="text" id="name" name="name" required />
+                <input type="text" id="name" name="name" placeholder=" " required />
                 <label for="name">Full Name</label>
                 <span class="form-bar"></span>
               </div>
@@ -1148,6 +1148,7 @@
                   id="phone"
                   name="phone"
                   pattern="[0-9\s\-\+\(\)]{10,}"
+                  placeholder=" "
                   required
                 />
                 <label for="phone">Phone Number</label>
@@ -1173,6 +1174,7 @@
                   name="guests"
                   min="1"
                   max="4"
+                  placeholder=" "
                   required
                 />
                 <label for="guests">Number of Guests</label>
@@ -1185,7 +1187,7 @@
                 id="message"
                 name="message"
                 rows="4"
-                placeholder="Share your wishes, dietary restrictions, or any special notes..."
+                placeholder=" "
               ></textarea>
               <label for="message">Special Message (Optional)</label>
               <span class="form-bar"></span>
@@ -1276,6 +1278,13 @@
       </button>
       <div class="music-label" id="circularText"></div>
       <div id="youtube-player"></div>
+      <!-- Fallback iframe for mobile -->
+      <iframe
+        id="fallback-iframe"
+        style="display: none; position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none;"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
     </div>
 
     <script type="module" src="/main.js"></script>

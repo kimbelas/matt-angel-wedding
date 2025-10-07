@@ -2,6 +2,25 @@
 let player;
 let isPlaying = false;
 let playerReady = false;
+let useFallback = false;
+
+// Timeout to show player even if YouTube API doesn't load (5 seconds)
+const apiTimeout = setTimeout(() => {
+  if (!playerReady) {
+    console.log('YouTube API timeout - using fallback');
+    useFallback = true;
+    showMusicPlayer();
+  }
+}, 5000);
+
+// Show music player UI
+function showMusicPlayer() {
+  const musicPlayer = document.querySelector('.music-player');
+  if (musicPlayer) {
+    musicPlayer.classList.add('ready');
+    console.log('Music player UI shown');
+  }
+}
 
 // Load YouTube IFrame API
 if (!window.YT) {
@@ -13,6 +32,8 @@ if (!window.YT) {
 
 // YouTube API callback
 window.onYouTubeIframeAPIReady = function() {
+  clearTimeout(apiTimeout);
+
   player = new YT.Player('youtube-player', {
     height: '1',
     width: '1',
@@ -37,13 +58,7 @@ window.onYouTubeIframeAPIReady = function() {
 function onPlayerReady(event) {
   console.log('Music player ready');
   playerReady = true;
-
-  // Show the music player now that YouTube API is ready
-  const musicPlayer = document.querySelector('.music-player');
-  if (musicPlayer) {
-    musicPlayer.classList.add('ready');
-    console.log('Music player UI shown');
-  }
+  showMusicPlayer();
 }
 
 function onPlayerStateChange(event) {
@@ -63,11 +78,12 @@ function onPlayerStateChange(event) {
 
 // Toggle music playback
 function toggleMusic() {
-  console.log('Toggle music clicked', { player, playerReady, isPlaying });
+  console.log('Toggle music clicked', { player, playerReady, isPlaying, useFallback });
 
-  if (!playerReady || !player || !player.playVideo) {
-    console.log('Player not ready yet');
-    alert('Music player is loading, please wait a moment...');
+  // Fallback: Use iframe if YouTube API fails
+  if (useFallback || !playerReady || !player || !player.playVideo) {
+    console.log('Using fallback iframe');
+    toggleFallbackPlayer();
     return;
   }
 
@@ -79,6 +95,30 @@ function toggleMusic() {
     }
   } catch (error) {
     console.error('Error toggling music:', error);
+    toggleFallbackPlayer();
+  }
+}
+
+// Fallback player using direct iframe
+function toggleFallbackPlayer() {
+  const fallbackIframe = document.getElementById('fallback-iframe');
+  const toggleBtn = document.querySelector('.music-toggle');
+  const musicPlayer = document.querySelector('.music-player');
+
+  if (!isPlaying) {
+    // Start playing
+    fallbackIframe.src = 'https://www.youtube.com/embed/18bjpktqFgM?autoplay=1&loop=1&playlist=18bjpktqFgM&controls=0';
+    isPlaying = true;
+    musicPlayer.classList.add('playing');
+    toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    console.log('Fallback player started');
+  } else {
+    // Stop playing
+    fallbackIframe.src = '';
+    isPlaying = false;
+    musicPlayer.classList.remove('playing');
+    toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
+    console.log('Fallback player stopped');
   }
 }
 
