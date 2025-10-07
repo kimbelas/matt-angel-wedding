@@ -1286,15 +1286,13 @@
     </footer>
 
     <!-- Fixed Music Player -->
-    <div class="music-player">
+    <div class="music-player ready">
       <button class="music-toggle" aria-label="Toggle music">
         <i class="fas fa-play"></i>
       </button>
       <div class="music-label" id="circularText"></div>
-      <div id="youtube-player"></div>
-      <!-- Fallback iframe for mobile -->
       <iframe
-        id="fallback-iframe"
+        id="youtube-iframe"
         style="display: none; position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none;"
         allow="autoplay; encrypted-media"
         allowfullscreen>
