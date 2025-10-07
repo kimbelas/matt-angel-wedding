@@ -152,32 +152,6 @@
         ease: 'power2.out'
       });
     }
-
-    // Animate logo with a gentle float
-    const sectionLogo = document.querySelector('.reminders-header .section-logo-image');
-    if (sectionLogo) {
-      gsap.from(sectionLogo, {
-        scrollTrigger: {
-          trigger: '.reminders-header',
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        },
-        y: -20,
-        opacity: 0,
-        scale: 0.9,
-        duration: 0.8,
-        ease: 'back.out(1.7)'
-      });
-
-      // Continuous subtle float animation
-      gsap.to(sectionLogo, {
-        y: -5,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      });
-    }
   }
 
   // Initialize when DOM is ready

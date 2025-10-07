@@ -96,16 +96,6 @@
       duration: 1.4,
       ease: 'back.out(1.2)'
     }, '+=0.8');
-
-    // Add a gentle continuous float to the couple names
-    gsap.to(coupleName, {
-      y: -10,
-      duration: 3,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: 2
-    });
   }
 
   // Initialize when DOM is ready

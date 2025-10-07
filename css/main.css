@@ -401,6 +401,7 @@ p {
 
 /* Hero Section */
 .hero {
+    min-height: 100vh;
     height: 100vh;
     position: relative;
     display: flex;
@@ -411,6 +412,7 @@ p {
     background-position: center;
     background-attachment: fixed;
     overflow: hidden;
+    z-index: 2;
 }
 
 .hero::before {
