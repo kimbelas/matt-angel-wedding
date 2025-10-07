@@ -455,23 +455,22 @@ async function handleFormSubmission(e) {
 
 function showSuccessMessage() {
     if (successMessage) {
-        successMessage.style.opacity = '0';
-        successMessage.style.transform = 'translateY(50px)';
-        successMessage.style.transition = 'all 0.6s ease';
+        // Hide form
+        rsvpForm.style.display = 'none';
+
+        // Show success message
         successMessage.classList.add('show');
 
-        setTimeout(() => {
-            successMessage.style.opacity = '1';
-            successMessage.style.transform = 'translateY(0)';
-        }, 10);
-
-        // Scroll to success message
-        const successTop = successMessage.offsetTop - 100;
-        window.scrollTo({
-            top: successTop,
-            left: 0,
-            behavior: 'smooth'
-        });
+        // Scroll to RSVP section
+        const rsvpSection = document.getElementById('rsvp');
+        if (rsvpSection) {
+            setTimeout(() => {
+                rsvpSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }, 100);
+        }
     }
 }
 

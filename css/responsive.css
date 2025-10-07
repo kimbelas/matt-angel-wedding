@@ -1911,4 +1911,4 @@ section, .section {
     .gallery-item img {
         loading: lazy;
     }
-}
+}.success-message { padding: 40px 25px; } .success-message h3 { font-size: 2rem; } .success-subtitle { font-size: 1.1rem; } .success-text { font-size: 1.3rem; } .success-details { flex-direction: column; gap: 15px; } .success-icon { width: 80px; height: 80px; }
