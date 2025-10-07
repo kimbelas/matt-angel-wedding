@@ -172,6 +172,10 @@
     <link rel="stylesheet" href="/css/hero-animations.css" />
     <link rel="stylesheet" href="/css/love-story-redesign.css" />
     <link rel="stylesheet" href="/css/entourage.css" />
+    <link rel="stylesheet" href="/css/music-player.css" />
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
     <!-- Loading Screen -->
@@ -1265,6 +1269,14 @@
       </div>
     </footer>
 
+    <!-- Fixed Music Player -->
+    <div class="music-player">
+      <button class="music-toggle" aria-label="Toggle music">
+        <i class="fas fa-play"></i>
+      </button>
+      <div id="youtube-player"></div>
+    </div>
+
     <script type="module" src="/main.js"></script>
     <script src="/js/countdown.js"></script>
     <script src="/js/faq-simple.js"></script>
@@ -1275,5 +1287,6 @@
     <script src="/js/elegant-animations.js" defer></script>
     <script src="/js/reminders-animations.js" defer></script>
     <script src="/js/entourage-animations.js" defer></script>
+    <script src="/js/music-player.js"></script>
   </body>
 </html>

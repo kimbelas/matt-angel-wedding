@@ -1,0 +1,77 @@
+/* Fixed Music Player - Bottom Right */
+.music-player {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.music-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #6b0020);
+  border: 3px solid var(--accent);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(77, 0, 19, 0.4);
+  outline: none;
+}
+
+.music-toggle:focus {
+  outline: none;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(212, 175, 55, 0.5);
+}
+
+.music-toggle:active {
+  transform: scale(0.95);
+}
+
+.music-toggle.playing {
+  background: linear-gradient(135deg, var(--accent), #b89830);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 30px rgba(212, 175, 55, 0.8);
+  }
+}
+
+/* Hidden YouTube iframe */
+#youtube-player {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .music-player {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .music-toggle {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+}

@@ -165,8 +165,19 @@ p {
     max-width: 80vw;
     max-height: 40vh;
     object-fit: contain;
-    animation: pulse 2s infinite;
     filter: brightness(0) invert(1);
+    animation: fadeInScale 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .monogram {
