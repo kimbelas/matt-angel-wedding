@@ -1,4 +1,7 @@
 {
+  "rewrites": [
+    { "source": "/gallery", "destination": "/gallery.html" }
+  ],
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
