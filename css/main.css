@@ -192,7 +192,9 @@ p {
     top: 0;
     width: 100%;
     padding: var(--spacing-sm) 0;
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
     transition: all 0.3s ease, transform 0.3s ease;
@@ -211,7 +213,9 @@ p {
 
 /* Enhanced hover effects for navbar */
 .navbar:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .navbar.scrolled:hover {

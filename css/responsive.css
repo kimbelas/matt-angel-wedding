@@ -172,6 +172,10 @@ section, .section {
         display: flex !important;
     }
 
+    .hamburger span {
+        background: var(--white);
+    }
+
     .navbar.scrolled .hamburger span {
         background: var(--primary);
     }
