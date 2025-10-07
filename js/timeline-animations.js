@@ -1,4 +1,4 @@
-// Timeline GSAP Animations
+// Timeline GSAP Animations - Smooth Sliding Effect
 document.addEventListener('DOMContentLoaded', function() {
   // Wait for GSAP and ScrollTrigger to be available
   function initTimelineAnimations() {
@@ -24,202 +24,191 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function runTimelineAnimations() {
-
-  // Timeline entrance animation
-  gsap.from('.story-title', {
-    y: -30,
-    opacity: 0,
-    duration: 1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.love-story',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-
-  gsap.from('.story-subtitle', {
-    y: 20,
-    opacity: 0,
-    duration: 1,
-    delay: 0.2,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.love-story',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-
-  // Animate timeline line drawing
-  gsap.from('.timeline-line-vertical', {
-    scaleY: 0,
-    duration: 2,
-    ease: 'power2.inOut',
-    scrollTrigger: {
-      trigger: '.timeline-container',
-      start: 'top 70%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-
-  // Animate each timeline card with stagger
-  const timelineCards = gsap.utils.toArray('.timeline-event-card');
-
-  timelineCards.forEach((card, index) => {
-    // Determine animation direction based on card position
-    const isOdd = (index + 1) % 2 !== 0;
-    const xStart = isOdd ? -50 : 50;
-
-    // Card animation
-    gsap.from(card, {
-      x: xStart,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.out',
+    // Smooth fade in for story title
+    gsap.to('.story-title', {
+      opacity: 1,
+      y: 0,
+      duration: 1.8,
+      ease: 'sine.out',
       scrollTrigger: {
-        trigger: card,
-        start: 'top 85%',
-        toggleActions: 'play none none reverse',
-        onEnter: () => card.classList.add('timeline-visible'),
-        onLeaveBack: () => card.classList.remove('timeline-visible')
+        trigger: '.love-story',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
       }
     });
 
-    // Dot animation
-    const dot = card.querySelector('.timeline-dot');
-    if (dot) {
-      gsap.from(dot, {
-        scale: 0,
-        duration: 0.5,
-        delay: 0.3,
-        ease: 'back.out(1.7)',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    }
-
-    // Date badge animation
-    const date = card.querySelector('.timeline-date');
-    if (date) {
-      gsap.from(date, {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.5,
-        delay: 0.4,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    }
-
-    // Title and description stagger animation
-    const title = card.querySelector('.timeline-event-title');
-    const description = card.querySelector('.timeline-event-description');
-
-    if (title && description) {
-      gsap.from([title, description], {
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        delay: 0.2,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    }
-  });
-
-  // Special animation for the last card (wedding day)
-  const lastCard = timelineCards[timelineCards.length - 1];
-  if (lastCard) {
-    // Calculate where to stop the timeline line
-    function clipTimelineLine() {
-      const timelineLine = document.querySelector('.timeline-line-vertical');
-      const timelineContainer = document.querySelector('.timeline-container');
-
-      if (timelineLine && timelineContainer && lastCard) {
-        // Get the position of the card relative to the container
-        const containerTop = timelineContainer.offsetTop;
-        const cardTop = lastCard.offsetTop;
-        const cardHeight = lastCard.offsetHeight;
-        const containerHeight = timelineContainer.offsetHeight;
-
-        // Calculate where the card top border is
-        const stopPoint = cardTop - containerTop - 80; // Subtract padding/margin to stop at top border
-        const stopPixels = Math.max(0, stopPoint);
-
-        // Apply height directly to stop the line
-        timelineLine.style.height = `${stopPixels}px`;
-        timelineLine.style.bottom = 'auto';
+    // Smooth fade in for subtitle
+    gsap.to('.story-subtitle', {
+      opacity: 1,
+      y: 0,
+      duration: 1.8,
+      delay: 0.2,
+      ease: 'sine.out',
+      scrollTrigger: {
+        trigger: '.love-story',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
       }
-    }
+    });
 
-    // Apply on load and resize with delay to ensure layout is ready
-    setTimeout(clipTimelineLine, 100);
-    window.addEventListener('resize', clipTimelineLine);
-    window.addEventListener('load', clipTimelineLine);
-
-    // Add a pulsing glow effect to the wedding day card
-    gsap.to(lastCard, {
-      boxShadow: '0 5px 30px rgba(212, 175, 55, 0.3)',
+    // Smooth timeline line drawing
+    gsap.to('.timeline-line-vertical', {
+      scaleY: 1,
+      opacity: 1,
       duration: 2,
-      repeat: -1,
-      yoyo: true,
-      ease: 'power1.inOut',
+      ease: 'sine.inOut',
       scrollTrigger: {
-        trigger: lastCard,
-        start: 'top 85%',
-        toggleActions: 'play pause resume pause'
+        trigger: '.timeline-container',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse'
       }
     });
 
-    // Sparkle effect on the wedding day dot
-    const weddingDot = lastCard.querySelector('.timeline-dot');
-    if (weddingDot) {
-      gsap.to(weddingDot, {
-        scale: 1.2,
-        duration: 1,
+    // Animate each timeline card with smooth sliding
+    const timelineCards = gsap.utils.toArray('.timeline-event-card');
+
+    timelineCards.forEach((card, index) => {
+      // Determine slide direction based on card position
+      const isOdd = (index + 1) % 2 !== 0;
+      const xStart = isOdd ? -60 : 60;
+
+      // Create timeline for card animation
+      const cardTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+          toggleActions: 'play none none reverse',
+          onEnter: () => card.classList.add('timeline-visible'),
+          onLeaveBack: () => card.classList.remove('timeline-visible')
+        }
+      });
+
+      // Card smooth slide and fade
+      cardTimeline.to(card, {
+        x: 0,
+        opacity: 1,
+        duration: 1.5,
+        ease: 'sine.out'
+      }, 0);
+
+      // Dot smooth pop in
+      const dot = card.querySelector('.timeline-dot');
+      if (dot) {
+        cardTimeline.to(dot, {
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          ease: 'elastic.out(1, 0.5)'
+        }, 0.3);
+      }
+
+      // Date smooth fade
+      const date = card.querySelector('.timeline-date');
+      if (date) {
+        cardTimeline.to(date, {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: 'sine.out'
+        }, 0.4);
+      }
+
+      // Title smooth slide up
+      const title = card.querySelector('.timeline-event-title');
+      if (title) {
+        cardTimeline.to(title, {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: 'sine.out'
+        }, 0.5);
+      }
+
+      // Description smooth fade
+      const description = card.querySelector('.timeline-event-description');
+      if (description) {
+        cardTimeline.to(description, {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: 'sine.out'
+        }, 0.6);
+      }
+    });
+
+    // Special animation for the last card (wedding day)
+    const lastCard = timelineCards[timelineCards.length - 1];
+    if (lastCard) {
+      // Calculate where to stop the timeline line
+      function clipTimelineLine() {
+        const timelineLine = document.querySelector('.timeline-line-vertical');
+        const timelineContainer = document.querySelector('.timeline-container');
+
+        if (timelineLine && timelineContainer && lastCard) {
+          const containerTop = timelineContainer.offsetTop;
+          const cardTop = lastCard.offsetTop;
+          const stopPoint = cardTop - containerTop - 80;
+          const stopPixels = Math.max(0, stopPoint);
+
+          timelineLine.style.height = `${stopPixels}px`;
+          timelineLine.style.bottom = 'auto';
+        }
+      }
+
+      setTimeout(clipTimelineLine, 100);
+      window.addEventListener('resize', clipTimelineLine);
+      window.addEventListener('load', clipTimelineLine);
+
+      // Gentle pulsing glow effect
+      gsap.to(lastCard, {
+        boxShadow: '0 5px 30px rgba(212, 175, 55, 0.3)',
+        duration: 2.5,
         repeat: -1,
         yoyo: true,
-        ease: 'power1.inOut',
+        ease: 'sine.inOut',
         scrollTrigger: {
           trigger: lastCard,
           start: 'top 85%',
           toggleActions: 'play pause resume pause'
         }
       });
+
+      // Gentle sparkle on wedding day dot
+      const weddingDot = lastCard.querySelector('.timeline-dot');
+      if (weddingDot) {
+        gsap.to(weddingDot, {
+          scale: 1.15,
+          duration: 1.5,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          scrollTrigger: {
+            trigger: lastCard,
+            start: 'top 85%',
+            toggleActions: 'play pause resume pause'
+          }
+        });
+      }
     }
-  }
 
-  // Hover animations for cards
-  timelineCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      gsap.to(card, {
-        y: -5,
-        duration: 0.3,
-        ease: 'power2.out'
+    // Smooth hover animations
+    timelineCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+          y: -5,
+          duration: 0.6,
+          ease: 'sine.out'
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          y: 0,
+          duration: 0.6,
+          ease: 'sine.out'
+        });
       });
     });
-
-    card.addEventListener('mouseleave', () => {
-      gsap.to(card, {
-        y: 0,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    });
-  });
   }
 
   // Start initialization
