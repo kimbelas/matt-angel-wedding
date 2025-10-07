@@ -33,8 +33,9 @@
     <link rel="apple-touch-icon" href="/assets/images/logo-red.png" />
     <link rel="shortcut icon" href="/assets/images/logo-red.png" />
 
-    <!-- Preload Critical Hero Background Image -->
-    <link rel="preload" as="image" href="/assets/images/hero.jpg" fetchpriority="high" />
+    <!-- Preload Critical Hero Background Image - Optimized -->
+    <link rel="preload" as="image" href="/assets/images/hero.jpg?w=1920&format=webp&quality=75" fetchpriority="high" type="image/webp" />
+    <link rel="preload" as="image" href="/assets/images/hero.jpg?w=1920&quality=75" fetchpriority="high" type="image/jpeg" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -73,8 +74,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: url("/assets/images/hero.jpg") no-repeat center center;
+        /* Optimized hero image - will be processed by vite-imagetools */
+        background: url("/assets/images/hero.jpg?w=1920&format=webp&quality=75") no-repeat center center;
         background-size: cover;
+      }
+
+      /* Fallback for browsers that don't support WebP */
+      @supports not (background-image: url("data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=")) {
+        .hero {
+          background-image: url("/assets/images/hero.jpg?w=1920&quality=75");
+        }
       }
 
       .navbar {

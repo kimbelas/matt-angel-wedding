@@ -16,12 +16,18 @@ section:not(.hero):not(.love-story),
   background-image: none !important;
 }
 
-/* Keep hero section background image - restore it */
+/* Keep hero section background image - restore it with optimization */
 .hero {
-  background: url('/assets/images/hero.jpg') !important;
+  background: url('/assets/images/hero.jpg?w=1920&format=webp&quality=75') no-repeat center center !important;
   background-size: cover !important;
-  background-position: center !important;
-  background-attachment: fixed !important;
+  /* Don't force background-attachment - let responsive.css handle it */
+}
+
+/* Fallback for non-WebP browsers */
+@supports not (background-image: url("data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=")) {
+  .hero {
+    background-image: url('/assets/images/hero.jpg?w=1920&quality=75') !important;
+  }
 }
 
 /* Specific overrides for sections with gradients */

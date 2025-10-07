@@ -407,10 +407,18 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/assets/images/hero.jpg') no-repeat center center;
+    /* Optimized image with vite-imagetools - 1920px width, WebP format, 75% quality */
+    background: url('/assets/images/hero.jpg?w=1920&format=webp&quality=75') no-repeat center center;
     background-size: cover;
     overflow: hidden;
     z-index: 2;
+}
+
+/* Fallback for non-WebP browsers */
+@supports not (background-image: url("data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=")) {
+    .hero {
+        background-image: url('/assets/images/hero.jpg?w=1920&quality=75');
+    }
 }
 
 /* Desktop only - parallax effect */

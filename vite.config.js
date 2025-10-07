@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { imagetools } from 'vite-imagetools';
 
 export default defineConfig({
   // Build optimization
@@ -36,8 +37,10 @@ export default defineConfig({
     devSourcemap: true
   },
 
-  // Plugin configuration for future extensibility
-  plugins: [],
+  // Plugin configuration for image optimization
+  plugins: [
+    imagetools()
+  ],
 
   // Asset handling
   assetsInclude: ['**/*.woff', '**/*.woff2', '**/*.ttf'],
