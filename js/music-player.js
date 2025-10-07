@@ -21,6 +21,9 @@ function toggleMusic() {
     // Try to load and play audio
     console.log('Attempting to play audio...');
 
+    // Show loading indicator
+    toggleBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
     // First try to load the audio
     audio.load();
 
@@ -40,18 +43,31 @@ function toggleMusic() {
         console.error('Error name:', error.name);
         console.error('Error message:', error.message);
 
+        // Reset button
+        toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
+
         // Visual error indicator
-        musicPlayer.style.border = '3px solid red';
+        toggleBtn.style.background = 'red';
+        setTimeout(() => {
+          toggleBtn.style.background = '';
+        }, 2000);
 
         // More specific error messages
+        let errorMsg = '';
         if (error.name === 'NotAllowedError') {
-          alert('Unable to play audio. Browser blocked playback. Try tapping again or open in Safari/Chrome.');
+          errorMsg = 'Audio blocked by browser.\n\nPlease:\n1. Tap "Open in Safari" or "Open in Chrome"\n2. Or enable audio permissions for this site';
         } else if (error.name === 'NotSupportedError') {
-          alert('Audio format not supported. Please open in Safari or Chrome browser.');
+          errorMsg = 'Audio format not supported.\n\nPlease open in Safari or Chrome.';
         } else {
-          alert('Unable to play music: ' + error.message + '\n\nTry opening the link in your phone\'s browser (Safari/Chrome) instead of Messenger.');
+          errorMsg = 'Cannot play audio: ' + error.message + '\n\nFor Messenger:\n1. Tap the ••• menu\n2. Choose "Open in Safari/Chrome"';
         }
+
+        alert(errorMsg);
       });
+    } else {
+      // play() didn't return a promise
+      toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
+      alert('Audio playback not supported in this browser.\n\nPlease open the link in Safari or Chrome.');
     }
   } else {
     // Pause audio
