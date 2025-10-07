@@ -1,26 +1,30 @@
-// Simple Music Player - Iframe only
+// Audio Music Player
 let isPlaying = false;
+const audio = document.getElementById('wedding-audio');
 
 // Toggle music playback
 function toggleMusic() {
-  const iframe = document.getElementById('youtube-iframe');
   const toggleBtn = document.querySelector('.music-toggle');
   const musicPlayer = document.querySelector('.music-player');
 
   if (!isPlaying) {
-    // Start playing
-    iframe.src = 'https://www.youtube.com/embed/18bjpktqFgM?autoplay=1&loop=1&playlist=18bjpktqFgM&controls=0&mute=0';
-    isPlaying = true;
-    musicPlayer.classList.add('playing');
-    toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
-    console.log('Music started');
+    // Play audio
+    audio.play().then(() => {
+      isPlaying = true;
+      musicPlayer.classList.add('playing');
+      toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      console.log('Music started');
+    }).catch(error => {
+      console.error('Error playing audio:', error);
+      alert('Unable to play music. Please try again.');
+    });
   } else {
-    // Stop playing
-    iframe.src = '';
+    // Pause audio
+    audio.pause();
     isPlaying = false;
     musicPlayer.classList.remove('playing');
     toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
-    console.log('Music stopped');
+    console.log('Music paused');
   }
 }
 
