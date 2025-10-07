@@ -185,9 +185,18 @@ function handleEscapeKey(e) {
 }
 
 function handleInstantNavigation(e) {
-    e.preventDefault();
-
     const targetId = e.target.getAttribute('href');
+
+    // If the link is not a hash link (e.g., /gallery), allow default navigation
+    if (!targetId || !targetId.startsWith('#')) {
+        // Close mobile menu before navigating away
+        if (navMenu && navMenu.classList.contains('open')) {
+            toggleMobileMenu(true);
+        }
+        return; // Allow default navigation
+    }
+
+    e.preventDefault();
     const targetElement = document.querySelector(targetId);
 
     if (targetElement && targetId) {

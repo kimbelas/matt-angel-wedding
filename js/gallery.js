@@ -40,9 +40,13 @@ function initializeApp() {
     }, 1500);
 }
 
-// Lazy Loading Implementation
+// Lazy Loading Implementation - Optimized for Mobile
 function initializeLazyLoading() {
     const lazyImages = document.querySelectorAll('.lazy-image');
+
+    // Detect if mobile for optimization
+    const isMobile = window.innerWidth <= 768;
+    const rootMargin = isMobile ? '300px' : '100px'; // Preload much earlier on mobile
 
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -54,7 +58,10 @@ function initializeLazyLoading() {
                     // Add loading class for skeleton effect
                     if (parent) parent.classList.add('loading');
 
-                    // Load the image
+                    // Load the image with srcset support for responsive images
+                    if (img.dataset.srcset) {
+                        img.srcset = img.dataset.srcset;
+                    }
                     img.src = img.dataset.src;
                     img.classList.add('loading');
 
@@ -74,7 +81,7 @@ function initializeLazyLoading() {
             });
         }, {
             root: null,
-            rootMargin: '50px',
+            rootMargin: rootMargin,
             threshold: 0.01
         });
 
@@ -82,6 +89,9 @@ function initializeLazyLoading() {
     } else {
         // Fallback for older browsers
         lazyImages.forEach(img => {
+            if (img.dataset.srcset) {
+                img.srcset = img.dataset.srcset;
+            }
             img.src = img.dataset.src;
             img.classList.add('loaded');
         });
