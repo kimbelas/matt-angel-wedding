@@ -2,6 +2,38 @@
 let isPlaying = false;
 let audio;
 
+// Save playback state to localStorage
+function savePlaybackState() {
+  if (audio) {
+    localStorage.setItem('musicPlaying', isPlaying);
+    localStorage.setItem('musicTime', audio.currentTime);
+  }
+}
+
+// Restore playback state from localStorage
+function restorePlaybackState() {
+  const wasPlaying = localStorage.getItem('musicPlaying') === 'true';
+  const savedTime = parseFloat(localStorage.getItem('musicTime')) || 0;
+
+  if (audio && wasPlaying) {
+    audio.currentTime = savedTime;
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        isPlaying = true;
+        document.querySelector('.music-player')?.classList.add('playing');
+        const toggleBtn = document.querySelector('.music-toggle');
+        if (toggleBtn) {
+          toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+      }).catch(error => {
+        console.error('Audio playback error:', error);
+      });
+    }
+  }
+}
+
 // Toggle music playback
 function toggleMusic() {
   const toggleBtn = document.querySelector('.music-toggle');
@@ -25,6 +57,7 @@ function toggleMusic() {
         isPlaying = true;
         musicPlayer.classList.add('playing');
         toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        savePlaybackState();
       }).catch(error => {
         // Silently handle errors
         console.error('Audio playback error:', error);
@@ -36,6 +69,7 @@ function toggleMusic() {
     isPlaying = false;
     musicPlayer.classList.remove('playing');
     toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
+    savePlaybackState();
   }
 }
 
@@ -67,4 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   createCircularText();
+
+  // Get audio element and restore playback state
+  audio = document.getElementById('wedding-audio');
+  if (audio) {
+    // Save state periodically while playing
+    audio.addEventListener('timeupdate', savePlaybackState);
+
+    // Restore playback state on load
+    restorePlaybackState();
+  }
 });
+
+// Save state before navigating away
+window.addEventListener('beforeunload', savePlaybackState);
