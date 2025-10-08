@@ -82,25 +82,18 @@ function initializeNavigation() {
 
     // Mobile menu toggle - using button element for better mobile support
     if (hamburger && navMenu) {
-        // Primary click event
+        // Click event handles both mouse and touch
         hamburger.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             toggleMobileMenu();
         });
-
-        // Touch support for mobile with passive listener
-        hamburger.addEventListener('touchstart', (e) => {
-            // Don't prevent default for passive listener
-            toggleMobileMenu();
-        }, { passive: true });
     }
 
     // Instant navigation for navigation links
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach((link) => {
         link.addEventListener('click', handleInstantNavigation);
-        // Also add touchend for better mobile support
-        link.addEventListener('touchend', handleInstantNavigation, { passive: true });
     });
 }
 
@@ -187,11 +180,6 @@ function handleEscapeKey(e) {
 }
 
 function handleInstantNavigation(e) {
-    // Prevent duplicate firing on touchend + click
-    if (e.type === 'touchend') {
-        e.preventDefault();
-    }
-
     const targetId = e.target.getAttribute('href') || e.currentTarget.getAttribute('href');
 
     // Always close mobile menu when any link is clicked
@@ -202,17 +190,12 @@ function handleInstantNavigation(e) {
 
     // If the link is not a hash link (e.g., /gallery), allow default navigation
     if (!targetId || !targetId.startsWith('#')) {
-        // For non-hash links, allow default navigation to proceed
-        if (e.type !== 'touchend') {
-            return; // Allow default navigation for click events
-        }
+        // Allow default navigation for non-hash links (like /gallery)
         return;
     }
 
     // For hash links, prevent default and scroll
-    if (e.type === 'click') {
-        e.preventDefault();
-    }
+    e.preventDefault();
 
     const targetElement = document.querySelector(targetId);
 
