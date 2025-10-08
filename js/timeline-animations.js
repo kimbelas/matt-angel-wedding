@@ -37,12 +37,53 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
+    // Create a timeline for the formal names sequence
+    const formalNamesTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.love-story',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    // Sequence the animations
+    formalNamesTimeline
+      .to('.story-formal-names', {
+        opacity: 1,
+        duration: 0.5,
+        ease: 'sine.out'
+      })
+      .to('.groom-column', {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'sine.out'
+      }, '+=0.2')
+      .to('.infinity-column', {
+        opacity: 1,
+        duration: 0.5,
+        ease: 'sine.out'
+      }, '-=0.6')
+      .to('.formal-infinity', {
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        duration: 1.2,
+        ease: 'back.out(1.7)'
+      }, '-=0.4')
+      .to('.bride-column', {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'sine.out'
+      }, '-=0.8');
+
     // Smooth fade in for subtitle
     gsap.to('.story-subtitle', {
       opacity: 1,
       y: 0,
       duration: 1.8,
-      delay: 0.2,
+      delay: 0.9,
       ease: 'sine.out',
       scrollTrigger: {
         trigger: '.love-story',

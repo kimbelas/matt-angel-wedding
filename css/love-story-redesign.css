@@ -119,12 +119,124 @@
   border-radius: 2px;
 }
 
+.story-formal-names {
+  margin-top: 35px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(40px, 8vw, 100px);
+}
+
+.names-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(15px, 3vw, 25px);
+  flex: 1;
+  min-width: 0;
+}
+
+.infinity-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  flex: 0 0 auto;
+}
+
+.name-part {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 8px rgba(212, 175, 55, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+.first-groom,
+.first-bride {
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  font-weight: 700;
+}
+
+.name-glow {
+  color: var(--accent);
+  text-shadow:
+    0 0 30px rgba(212, 175, 55, 1),
+    0 0 50px rgba(212, 175, 55, 1),
+    0 0 70px rgba(212, 175, 55, 0.8),
+    0 0 100px rgba(212, 175, 55, 0.6),
+    0 0 130px rgba(212, 175, 55, 0.4),
+    0 4px 20px rgba(0, 0, 0, 0.9);
+  animation: nameGlowPulse 3s ease-in-out infinite;
+  font-weight: 800;
+}
+
+@keyframes nameGlowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 30px rgba(212, 175, 55, 1),
+      0 0 50px rgba(212, 175, 55, 1),
+      0 0 70px rgba(212, 175, 55, 0.8),
+      0 0 100px rgba(212, 175, 55, 0.6),
+      0 0 130px rgba(212, 175, 55, 0.4),
+      0 4px 20px rgba(0, 0, 0, 0.9);
+  }
+  50% {
+    text-shadow:
+      0 0 40px rgba(212, 175, 55, 1),
+      0 0 70px rgba(212, 175, 55, 1),
+      0 0 100px rgba(212, 175, 55, 0.9),
+      0 0 140px rgba(212, 175, 55, 0.7),
+      0 0 180px rgba(212, 175, 55, 0.5),
+      0 0 220px rgba(212, 175, 55, 0.3),
+      0 4px 20px rgba(0, 0, 0, 0.9);
+  }
+}
+
+.formal-infinity {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: white;
+  text-shadow:
+    0 0 25px rgba(212, 175, 55, 1),
+    0 0 40px rgba(212, 175, 55, 0.7),
+    0 4px 15px rgba(0, 0, 0, 0.9);
+  animation: infinityGlow 3s ease-in-out infinite;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes infinityGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 25px rgba(212, 175, 55, 1),
+      0 0 40px rgba(212, 175, 55, 0.7),
+      0 4px 15px rgba(0, 0, 0, 0.9);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow:
+      0 0 35px rgba(212, 175, 55, 1),
+      0 0 60px rgba(212, 175, 55, 0.9),
+      0 0 80px rgba(212, 175, 55, 0.5),
+      0 4px 15px rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+  }
+}
+
 .story-subtitle {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.85);
   font-style: italic;
-  margin-top: 30px;
+  margin-top: 15px;
   font-weight: 400;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
@@ -275,6 +387,29 @@
     font-size: 2.2rem;
   }
 
+  .story-formal-names {
+    margin-top: 25px;
+    gap: clamp(20px, 5vw, 40px);
+  }
+
+  .names-column {
+    gap: clamp(10px, 2.5vw, 15px);
+  }
+
+  .name-part {
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
+    letter-spacing: 2px;
+  }
+
+  .first-groom,
+  .first-bride {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+  }
+
+  .formal-infinity {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+  }
+
   .story-subtitle {
     font-size: 1.1rem;
   }
@@ -350,6 +485,29 @@
     font-size: 3.2rem;
   }
 
+  .story-formal-names {
+    margin-top: 30px;
+    gap: clamp(50px, 7vw, 80px);
+  }
+
+  .names-column {
+    gap: clamp(18px, 3vw, 22px);
+  }
+
+  .name-part {
+    font-size: clamp(1.3rem, 3.8vw, 2rem);
+    letter-spacing: 3px;
+  }
+
+  .first-groom,
+  .first-bride {
+    font-size: clamp(1.6rem, 4.2vw, 2.5rem);
+  }
+
+  .formal-infinity {
+    font-size: clamp(2.5rem, 5.5vw, 3.8rem);
+  }
+
   .timeline-container {
     max-width: 900px;
     padding: 70px 30px;
@@ -404,6 +562,66 @@
 .timeline-event-card {
   opacity: 0;
   will-change: transform, opacity;
+}
+
+/* Formal names - visible by default, GSAP will enhance */
+.story-formal-names {
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: fadeInFallback 0.8s ease-out 0.5s forwards;
+}
+
+.names-column {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInColumnFallback 1s ease-out forwards;
+}
+
+.groom-column {
+  animation-delay: 0.8s;
+}
+
+.bride-column {
+  animation-delay: 1.2s;
+}
+
+.infinity-column {
+  opacity: 0;
+  animation: fadeInFallback 0.5s ease-out 1s forwards;
+}
+
+.formal-infinity {
+  transform: scale(0.5) rotate(-180deg);
+  animation: infinityEntrance 1.2s ease-out 1s forwards;
+}
+
+/* Fallback animations in case GSAP doesn't load */
+@keyframes fadeInFallback {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInColumnFallback {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes infinityEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-180deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 /* Visible state for animations */

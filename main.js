@@ -99,6 +99,8 @@ function initializeNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach((link) => {
         link.addEventListener('click', handleInstantNavigation);
+        // Also add touchend for better mobile support
+        link.addEventListener('touchend', handleInstantNavigation, { passive: true });
     });
 }
 
@@ -185,34 +187,48 @@ function handleEscapeKey(e) {
 }
 
 function handleInstantNavigation(e) {
-    const targetId = e.target.getAttribute('href');
+    // Prevent duplicate firing on touchend + click
+    if (e.type === 'touchend') {
+        e.preventDefault();
+    }
+
+    const targetId = e.target.getAttribute('href') || e.currentTarget.getAttribute('href');
+
+    // Always close mobile menu when any link is clicked
+    const isMobileMenuOpen = navMenu && navMenu.classList.contains('open');
+    if (isMobileMenuOpen) {
+        toggleMobileMenu(true);
+    }
 
     // If the link is not a hash link (e.g., /gallery), allow default navigation
     if (!targetId || !targetId.startsWith('#')) {
-        // Close mobile menu before navigating away
-        if (navMenu && navMenu.classList.contains('open')) {
-            toggleMobileMenu(true);
+        // For non-hash links, allow default navigation to proceed
+        if (e.type !== 'touchend') {
+            return; // Allow default navigation for click events
         }
-        return; // Allow default navigation
+        return;
     }
 
-    e.preventDefault();
+    // For hash links, prevent default and scroll
+    if (e.type === 'click') {
+        e.preventDefault();
+    }
+
     const targetElement = document.querySelector(targetId);
 
     if (targetElement && targetId) {
-        // Close mobile menu immediately for better UX
-        if (navMenu && navMenu.classList.contains('open')) {
-            toggleMobileMenu(true);
-        }
-
         const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
 
-        // Instant navigation - no animation
-        window.scrollTo({
-            top: offsetTop,
-            left: 0,
-            behavior: 'instant'
-        });
+        // Add small delay if menu was open to allow close animation
+        const scrollDelay = isMobileMenuOpen ? 300 : 0;
+
+        setTimeout(() => {
+            window.scrollTo({
+                top: offsetTop,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }, scrollDelay);
     }
 }
 

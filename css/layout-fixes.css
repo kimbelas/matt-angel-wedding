@@ -129,7 +129,7 @@ body::-webkit-scrollbar {
    ================================================ */
 
 .dress-code-elegant {
-  padding: 60px 20px 0 20px !important;
+  padding: 20px 20px 0 20px !important;
   background: var(--bg-cream);
   position: relative;
 }

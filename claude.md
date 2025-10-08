@@ -7,7 +7,7 @@ Royal Wedding Website for Matthew & Angel - A high-performance, mobile-first wed
 
 **Wedding Details:**
 - Date: December 5, 2025
-- RSVP Deadline: November 15, 2025
+- RSVP Deadline: October 20, 2025
 - Venue 1: Holy Rosary Parish Church (Ceremony)
 - Venue 2: Grand Palazzo Royale (Reception)
 

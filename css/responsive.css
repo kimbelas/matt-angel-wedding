@@ -185,6 +185,22 @@ section, .section {
         background: var(--primary);
     }
 
+    /* Transform hamburger to X when menu is open */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+        background: var(--white) !important;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        background: var(--white) !important;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+        background: var(--white) !important;
+    }
+
     /* Ensure hamburger stays clickable when menu is open */
     .nav-menu.open ~ .hamburger {
         z-index: 10001 !important;
@@ -343,7 +359,7 @@ section, .section {
 
     /* Gallery Mobile Styles */
     .gallery-section {
-        padding: 20px 0 60px 0;
+        padding: 20px 0 20px 0;
     }
 
     .section-title::after{
@@ -919,6 +935,22 @@ section, .section {
 
     .navbar.scrolled .hamburger span {
         background: var(--primary);
+    }
+
+    /* Transform hamburger to X when menu is open */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+        background: var(--white) !important;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        background: var(--white) !important;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+        background: var(--white) !important;
     }
 
     /* Ensure containers don't exceed viewport */
