@@ -259,9 +259,38 @@
 /* Highlight for Best Man & Maid of Honor */
 .entourage-name.highlight {
   font-size: clamp(1.05rem, 1.7vw, 1.25rem);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--accent);
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  text-shadow:
+    0 0 30px rgba(212, 175, 55, 1),
+    0 0 50px rgba(212, 175, 55, 1),
+    0 0 70px rgba(212, 175, 55, 0.8),
+    0 0 100px rgba(212, 175, 55, 0.6),
+    0 0 130px rgba(212, 175, 55, 0.4),
+    0 4px 20px rgba(0, 0, 0, 0.9);
+  animation: entourageGlow 3s ease-in-out infinite;
+}
+
+@keyframes entourageGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 30px rgba(212, 175, 55, 1),
+      0 0 50px rgba(212, 175, 55, 1),
+      0 0 70px rgba(212, 175, 55, 0.8),
+      0 0 100px rgba(212, 175, 55, 0.6),
+      0 0 130px rgba(212, 175, 55, 0.4),
+      0 4px 20px rgba(0, 0, 0, 0.9);
+  }
+  50% {
+    text-shadow:
+      0 0 40px rgba(212, 175, 55, 1),
+      0 0 70px rgba(212, 175, 55, 1),
+      0 0 100px rgba(212, 175, 55, 0.9),
+      0 0 140px rgba(212, 175, 55, 0.7),
+      0 0 180px rgba(212, 175, 55, 0.5),
+      0 0 220px rgba(212, 175, 55, 0.3),
+      0 4px 20px rgba(0, 0, 0, 0.9);
+  }
 }
 
 /* Secondary Sponsors Grid - Unique Card Layout */
