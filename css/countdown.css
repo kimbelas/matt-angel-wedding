@@ -64,6 +64,8 @@
   opacity: 0.6;
   margin: 0 5px;
   animation: pulse 2s ease-in-out infinite;
+  box-shadow: none !important;
+  text-shadow: none !important;
 }
 
 @keyframes pulse {

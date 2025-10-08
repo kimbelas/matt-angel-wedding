@@ -1444,7 +1444,42 @@ section, .section {
         display: none;
     }
 
+    /* Save the Date - Full Width */
+    .save-the-date-calendar {
+        max-width: 100% !important;
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
 
+    /* Venue Sections - Full Width */
+    .venue-section {
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .venue-image-full {
+        width: 100%;
+    }
+
+    .venue-info-royal {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Gift Registry - Centered */
+    .gift-registry {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .gift-options {
+        max-width: 650px;
+        margin: 0 auto;
+    }
 
     /* Video section */
     .video-section {
@@ -1542,6 +1577,42 @@ section, .section {
         object-fit: cover;
     }
 
+    /* Save the Date - Full Width */
+    .save-the-date-calendar {
+        max-width: 100% !important;
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Venue Sections - Full Width */
+    .venue-section {
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .venue-image-full {
+        width: 100%;
+    }
+
+    .venue-info-royal {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Gift Registry - Centered */
+    .gift-registry {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .gift-options {
+        max-width: 700px;
+        margin: 0 auto;
+    }
 
     /* Footer */
     .footer-content {
@@ -1611,6 +1682,43 @@ section, .section {
         display: none;
     }
 
+    /* Save the Date - Full Width */
+    .save-the-date-calendar {
+        max-width: 100% !important;
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Venue Sections - Full Width */
+    .venue-section {
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .venue-image-full {
+        width: 100%;
+    }
+
+    .venue-info-royal {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Gift Registry - Centered */
+    .gift-registry {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .gift-options {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
     /* Gallery Desktop Styles */
     .gallery-content {
         gap: 60px;
@@ -1635,6 +1743,43 @@ section, .section {
 @media (min-width: 1600px) {
     :root {
         --container-max-width: 1600px;
+    }
+
+    /* Save the Date - Full Width */
+    .save-the-date-calendar {
+        max-width: 100% !important;
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Venue Sections - Full Width */
+    .venue-section {
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .venue-image-full {
+        width: 100%;
+    }
+
+    .venue-info-royal {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Gift Registry - Centered */
+    .gift-registry {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .gift-options {
+        max-width: 900px;
+        margin: 0 auto;
     }
 
     .gallery-grid {
