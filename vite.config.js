@@ -8,7 +8,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        gallery: resolve(__dirname, 'gallery.html')
+        gallery: resolve(__dirname, 'gallery.html'),
+        rsvp: resolve(__dirname, 'rsvp.html')
       },
       output: {
         // Manual chunk splitting for better caching
