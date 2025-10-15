@@ -1,0 +1,131 @@
+/* RSVP Page Specific Styles */
+
+/* RSVP Page Body */
+.rsvp-page {
+    background: linear-gradient(135deg, #fefefe 0%, #f8f9fa 50%, #f5f6f8 100%);
+}
+
+/* RSVP Hero Section */
+.rsvp-hero {
+    height: 80vh;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('/assets/images/hero.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* RSVP Hero Content */
+.rsvp-hero-content {
+    text-align: center;
+    color: var(--white);
+    z-index: 2;
+    position: relative;
+}
+
+.rsvp-hero-title {
+    font-family: 'Allura', 'Great Vibes', cursive;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+.rsvp-hero-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out 0.9s forwards;
+}
+
+/* RSVP Countdown in Hero */
+.rsvp-countdown {
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.2s forwards;
+}
+
+/* RSVP page navbar adjustments */
+.rsvp-page .navbar {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.rsvp-page .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.rsvp-page .navbar .logo-image {
+    filter: brightness(0) invert(1);
+}
+
+.rsvp-page .navbar.scrolled .logo-image {
+    filter: none;
+}
+
+.rsvp-page .nav-link {
+    color: var(--white);
+}
+
+.rsvp-page .navbar.scrolled .nav-link {
+    color: var(--primary);
+}
+
+.rsvp-page .hamburger span {
+    background: var(--white);
+}
+
+.rsvp-page .navbar.scrolled .hamburger span {
+    background: var(--primary);
+}
+
+/* Active nav link on rsvp page */
+.rsvp-page .nav-link.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.rsvp-page .nav-link.active::after {
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .rsvp-hero {
+        height: 70vh;
+        min-height: 500px;
+    }
+
+    .rsvp-hero-title {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+    .rsvp-countdown {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-logo-image {
+        height: 70px;
+    }
+
+    .rsvp-countdown {
+        margin-top: 1rem;
+    }
+}

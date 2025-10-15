@@ -1,6 +1,7 @@
 {
   "rewrites": [
-    { "source": "/gallery", "destination": "/gallery.html" }
+    { "source": "/gallery", "destination": "/gallery.html" },
+    { "source": "/rsvp", "destination": "/rsvp.html" }
   ],
   "cleanUrls": true,
   "trailingSlash": false,

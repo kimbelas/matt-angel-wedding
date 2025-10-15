@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="RSVP for Matthew & Angel's Royal Wedding - December 5, 2025"
+    />
+    <meta property="og:title" content="RSVP - Matthew & Angel" />
+    <meta
+      property="og:description"
+      content="Please confirm your attendance for our special day"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/images/hero.jpg" />
+
+    <title>RSVP - Matthew & Angel</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/logo-red.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/logo-red.png"
+    />
+    <link rel="apple-touch-icon" href="/assets/images/logo-red.png" />
+    <link rel="shortcut icon" href="/assets/images/logo-red.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Allura&family=Alex+Brush&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/gallery.css" />
+    <link rel="stylesheet" href="/css/rsvp.css" />
+    <link rel="stylesheet" href="/css/countdown.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/layout-fixes.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/css/music-player.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="rsvp-page">
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+      <div class="loader-content">
+        <img
+          src="/assets/images/logo-with-text.png"
+          alt="Matthew & Angel"
+          class="logo-image"
+        />
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-content">
+        <a href="/" class="logo">
+          <img
+            src="/assets/images/logo-red.png"
+            alt="Matthew & Angel"
+            class="logo-image"
+          />
+        </a>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/gallery" class="nav-link">Gallery</a></li>
+          <li><a href="/#details" class="nav-link">Details</a></li>
+          <li><a href="/#entourage" class="nav-link">Entourage</a></li>
+          <li><a href="/#reminders" class="nav-link">Reminders</a></li>
+          <li><a href="/rsvp" class="nav-link active">RSVP</a></li>
+          <li><a href="/#faqs" class="nav-link">FAQs</a></li>
+        </ul>
+        <button
+          class="hamburger"
+          id="hamburger"
+          style="
+            position: relative;
+            z-index: 10001;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            min-width: 44px;
+            min-height: 44px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+          "
+        >
+          <span
+            style="
+              width: 24px;
+              height: 2px;
+              background: var(--white);
+              transition: all 0.3s ease;
+              display: block;
+              transform-origin: center;
+            "
+          ></span>
+          <span
+            style="
+              width: 24px;
+              height: 2px;
+              background: var(--white);
+              transition: all 0.3s ease;
+              display: block;
+              transform-origin: center;
+            "
+          ></span>
+          <span
+            style="
+              width: 24px;
+              height: 2px;
+              background: var(--white);
+              transition: all 0.3s ease;
+              display: block;
+              transform-origin: center;
+            "
+          ></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- RSVP Hero Section -->
+    <section class="rsvp-hero">
+      <div class="rsvp-hero-content">
+        <div class="hero-logo">
+          <img
+            src="/assets/images/logo-white-with-text.png"
+            alt="Matthew & Angel"
+            class="hero-logo-image"
+          />
+        </div>
+        <h1 class="rsvp-hero-title">RSVP</h1>
+        <p class="rsvp-hero-subtitle">Kindly Respond by October 24, 2025</p>
+        <div class="hero-divider"></div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-container rsvp-countdown">
+          <div class="countdown-box">
+            <div class="countdown-value" id="days">0</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="hours">0</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="minutes">0</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="seconds">0</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP Form Section -->
+    <section id="rsvp" class="rsvp-section" data-scroll-section>
+      <div class="container">
+        <div class="rsvp-header">
+          <h2 class="rsvp-title gsap-elegant-fade">Confirm Your Attendance</h2>
+          <p class="rsvp-subtitle gsap-elegant-fade-up">
+            Please let us know if you'll be joining us for our special day
+          </p>
+        </div>
+
+        <div class="rsvp-content">
+          <form class="rsvp-form" id="rsvp-form">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="name" name="name" placeholder=" " required />
+                <label for="name">Full Name</label>
+                <span class="form-bar"></span>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9\s\-\+\(\)]{10,}"
+                  placeholder=" "
+                  required
+                />
+                <label for="phone">Phone Number</label>
+                <span class="form-bar"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <select id="attendance" name="attendance" required>
+                  <option value="">Please select</option>
+                  <option value="yes">Joyfully Accept</option>
+                  <option value="no">Regretfully Decline</option>
+                </select>
+                <label for="attendance">Will you attend?</label>
+                <span class="form-bar"></span>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="guests"
+                  name="guests"
+                  min="1"
+                  max="2"
+                  placeholder=" "
+                  required
+                />
+                <label for="guests">Number of Guests</label>
+                <span class="form-bar"></span>
+                <small style="display: block; margin-top: 0.5rem; padding-left: 0.25rem; color: var(--accent); font-size: 0.875rem;">Maximum of 2 guests per RSVP</small>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder=" "
+              ></textarea>
+              <label for="message">Special Message (Optional)</label>
+              <span class="form-bar"></span>
+            </div>
+
+            <button type="submit" class="rsvp-btn">
+              <span class="btn-text">Send RSVP</span>
+              <div class="btn-ripple"></div>
+            </button>
+          </form>
+
+          <div class="success-message" id="success-message">
+            <div class="success-icon">
+              <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                <circle class="success-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="success-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+              </svg>
+            </div>
+            <h3>Thank You!</h3>
+            <p class="success-subtitle">Your RSVP has been received</p>
+            <p class="success-text">We can't wait to celebrate with you on our special day!</p>
+            <div class="success-details">
+              <div class="success-detail-item">
+                <i class="fas fa-calendar-check"></i>
+                <span>December 5, 2025</span>
+              </div>
+              <div class="success-detail-item">
+                <i class="fas fa-clock"></i>
+                <span>Ceremony at 1:30 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/assets/images/logo-gold.png" alt="Matthew & Angel" class="footer-logo-img">
+        </div>
+        <p class="footer-text">
+          December 5, 2025 • Angeles City, Pampanga
+        </p>
+
+        <nav class="footer-nav">
+          <a href="/" class="footer-link">Home</a>
+          <a href="/gallery" class="footer-link">Gallery</a>
+          <a href="/#details" class="footer-link">Details</a>
+          <a href="/rsvp" class="footer-link">RSVP</a>
+        </nav>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-copyright">
+          © 2025 Matthew & Angel. Created with love.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Fixed Music Player -->
+    <div class="music-player ready">
+      <button class="music-toggle" aria-label="Toggle music">
+        <i class="fas fa-play"></i>
+      </button>
+      <div class="music-label" id="circularText"></div>
+      <audio id="wedding-audio" loop preload="auto">
+        <source src="/assets/audio/wedding-song.m4a" type="audio/mp4">
+        <source src="/assets/audio/wedding-song.m4a" type="audio/x-m4a">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <script type="module" src="/js/rsvp.js"></script>
+    <script src="/js/countdown.js"></script>
+    <script src="/js/music-player.js" type="module"></script>
+  </body>
+</html>
